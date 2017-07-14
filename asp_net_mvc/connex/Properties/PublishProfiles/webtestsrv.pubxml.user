@@ -1,0 +1,592 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>\\webtestsrv\c$\connex</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/connex.dll">
+      <publishTime>02/10/2015 10:09:38</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>12/12/2014 22:14:38</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>12/12/2014 21:49:49</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>12/12/2014 21:49:49</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>12/12/2014 21:49:45</publishTime>
+    </File>
+    <File Include="bin/System.Web.Webpages.Deployment.dll">
+      <publishTime>12/12/2014 21:49:49</publishTime>
+    </File>
+    <File Include="bin/System.Web.Webpages.dll">
+      <publishTime>12/12/2014 21:49:49</publishTime>
+    </File>
+    <File Include="bin/System.Web.Webpages.Razor.dll">
+      <publishTime>12/12/2014 21:49:49</publishTime>
+    </File>
+    <File Include="Content/bootstrap.min.css">
+      <publishTime>02/09/2015 15:33:20</publishTime>
+    </File>
+    <File Include="Content/Site.css">
+      <publishTime>01/30/2015 15:27:40</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.eot">
+      <publishTime>12/12/2014 22:16:14</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.svg">
+      <publishTime>12/12/2014 22:16:14</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>12/12/2014 22:16:14</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff">
+      <publishTime>12/12/2014 22:16:14</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>12/12/2014 21:49:44</publishTime>
+    </File>
+    <File Include="images/background.jpg">
+      <publishTime>01/06/2015 18:01:09</publishTime>
+    </File>
+    <File Include="images/background2.jpg">
+      <publishTime>01/06/2015 18:03:32</publishTime>
+    </File>
+    <File Include="images/background3.jpg">
+      <publishTime>01/06/2015 18:17:22</publishTime>
+    </File>
+    <File Include="images/background4.jpg">
+      <publishTime>01/06/2015 18:18:49</publishTime>
+    </File>
+    <File Include="images/banners/cbg1.jpg">
+      <publishTime>02/09/2015 15:27:36</publishTime>
+    </File>
+    <File Include="images/banners/cbg2.jpg">
+      <publishTime>02/09/2015 15:27:36</publishTime>
+    </File>
+    <File Include="images/banners/img00.jpg">
+      <publishTime>01/26/2015 16:38:09</publishTime>
+    </File>
+    <File Include="images/banners/img003.jpg">
+      <publishTime>12/15/2014 17:41:22</publishTime>
+    </File>
+    <File Include="images/banners/img009.jpg">
+      <publishTime>12/15/2014 17:41:22</publishTime>
+    </File>
+    <File Include="images/banners/img00_rugby.jpg">
+      <publishTime>01/26/2015 16:43:54</publishTime>
+    </File>
+    <File Include="images/banners/learningBanner.jpg">
+      <publishTime>02/06/2015 17:46:40</publishTime>
+    </File>
+    <File Include="images/connex.png">
+      <publishTime>12/15/2014 15:51:40</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/img00.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/img01.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/img02.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/img03.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/img04.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/img05.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/img06.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/img07.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/img08.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/img09.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/img10.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/img11.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/img12.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/img13.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/img14.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/img15.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/img16.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/img17.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/img18.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/img19.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/img20.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/img21.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/img22.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/img23.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/img24.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/img25.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/img26.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/img27.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/img28.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/img29.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/img30.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/img31.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/img32.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/img33.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/thumbs/thumb00.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/thumbs/thumb01.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/thumbs/thumb02.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/thumbs/thumb03.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/thumbs/thumb04.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/thumbs/thumb05.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/thumbs/thumb06.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/thumbs/thumb07.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/thumbs/thumb08.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/thumbs/thumb09.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/thumbs/thumb10.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/thumbs/thumb11.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/thumbs/thumb12.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/thumbs/thumb13.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/thumbs/thumb14.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/thumbs/thumb15.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/thumbs/thumb16.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/thumbs/thumb17.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/thumbs/thumb18.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/thumbs/thumb19.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/thumbs/thumb20.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/thumbs/thumb21.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/thumbs/thumb22.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/thumbs/thumb23.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/thumbs/thumb24.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/thumbs/thumb25.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/thumbs/thumb26.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/thumbs/thumb27.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/thumbs/thumb28.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/thumbs/thumb29.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/thumbs/thumb30.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/thumbs/thumb31.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/thumbs/thumb32.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/Rugby2014/thumbs/thumb33.jpg">
+      <publishTime>01/26/2015 16:49:00</publishTime>
+    </File>
+    <File Include="images/galleries/TreePlantingOctober2014/img00.jpg">
+      <publishTime>01/26/2015 16:49:10</publishTime>
+    </File>
+    <File Include="images/galleries/TreePlantingOctober2014/img01.jpg">
+      <publishTime>01/26/2015 16:49:10</publishTime>
+    </File>
+    <File Include="images/galleries/TreePlantingOctober2014/img02.jpg">
+      <publishTime>01/26/2015 16:49:10</publishTime>
+    </File>
+    <File Include="images/galleries/TreePlantingOctober2014/img03.jpg">
+      <publishTime>01/26/2015 16:49:10</publishTime>
+    </File>
+    <File Include="images/galleries/TreePlantingOctober2014/img04.jpg">
+      <publishTime>01/26/2015 16:49:10</publishTime>
+    </File>
+    <File Include="images/galleries/TreePlantingOctober2014/img05.jpg">
+      <publishTime>01/26/2015 16:49:10</publishTime>
+    </File>
+    <File Include="images/galleries/TreePlantingOctober2014/img06.jpg">
+      <publishTime>01/26/2015 16:49:10</publishTime>
+    </File>
+    <File Include="images/galleries/TreePlantingOctober2014/img07.jpg">
+      <publishTime>01/26/2015 16:49:10</publishTime>
+    </File>
+    <File Include="images/galleries/TreePlantingOctober2014/img08.jpg">
+      <publishTime>01/26/2015 16:49:10</publishTime>
+    </File>
+    <File Include="images/galleries/TreePlantingOctober2014/img09.jpg">
+      <publishTime>01/26/2015 16:49:10</publishTime>
+    </File>
+    <File Include="images/galleries/TreePlantingOctober2014/img10.jpg">
+      <publishTime>01/26/2015 16:49:10</publishTime>
+    </File>
+    <File Include="images/galleries/TreePlantingOctober2014/img11.jpg">
+      <publishTime>01/26/2015 16:49:10</publishTime>
+    </File>
+    <File Include="images/galleries/TreePlantingOctober2014/img12.jpg">
+      <publishTime>01/26/2015 16:49:10</publishTime>
+    </File>
+    <File Include="images/galleries/TreePlantingOctober2014/img13.jpg">
+      <publishTime>01/26/2015 16:49:10</publishTime>
+    </File>
+    <File Include="images/galleries/TreePlantingOctober2014/img14.jpg">
+      <publishTime>01/26/2015 16:49:10</publishTime>
+    </File>
+    <File Include="images/galleries/TreePlantingOctober2014/img15.jpg">
+      <publishTime>01/26/2015 16:49:10</publishTime>
+    </File>
+    <File Include="images/galleries/TreePlantingOctober2014/img16.jpg">
+      <publishTime>01/26/2015 16:49:10</publishTime>
+    </File>
+    <File Include="images/galleries/TreePlantingOctober2014/thumbs/thumb00.jpg">
+      <publishTime>01/26/2015 16:49:10</publishTime>
+    </File>
+    <File Include="images/galleries/TreePlantingOctober2014/thumbs/thumb01.jpg">
+      <publishTime>01/26/2015 16:49:10</publishTime>
+    </File>
+    <File Include="images/galleries/TreePlantingOctober2014/thumbs/thumb02.jpg">
+      <publishTime>01/26/2015 16:49:10</publishTime>
+    </File>
+    <File Include="images/galleries/TreePlantingOctober2014/thumbs/thumb03.jpg">
+      <publishTime>01/26/2015 16:49:10</publishTime>
+    </File>
+    <File Include="images/galleries/TreePlantingOctober2014/thumbs/thumb04.jpg">
+      <publishTime>01/26/2015 16:49:10</publishTime>
+    </File>
+    <File Include="images/galleries/TreePlantingOctober2014/thumbs/thumb05.jpg">
+      <publishTime>01/26/2015 16:49:10</publishTime>
+    </File>
+    <File Include="images/galleries/TreePlantingOctober2014/thumbs/thumb06.jpg">
+      <publishTime>01/26/2015 16:49:10</publishTime>
+    </File>
+    <File Include="images/galleries/TreePlantingOctober2014/thumbs/thumb07.jpg">
+      <publishTime>01/26/2015 16:49:10</publishTime>
+    </File>
+    <File Include="images/galleries/TreePlantingOctober2014/thumbs/thumb08.jpg">
+      <publishTime>01/26/2015 16:49:10</publishTime>
+    </File>
+    <File Include="images/galleries/TreePlantingOctober2014/thumbs/thumb09.jpg">
+      <publishTime>01/26/2015 16:49:10</publishTime>
+    </File>
+    <File Include="images/galleries/TreePlantingOctober2014/thumbs/thumb10.jpg">
+      <publishTime>01/26/2015 16:49:10</publishTime>
+    </File>
+    <File Include="images/galleries/TreePlantingOctober2014/thumbs/thumb11.jpg">
+      <publishTime>01/26/2015 16:49:10</publishTime>
+    </File>
+    <File Include="images/galleries/TreePlantingOctober2014/thumbs/thumb12.jpg">
+      <publishTime>01/26/2015 16:49:10</publishTime>
+    </File>
+    <File Include="images/galleries/TreePlantingOctober2014/thumbs/thumb13.jpg">
+      <publishTime>01/26/2015 16:49:10</publishTime>
+    </File>
+    <File Include="images/galleries/TreePlantingOctober2014/thumbs/thumb14.jpg">
+      <publishTime>01/26/2015 16:49:10</publishTime>
+    </File>
+    <File Include="images/galleries/TreePlantingOctober2014/thumbs/thumb15.jpg">
+      <publishTime>01/26/2015 16:49:10</publishTime>
+    </File>
+    <File Include="images/galleries/TreePlantingOctober2014/thumbs/thumb16.jpg">
+      <publishTime>01/26/2015 16:49:10</publishTime>
+    </File>
+    <File Include="images/posts/cal1.png">
+      <publishTime>01/23/2015 16:16:31</publishTime>
+    </File>
+    <File Include="images/posts/cal2.png">
+      <publishTime>01/23/2015 16:16:31</publishTime>
+    </File>
+    <File Include="images/posts/cal3.jpg">
+      <publishTime>01/26/2015 18:32:32</publishTime>
+    </File>
+    <File Include="images/posts/mr_burris_2.jpg">
+      <publishTime>01/19/2015 15:38:01</publishTime>
+    </File>
+    <File Include="images/posts/Saran_Guitan_2.jpg">
+      <publishTime>01/19/2015 15:38:02</publishTime>
+    </File>
+    <File Include="images/posts/Simone _Teewarie_2.jpg">
+      <publishTime>01/19/2015 15:38:02</publishTime>
+    </File>
+    <File Include="images/posts/Stacey_Telesford_3.jpg">
+      <publishTime>01/19/2015 15:38:02</publishTime>
+    </File>
+    <File Include="images/posts/thumb1.png">
+      <publishTime>01/06/2015 17:25:05</publishTime>
+    </File>
+    <File Include="images/posts/thumb2.png">
+      <publishTime>01/06/2015 17:25:04</publishTime>
+    </File>
+    <File Include="images/posts/thumbs/calThumb1.png">
+      <publishTime>01/23/2015 16:15:09</publishTime>
+    </File>
+    <File Include="images/posts/thumbs/calThumb2.png">
+      <publishTime>01/23/2015 16:15:09</publishTime>
+    </File>
+    <File Include="images/posts/thumbs/calThumb3.jpg">
+      <publishTime>01/26/2015 18:30:39</publishTime>
+    </File>
+    <File Include="images/turquoise-background.jpg">
+      <publishTime>01/06/2015 17:52:05</publishTime>
+    </File>
+    <File Include="images/videos/Brian_Blog_Q1_2014.png">
+      <publishTime>01/27/2015 18:53:25</publishTime>
+    </File>
+    <File Include="images/videos/Brian_Blog_Q2_2014.png">
+      <publishTime>01/27/2015 18:53:25</publishTime>
+    </File>
+    <File Include="images/videos/CC_Interactive_Solutions.png">
+      <publishTime>01/28/2015 16:42:43</publishTime>
+    </File>
+    <File Include="libraries/ProductManuals/Document1.docx">
+      <publishTime>02/06/2015 15:04:29</publishTime>
+    </File>
+    <File Include="libraries/ProductManuals/Document2.docx">
+      <publishTime>02/06/2015 15:04:29</publishTime>
+    </File>
+    <File Include="libraries/SCCDUserManuals/SCCD_Self_Service_User_Guide.pdf">
+      <publishTime>02/06/2015 15:02:31</publishTime>
+    </File>
+    <File Include="libraries/SCCDUserManuals/SCCD_Service_Desk_User_Guide.pdf">
+      <publishTime>02/06/2015 15:02:31</publishTime>
+    </File>
+    <File Include="libraries/TrainingDocuments/Document3.docx">
+      <publishTime>02/06/2015 15:04:48</publishTime>
+    </File>
+    <File Include="libraries/TrainingDocuments/Document4.docx">
+      <publishTime>02/06/2015 15:04:48</publishTime>
+    </File>
+    <File Include="libraries/TrainingDocuments/Document5.docx">
+      <publishTime>02/06/2015 15:04:48</publishTime>
+    </File>
+    <File Include="Models/ConnexModel.edmx.diagram">
+      <publishTime>02/05/2015 15:22:57</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>12/12/2014 22:16:14</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.js">
+      <publishTime>01/23/2015 18:07:07</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.min.js">
+      <publishTime>01/23/2015 18:07:07</publishTime>
+    </File>
+    <File Include="Scripts/html5shiv.js">
+      <publishTime>12/12/2014 22:32:24</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.js">
+      <publishTime>12/12/2014 22:16:09</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.min.js">
+      <publishTime>12/12/2014 22:16:09</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.min.map">
+      <publishTime>12/12/2014 22:16:09</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui.js">
+      <publishTime>01/23/2015 17:56:51</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.js">
+      <publishTime>12/12/2014 22:16:13</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.min.js">
+      <publishTime>12/12/2014 22:16:13</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.js">
+      <publishTime>12/12/2014 22:16:13</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.min.js">
+      <publishTime>12/12/2014 22:16:13</publishTime>
+    </File>
+    <File Include="Scripts/modernizr-2.6.2.js">
+      <publishTime>12/12/2014 22:16:14</publishTime>
+    </File>
+    <File Include="videos/galleries/CGA/CC_Interactive_Solutions.mp4">
+      <publishTime>01/28/2015 16:41:10</publishTime>
+    </File>
+    <File Include="videos/galleries/CGA/CC_Interactive_Solutions.wmv">
+      <publishTime>01/28/2015 16:41:12</publishTime>
+    </File>
+    <File Include="videos/galleries/InTheKnow/Brian_Blog_Q1_2014.mp4">
+      <publishTime>01/27/2015 18:50:55</publishTime>
+    </File>
+    <File Include="videos/galleries/InTheKnow/Brian_Blog_Q1_2014.wmv">
+      <publishTime>01/27/2015 18:50:56</publishTime>
+    </File>
+    <File Include="videos/galleries/InTheKnow/Brian_Blog_Q2_2014.mp4">
+      <publishTime>01/27/2015 18:50:50</publishTime>
+    </File>
+    <File Include="videos/galleries/InTheKnow/Brian_Blog_Q2_2014.wmv">
+      <publishTime>01/27/2015 18:50:53</publishTime>
+    </File>
+    <File Include="Views/Home/Create.cshtml">
+      <publishTime>12/12/2014 22:19:26</publishTime>
+    </File>
+    <File Include="Views/Home/Delete.cshtml">
+      <publishTime>12/12/2014 22:19:26</publishTime>
+    </File>
+    <File Include="Views/Home/Details.cshtml">
+      <publishTime>01/02/2015 16:10:12</publishTime>
+    </File>
+    <File Include="Views/Home/Edit.cshtml">
+      <publishTime>12/12/2014 22:19:27</publishTime>
+    </File>
+    <File Include="Views/Home/Index.cshtml">
+      <publishTime>12/15/2014 15:16:59</publishTime>
+    </File>
+    <File Include="Views/Pages/Create.cshtml">
+      <publishTime>01/02/2015 16:19:56</publishTime>
+    </File>
+    <File Include="Views/Pages/Delete.cshtml">
+      <publishTime>01/02/2015 16:19:56</publishTime>
+    </File>
+    <File Include="Views/Pages/Details.cshtml">
+      <publishTime>01/02/2015 16:19:56</publishTime>
+    </File>
+    <File Include="Views/Pages/Edit.cshtml">
+      <publishTime>01/02/2015 16:19:57</publishTime>
+    </File>
+    <File Include="Views/Pages/Index.cshtml">
+      <publishTime>01/02/2015 16:57:43</publishTime>
+    </File>
+    <File Include="Views/Pages/View.cshtml">
+      <publishTime>02/09/2015 16:35:55</publishTime>
+    </File>
+    <File Include="Views/Posts/Create.cshtml">
+      <publishTime>02/09/2015 16:37:16</publishTime>
+    </File>
+    <File Include="Views/Posts/Delete.cshtml">
+      <publishTime>02/09/2015 16:37:17</publishTime>
+    </File>
+    <File Include="Views/Posts/Details.cshtml">
+      <publishTime>02/09/2015 16:37:17</publishTime>
+    </File>
+    <File Include="Views/Posts/Edit.cshtml">
+      <publishTime>02/09/2015 16:37:18</publishTime>
+    </File>
+    <File Include="Views/Posts/Index.cshtml">
+      <publishTime>02/09/2015 17:46:47</publishTime>
+    </File>
+    <File Include="Views/Posts/View.cshtml">
+      <publishTime>02/09/2015 17:55:47</publishTime>
+    </File>
+    <File Include="Views/Shared/_Layout.cshtml">
+      <publishTime>02/09/2015 14:44:24</publishTime>
+    </File>
+    <File Include="Views/web.config">
+      <publishTime>12/12/2014 21:49:44</publishTime>
+    </File>
+    <File Include="Views/_ViewStart.cshtml">
+      <publishTime>12/12/2014 22:19:25</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>02/10/2015 10:09:49</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

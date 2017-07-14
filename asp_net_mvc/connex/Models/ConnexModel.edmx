@@ -1,0 +1,2694 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CONNEX_Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="CONNEX_ModelStoreContainer">
+          <EntitySet Name="AdminRoleAssign" EntityType="CONNEX_Model.Store.AdminRoleAssign" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Admins" EntityType="CONNEX_Model.Store.Admins" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BannerElements" EntityType="CONNEX_Model.Store.BannerElements" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Banners" EntityType="CONNEX_Model.Store.Banners" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Calenders" EntityType="CONNEX_Model.Store.Calenders" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Collections" EntityType="CONNEX_Model.Store.Collections" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CollectionsDisplayModes" EntityType="CONNEX_Model.Store.CollectionsDisplayModes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CollectionsWidthModes" EntityType="CONNEX_Model.Store.CollectionsWidthModes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Comments" EntityType="CONNEX_Model.Store.Comments" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ContentTypes" EntityType="CONNEX_Model.Store.ContentTypes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Documents" EntityType="CONNEX_Model.Store.Documents" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DocumentTypes" EntityType="CONNEX_Model.Store.DocumentTypes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Events" EntityType="CONNEX_Model.Store.Events" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Feedback" EntityType="CONNEX_Model.Store.Feedback" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Galleries" EntityType="CONNEX_Model.Store.Galleries" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Libraries" EntityType="CONNEX_Model.Store.Libraries" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MediaTypes" EntityType="CONNEX_Model.Store.MediaTypes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="NotificationRecipents" EntityType="CONNEX_Model.Store.NotificationRecipents" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PageAdminAssign" EntityType="CONNEX_Model.Store.PageAdminAssign" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PageCalenderAssign" EntityType="CONNEX_Model.Store.PageCalenderAssign" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PageCollectionAssign" EntityType="CONNEX_Model.Store.PageCollectionAssign" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PageGalleryAssign" EntityType="CONNEX_Model.Store.PageGalleryAssign" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PageLibraryAssign" EntityType="CONNEX_Model.Store.PageLibraryAssign" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PageQuickLinkListsAssign" EntityType="CONNEX_Model.Store.PageQuickLinkListsAssign" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PageRecipientAssign" EntityType="CONNEX_Model.Store.PageRecipientAssign" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Pages" EntityType="CONNEX_Model.Store.Pages" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PageVideoGalleryAssign" EntityType="CONNEX_Model.Store.PageVideoGalleryAssign" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Photos" EntityType="CONNEX_Model.Store.Photos" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Posts" EntityType="CONNEX_Model.Store.Posts" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="QuickLinkLists" EntityType="CONNEX_Model.Store.QuickLinkLists" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="QuickLinks" EntityType="CONNEX_Model.Store.QuickLinks" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Roles" EntityType="CONNEX_Model.Store.Roles" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Sections" EntityType="CONNEX_Model.Store.Sections" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="VideoGalleries" EntityType="CONNEX_Model.Store.VideoGalleries" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Videos" EntityType="CONNEX_Model.Store.Videos" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="WidthModes" EntityType="CONNEX_Model.Store.WidthModes" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_AdminRoleAssign_Admins" Association="CONNEX_Model.Store.FK_AdminRoleAssign_Admins">
+            <End Role="Admins" EntitySet="Admins" />
+            <End Role="AdminRoleAssign" EntitySet="AdminRoleAssign" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AdminRoleAssign_Roles" Association="CONNEX_Model.Store.FK_AdminRoleAssign_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="AdminRoleAssign" EntitySet="AdminRoleAssign" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BannerElements_Banners" Association="CONNEX_Model.Store.FK_BannerElements_Banners">
+            <End Role="Banners" EntitySet="Banners" />
+            <End Role="BannerElements" EntitySet="BannerElements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BannerElements_ContentTypes" Association="CONNEX_Model.Store.FK_BannerElements_ContentTypes">
+            <End Role="ContentTypes" EntitySet="ContentTypes" />
+            <End Role="BannerElements" EntitySet="BannerElements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Collections_CollectionsDisplayModes" Association="CONNEX_Model.Store.FK_Collections_CollectionsDisplayModes">
+            <End Role="CollectionsDisplayModes" EntitySet="CollectionsDisplayModes" />
+            <End Role="Collections" EntitySet="Collections" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Collections_CollectionsWidthModes" Association="CONNEX_Model.Store.FK_Collections_CollectionsWidthModes">
+            <End Role="CollectionsWidthModes" EntitySet="CollectionsWidthModes" />
+            <End Role="Collections" EntitySet="Collections" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Collections_WidthModes" Association="CONNEX_Model.Store.FK_Collections_WidthModes">
+            <End Role="WidthModes" EntitySet="WidthModes" />
+            <End Role="Collections" EntitySet="Collections" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comments_Posts" Association="CONNEX_Model.Store.FK_Comments_Posts">
+            <End Role="Posts" EntitySet="Posts" />
+            <End Role="Comments" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Documents_DocumentTypes" Association="CONNEX_Model.Store.FK_Documents_DocumentTypes">
+            <End Role="DocumentTypes" EntitySet="DocumentTypes" />
+            <End Role="Documents" EntitySet="Documents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Documents_Libraries" Association="CONNEX_Model.Store.FK_Documents_Libraries">
+            <End Role="Libraries" EntitySet="Libraries" />
+            <End Role="Documents" EntitySet="Documents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Events_Calenders" Association="CONNEX_Model.Store.FK_Events_Calenders">
+            <End Role="Calenders" EntitySet="Calenders" />
+            <End Role="Events" EntitySet="Events" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Feedback_Pages" Association="CONNEX_Model.Store.FK_Feedback_Pages">
+            <End Role="Pages" EntitySet="Pages" />
+            <End Role="Feedback" EntitySet="Feedback" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PageAdminAssign_Admins" Association="CONNEX_Model.Store.FK_PageAdminAssign_Admins">
+            <End Role="Admins" EntitySet="Admins" />
+            <End Role="PageAdminAssign" EntitySet="PageAdminAssign" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PageAdminAssign_Pages" Association="CONNEX_Model.Store.FK_PageAdminAssign_Pages">
+            <End Role="Pages" EntitySet="Pages" />
+            <End Role="PageAdminAssign" EntitySet="PageAdminAssign" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PageCalenderAssign_Calenders" Association="CONNEX_Model.Store.FK_PageCalenderAssign_Calenders">
+            <End Role="Calenders" EntitySet="Calenders" />
+            <End Role="PageCalenderAssign" EntitySet="PageCalenderAssign" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PageCalenderAssign_Pages" Association="CONNEX_Model.Store.FK_PageCalenderAssign_Pages">
+            <End Role="Pages" EntitySet="Pages" />
+            <End Role="PageCalenderAssign" EntitySet="PageCalenderAssign" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PageCollectionAssign_Collections" Association="CONNEX_Model.Store.FK_PageCollectionAssign_Collections">
+            <End Role="Collections" EntitySet="Collections" />
+            <End Role="PageCollectionAssign" EntitySet="PageCollectionAssign" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PageCollectionAssign_Pages" Association="CONNEX_Model.Store.FK_PageCollectionAssign_Pages">
+            <End Role="Pages" EntitySet="Pages" />
+            <End Role="PageCollectionAssign" EntitySet="PageCollectionAssign" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PageGalleryAssign_Galleries" Association="CONNEX_Model.Store.FK_PageGalleryAssign_Galleries">
+            <End Role="Galleries" EntitySet="Galleries" />
+            <End Role="PageGalleryAssign" EntitySet="PageGalleryAssign" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PageGalleryAssign_Pages" Association="CONNEX_Model.Store.FK_PageGalleryAssign_Pages">
+            <End Role="Pages" EntitySet="Pages" />
+            <End Role="PageGalleryAssign" EntitySet="PageGalleryAssign" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PageLibraryAssign_Libraries" Association="CONNEX_Model.Store.FK_PageLibraryAssign_Libraries">
+            <End Role="Libraries" EntitySet="Libraries" />
+            <End Role="PageLibraryAssign" EntitySet="PageLibraryAssign" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PageLibraryAssign_Pages" Association="CONNEX_Model.Store.FK_PageLibraryAssign_Pages">
+            <End Role="Pages" EntitySet="Pages" />
+            <End Role="PageLibraryAssign" EntitySet="PageLibraryAssign" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PageQuickLinkListsAssign_Pages" Association="CONNEX_Model.Store.FK_PageQuickLinkListsAssign_Pages">
+            <End Role="Pages" EntitySet="Pages" />
+            <End Role="PageQuickLinkListsAssign" EntitySet="PageQuickLinkListsAssign" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PageQuickLinkListsAssign_QuickLinkLists" Association="CONNEX_Model.Store.FK_PageQuickLinkListsAssign_QuickLinkLists">
+            <End Role="QuickLinkLists" EntitySet="QuickLinkLists" />
+            <End Role="PageQuickLinkListsAssign" EntitySet="PageQuickLinkListsAssign" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PageRecipientAssign_NotificationRecipents" Association="CONNEX_Model.Store.FK_PageRecipientAssign_NotificationRecipents">
+            <End Role="NotificationRecipents" EntitySet="NotificationRecipents" />
+            <End Role="PageRecipientAssign" EntitySet="PageRecipientAssign" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PageRecipientAssign_Pages" Association="CONNEX_Model.Store.FK_PageRecipientAssign_Pages">
+            <End Role="Pages" EntitySet="Pages" />
+            <End Role="PageRecipientAssign" EntitySet="PageRecipientAssign" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pages_Banners1" Association="CONNEX_Model.Store.FK_Pages_Banners1">
+            <End Role="Banners" EntitySet="Banners" />
+            <End Role="Pages" EntitySet="Pages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PageVideoGalleryAssign_Pages" Association="CONNEX_Model.Store.FK_PageVideoGalleryAssign_Pages">
+            <End Role="Pages" EntitySet="Pages" />
+            <End Role="PageVideoGalleryAssign" EntitySet="PageVideoGalleryAssign" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PageVideoGalleryAssign_VideoGalleries" Association="CONNEX_Model.Store.FK_PageVideoGalleryAssign_VideoGalleries">
+            <End Role="VideoGalleries" EntitySet="VideoGalleries" />
+            <End Role="PageVideoGalleryAssign" EntitySet="PageVideoGalleryAssign" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Photos_Galleries" Association="CONNEX_Model.Store.FK_Photos_Galleries">
+            <End Role="Galleries" EntitySet="Galleries" />
+            <End Role="Photos" EntitySet="Photos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Posts_Collections" Association="CONNEX_Model.Store.FK_Posts_Collections">
+            <End Role="Collections" EntitySet="Collections" />
+            <End Role="Posts" EntitySet="Posts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Quick_Links_QuickLinkLists" Association="CONNEX_Model.Store.FK_Quick_Links_QuickLinkLists">
+            <End Role="QuickLinkLists" EntitySet="QuickLinkLists" />
+            <End Role="QuickLinks" EntitySet="QuickLinks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sections_MediaTypes" Association="CONNEX_Model.Store.FK_Sections_MediaTypes">
+            <End Role="MediaTypes" EntitySet="MediaTypes" />
+            <End Role="Sections" EntitySet="Sections" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sections_Posts" Association="CONNEX_Model.Store.FK_Sections_Posts">
+            <End Role="Posts" EntitySet="Posts" />
+            <End Role="Sections" EntitySet="Sections" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sections_WidthModes1" Association="CONNEX_Model.Store.FK_Sections_WidthModes1">
+            <End Role="WidthModes" EntitySet="WidthModes" />
+            <End Role="Sections" EntitySet="Sections" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Videos_VideoGalleries" Association="CONNEX_Model.Store.FK_Videos_VideoGalleries">
+            <End Role="VideoGalleries" EntitySet="VideoGalleries" />
+            <End Role="Videos" EntitySet="Videos" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AdminRoleAssign">
+          <Key>
+            <PropertyRef Name="Role_ID" />
+            <PropertyRef Name="Admin_ID" />
+          </Key>
+          <Property Name="Role_ID" Type="int" Nullable="false" />
+          <Property Name="Admin_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Admins">
+          <Key>
+            <PropertyRef Name="Admin_ID" />
+          </Key>
+          <Property Name="Admin_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Network_ID" Type="nvarchar" MaxLength="50" />
+          <Property Name="Full_Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Date_Added" Type="datetime" />
+          <Property Name="Added_By" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="BannerElements">
+          <Key>
+            <PropertyRef Name="Element_ID" />
+          </Key>
+          <Property Name="Element_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Header_Text" Type="nvarchar" MaxLength="255" />
+          <Property Name="Image_Path" Type="nvarchar" MaxLength="255" />
+          <Property Name="Summary" Type="nvarchar" MaxLength="255" />
+          <Property Name="Content_ID" Type="int" />
+          <Property Name="Date_Added" Type="datetime" />
+          <Property Name="Date_Archive" Type="datetime" />
+          <Property Name="Archive_By" Type="nvarchar" MaxLength="50" />
+          <Property Name="Archived" Type="bit" Nullable="false" />
+          <Property Name="Banner_ID" Type="int" Nullable="false" />
+          <Property Name="Last_Updated" Type="datetime" />
+          <Property Name="Updated_By" Type="nvarchar" MaxLength="50" />
+          <Property Name="Added_By" Type="nvarchar" MaxLength="50" />
+          <Property Name="Content_Type_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="Banners">
+          <Key>
+            <PropertyRef Name="Banner_ID" />
+          </Key>
+          <Property Name="Banner_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Banner_Name" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Calenders">
+          <Key>
+            <PropertyRef Name="Calender_ID" />
+          </Key>
+          <Property Name="Calender_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Calender_Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Date_Added" Type="datetime" />
+          <Property Name="Added_By" Type="nvarchar" MaxLength="50" />
+          <Property Name="Last_Updated" Type="datetime" />
+          <Property Name="Updated_By" Type="nvarchar" MaxLength="50" />
+          <Property Name="Date_Archived" Type="datetime" />
+          <Property Name="Archived_By" Type="nvarchar" MaxLength="50" />
+          <Property Name="Archived" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Collections">
+          <Key>
+            <PropertyRef Name="Collection_ID" />
+          </Key>
+          <Property Name="Collection_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Collection_Title" Type="nvarchar" MaxLength="255" />
+          <Property Name="Collection_Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="Width_Mode_ID" Type="int" />
+          <Property Name="Display_Mode_ID" Type="int" Nullable="false" />
+          <Property Name="Archived" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CollectionsDisplayModes">
+          <Key>
+            <PropertyRef Name="Display_Mode_ID" />
+          </Key>
+          <Property Name="Display_Mode_ID" Type="int" Nullable="false" />
+          <Property Name="Display_Mode" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CollectionsWidthModes">
+          <Key>
+            <PropertyRef Name="Width_Mode_ID" />
+          </Key>
+          <Property Name="Width_Mode_ID" Type="int" Nullable="false" />
+          <Property Name="Width_Mode" Type="nvarchar" MaxLength="50" />
+          <Property Name="Percentage" Type="int" />
+        </EntityType>
+        <EntityType Name="Comments">
+          <Key>
+            <PropertyRef Name="Comment_ID" />
+          </Key>
+          <Property Name="Comment_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Comment1" Type="nvarchar" MaxLength="255" />
+          <Property Name="Submitted_By" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Date_Submitted" Type="datetime" Nullable="false" />
+          <Property Name="Post_ID" Type="int" />
+          <Property Name="Date_Archive" Type="datetime" />
+          <Property Name="Archive_By" Type="nvarchar" MaxLength="50" />
+          <Property Name="Archived" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ContentTypes">
+          <Key>
+            <PropertyRef Name="Content_Type_ID" />
+          </Key>
+          <Property Name="Content_Type_ID" Type="int" Nullable="false" />
+          <Property Name="Content_Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="Display_Text" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Documents">
+          <Key>
+            <PropertyRef Name="Document_ID" />
+          </Key>
+          <Property Name="Document_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Path" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Library_ID" Type="int" />
+          <Property Name="Date_Added" Type="datetime" Nullable="false" />
+          <Property Name="Added_By" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Date_Archive" Type="datetime" />
+          <Property Name="Archive_By" Type="nvarchar" MaxLength="50" />
+          <Property Name="Archived" Type="bit" Nullable="false" />
+          <Property Name="Document_Type_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DocumentTypes">
+          <Key>
+            <PropertyRef Name="Document_Type_ID" />
+          </Key>
+          <Property Name="Document_Type_ID" Type="int" Nullable="false" />
+          <Property Name="Content_Type" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="Extension" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Events">
+          <Key>
+            <PropertyRef Name="Event_ID" />
+          </Key>
+          <Property Name="Event_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Event_Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Thumb_Path" Type="nvarchar" MaxLength="255" />
+          <Property Name="Image_Path" Type="nvarchar" MaxLength="255" />
+          <Property Name="Calender_ID" Type="int" Nullable="false" />
+          <Property Name="Date_Added" Type="datetime" />
+          <Property Name="Added_By" Type="nvarchar" MaxLength="50" />
+          <Property Name="Last_Updated" Type="datetime" />
+          <Property Name="Updated_By" Type="nvarchar" MaxLength="50" />
+          <Property Name="Date_Archive" Type="datetime" />
+          <Property Name="Archive_By" Type="nvarchar" MaxLength="50" />
+          <Property Name="Archived" Type="bit" Nullable="false" />
+          <Property Name="Start_Date_Time" Type="datetime" Nullable="false" />
+          <Property Name="End_Date_Time" Type="datetime" Nullable="false" />
+          <Property Name="Location" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Feedback">
+          <Key>
+            <PropertyRef Name="Feedback_ID" />
+          </Key>
+          <Property Name="Feedback_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Feedback_Details" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Date_Submitted" Type="datetime" Nullable="false" />
+          <Property Name="Page_ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Galleries">
+          <Key>
+            <PropertyRef Name="Gallery_ID" />
+          </Key>
+          <Property Name="Gallery_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Gallery_Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Date_Added" Type="datetime" />
+          <Property Name="Added_By" Type="nvarchar" MaxLength="50" />
+          <Property Name="Last_Updated" Type="datetime" />
+          <Property Name="Updated_By" Type="nvarchar" MaxLength="50" />
+          <Property Name="Date_Archive" Type="datetime" />
+          <Property Name="Archive_By" Type="nvarchar" MaxLength="50" />
+          <Property Name="Archived" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Libraries">
+          <Key>
+            <PropertyRef Name="Library_ID" />
+          </Key>
+          <Property Name="Library_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Library_Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Date_Added" Type="datetime" />
+          <Property Name="Added_By" Type="nvarchar" MaxLength="50" />
+          <Property Name="Date_Archive" Type="datetime" />
+          <Property Name="Archive_By" Type="nvarchar" MaxLength="50" />
+          <Property Name="Archived" Type="bit" Nullable="false" />
+          <Property Name="Title_Text" Type="nvarchar" MaxLength="100" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="MediaTypes">
+          <Key>
+            <PropertyRef Name="Media_Type_ID" />
+          </Key>
+          <Property Name="Media_Type_ID" Type="int" Nullable="false" />
+          <Property Name="Media_Types" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="NotificationRecipents">
+          <Key>
+            <PropertyRef Name="Recipient_ID" />
+          </Key>
+          <Property Name="Recipient_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Recipient_Name" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Recipient_Email" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Date_Added" Type="datetime" Nullable="false" />
+          <Property Name="Added_By" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PageAdminAssign">
+          <Key>
+            <PropertyRef Name="Page_ID" />
+            <PropertyRef Name="Admin_ID" />
+          </Key>
+          <Property Name="Page_ID" Type="int" Nullable="false" />
+          <Property Name="Admin_ID" Type="int" Nullable="false" />
+          <Property Name="Date_Added" Type="datetime" />
+          <Property Name="Added_By" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PageCalenderAssign">
+          <Key>
+            <PropertyRef Name="Calender_ID" />
+            <PropertyRef Name="Page_ID" />
+          </Key>
+          <Property Name="Calender_ID" Type="int" Nullable="false" />
+          <Property Name="Page_ID" Type="int" Nullable="false" />
+          <Property Name="Date_Added" Type="datetime" />
+          <Property Name="Added_By" Type="nvarchar" MaxLength="50" />
+          <Property Name="Last_Updated" Type="datetime" />
+          <Property Name="Updated_By" Type="nvarchar" MaxLength="50" />
+          <Property Name="Date_Archive" Type="datetime" />
+          <Property Name="Archive_By" Type="nvarchar" MaxLength="50" />
+          <Property Name="Archived" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PageCollectionAssign">
+          <Key>
+            <PropertyRef Name="Page_ID" />
+            <PropertyRef Name="Collection_ID" />
+          </Key>
+          <Property Name="Page_ID" Type="int" Nullable="false" />
+          <Property Name="Collection_ID" Type="int" Nullable="false" />
+          <Property Name="Sequence_No" Type="int" Nullable="false" />
+          <Property Name="Date_Added" Type="datetime" />
+          <Property Name="Added_By" Type="nvarchar" MaxLength="50" />
+          <Property Name="Date_Archive" Type="datetime" />
+          <Property Name="Archive_By" Type="nvarchar" MaxLength="50" />
+          <Property Name="Last_Updated" Type="datetime" />
+          <Property Name="Updated_By" Type="nvarchar" MaxLength="50" />
+          <Property Name="Archived" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PageGalleryAssign">
+          <Key>
+            <PropertyRef Name="Page_ID" />
+            <PropertyRef Name="Gallery_ID" />
+          </Key>
+          <Property Name="Page_ID" Type="int" Nullable="false" />
+          <Property Name="Gallery_ID" Type="int" Nullable="false" />
+          <Property Name="Added_By" Type="nvarchar" MaxLength="50" />
+          <Property Name="Date_Added" Type="datetime" />
+          <Property Name="Last_Updated" Type="nvarchar" MaxLength="50" />
+          <Property Name="Updated_By" Type="nvarchar" MaxLength="50" />
+          <Property Name="Date_Archive" Type="datetime" />
+          <Property Name="Archive_By" Type="nvarchar" MaxLength="50" />
+          <Property Name="Archived" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PageLibraryAssign">
+          <Key>
+            <PropertyRef Name="Page_ID" />
+            <PropertyRef Name="Library_ID" />
+          </Key>
+          <Property Name="Page_ID" Type="int" Nullable="false" />
+          <Property Name="Library_ID" Type="int" Nullable="false" />
+          <Property Name="Date_Added" Type="datetime" />
+          <Property Name="Added_By" Type="nvarchar" MaxLength="50" />
+          <Property Name="Date_Archive" Type="datetime" />
+          <Property Name="Archive_By" Type="nvarchar" MaxLength="50" />
+          <Property Name="Archived" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PageQuickLinkListsAssign">
+          <Key>
+            <PropertyRef Name="Link_List_ID" />
+            <PropertyRef Name="Page_ID" />
+          </Key>
+          <Property Name="Link_List_ID" Type="int" Nullable="false" />
+          <Property Name="Page_ID" Type="int" Nullable="false" />
+          <Property Name="Archived" Type="bit" Nullable="false" />
+          <Property Name="Date_Archived" Type="datetime" />
+          <Property Name="Archived_By" Type="nvarchar" MaxLength="50" />
+          <Property Name="Date_Added" Type="datetime" Nullable="false" />
+          <Property Name="Added_By" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PageRecipientAssign">
+          <Key>
+            <PropertyRef Name="Recipient_ID" />
+            <PropertyRef Name="Page_ID" />
+          </Key>
+          <Property Name="Recipient_ID" Type="int" Nullable="false" />
+          <Property Name="Page_ID" Type="int" Nullable="false" />
+          <Property Name="Date_Added" Type="datetime" Nullable="false" />
+          <Property Name="Added_By" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Pages">
+          <Key>
+            <PropertyRef Name="Page_ID" />
+          </Key>
+          <Property Name="Page_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Page_Name" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="URL" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Title_Text" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Banner_ID" Type="int" />
+          <Property Name="Is_Default" Type="bit" Nullable="false" />
+          <Property Name="Parent_Page_ID" Type="int" />
+          <Property Name="Is_Top" Type="bit" Nullable="false" />
+          <Property Name="Archived" Type="bit" Nullable="false" />
+          <Property Name="Archived_By" Type="nvarchar" MaxLength="50" />
+          <Property Name="Date_Archived" Type="datetime" />
+          <Property Name="Date_Modified" Type="datetime" />
+          <Property Name="Modified_By" Type="nvarchar" MaxLength="50" />
+          <Property Name="Has_Children" Type="bit" Nullable="false" />
+          <Property Name="Date_Added" Type="datetime" />
+          <Property Name="Added_By" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sequence_No" Type="int" Nullable="false" />
+          <Property Name="Display_In_Menu" Type="bit" Nullable="false" />
+          <Property Name="Redirect" Type="bit" Nullable="false" />
+          <Property Name="Redirect_URL" Type="nvarchar" MaxLength="255" />
+          <Property Name="Allow_Feedback" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PageVideoGalleryAssign">
+          <Key>
+            <PropertyRef Name="Page_ID" />
+            <PropertyRef Name="Video_Gallery_ID" />
+          </Key>
+          <Property Name="Page_ID" Type="int" Nullable="false" />
+          <Property Name="Video_Gallery_ID" Type="int" Nullable="false" />
+          <Property Name="Date_Added" Type="datetime" />
+          <Property Name="Added_By" Type="nvarchar" MaxLength="50" />
+          <Property Name="Date_Archive" Type="datetime" />
+          <Property Name="Archive_By" Type="nvarchar" MaxLength="50" />
+          <Property Name="Archived" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Photos">
+          <Key>
+            <PropertyRef Name="Photo_ID" />
+          </Key>
+          <Property Name="Photo_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="File_Path" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Thumb_Path" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Date_Added" Type="datetime" />
+          <Property Name="Added_By" Type="nvarchar" MaxLength="50" />
+          <Property Name="Date_Archive" Type="datetime" />
+          <Property Name="Archive_By" Type="nvarchar" MaxLength="50" />
+          <Property Name="Archived" Type="bit" Nullable="false" />
+          <Property Name="Gallery_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="Posts">
+          <Key>
+            <PropertyRef Name="Post_ID" />
+          </Key>
+          <Property Name="Post_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Header" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Thumb_Path" Type="nvarchar" MaxLength="255" />
+          <Property Name="Collection_ID" Type="int" Nullable="false" />
+          <Property Name="Date_Added" Type="datetime" />
+          <Property Name="Added_By" Type="nvarchar" MaxLength="50" />
+          <Property Name="Date_Archive" Type="datetime" />
+          <Property Name="Archive_By" Type="nvarchar" MaxLength="50" />
+          <Property Name="Last_Updated" Type="datetime" />
+          <Property Name="Updated_By" Type="nvarchar" MaxLength="50" />
+          <Property Name="Archived" Type="bit" Nullable="false" />
+          <Property Name="Summary" Type="nvarchar(max)" />
+          <Property Name="Allow_Comments" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="QuickLinkLists">
+          <Key>
+            <PropertyRef Name="Link_List_ID" />
+          </Key>
+          <Property Name="Link_List_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Date_Created" Type="datetime" Nullable="false" />
+          <Property Name="Created_By" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Date_Archived" Type="datetime" />
+          <Property Name="Archived_By" Type="nvarchar" MaxLength="50" />
+          <Property Name="Archived" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="QuickLinks">
+          <Key>
+            <PropertyRef Name="Quick_Link_ID" />
+          </Key>
+          <Property Name="Quick_Link_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="URL" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Display_Text" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Date_Added" Type="datetime" Nullable="false" />
+          <Property Name="Added_By" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Date_Archived" Type="datetime" />
+          <Property Name="Archived_By" Type="nvarchar" MaxLength="50" />
+          <Property Name="Archived" Type="bit" Nullable="false" />
+          <Property Name="Link_List_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="Role_ID" />
+          </Key>
+          <Property Name="Role_ID" Type="int" Nullable="false" />
+          <Property Name="Role" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Sections">
+          <Key>
+            <PropertyRef Name="Section_ID" />
+          </Key>
+          <Property Name="Section_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Sub_Header" Type="nvarchar" MaxLength="255" />
+          <Property Name="Text_Block" Type="nvarchar(max)" />
+          <Property Name="Post_ID" Type="int" />
+          <Property Name="Media_Path" Type="nvarchar" MaxLength="255" />
+          <Property Name="Media_Width_Mode_ID" Type="int" />
+          <Property Name="Hyperlink" Type="nvarchar" MaxLength="100" />
+          <Property Name="Media_Type_ID" Type="int" />
+          <Property Name="Hyperlink_Text" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="VideoGalleries">
+          <Key>
+            <PropertyRef Name="Video_Gallery_ID" />
+          </Key>
+          <Property Name="Video_Gallery_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Gallery_Name" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Date_Added" Type="datetime" />
+          <Property Name="Added_By" Type="nvarchar" MaxLength="50" />
+          <Property Name="Last_Updated" Type="datetime" />
+          <Property Name="Updated_By" Type="nvarchar" MaxLength="50" />
+          <Property Name="Date_Archive" Type="datetime" />
+          <Property Name="Archive_By" Type="nvarchar" MaxLength="50" />
+          <Property Name="Archived" Type="bit" Nullable="false" />
+          <Property Name="Details" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Videos">
+          <Key>
+            <PropertyRef Name="Video_ID" />
+          </Key>
+          <Property Name="Video_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="File_Path" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Thumb_Path" Type="nvarchar" MaxLength="255" />
+          <Property Name="Date_Added" Type="datetime" />
+          <Property Name="Added_By" Type="nvarchar" MaxLength="50" />
+          <Property Name="Date_Archive" Type="datetime" />
+          <Property Name="Archive_By" Type="nvarchar" MaxLength="50" />
+          <Property Name="Archived" Type="bit" Nullable="false" />
+          <Property Name="Video_Gallery_ID" Type="int" Nullable="false" />
+          <Property Name="Title_Text" Type="nvarchar" MaxLength="255" />
+          <Property Name="Caption" Type="nvarchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="WidthModes">
+          <Key>
+            <PropertyRef Name="Width_Mode_ID" />
+          </Key>
+          <Property Name="Width_Mode_ID" Type="int" Nullable="false" />
+          <Property Name="Width_Mode" Type="nvarchar" MaxLength="50" />
+          <Property Name="Bootstrap_Class" Type="nvarchar" MaxLength="50" />
+          <Property Name="Remainder_Class" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_AdminRoleAssign_Admins">
+          <End Role="Admins" Type="CONNEX_Model.Store.Admins" Multiplicity="1" />
+          <End Role="AdminRoleAssign" Type="CONNEX_Model.Store.AdminRoleAssign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Admins">
+              <PropertyRef Name="Admin_ID" />
+            </Principal>
+            <Dependent Role="AdminRoleAssign">
+              <PropertyRef Name="Admin_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AdminRoleAssign_Roles">
+          <End Role="Roles" Type="CONNEX_Model.Store.Roles" Multiplicity="1" />
+          <End Role="AdminRoleAssign" Type="CONNEX_Model.Store.AdminRoleAssign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="Role_ID" />
+            </Principal>
+            <Dependent Role="AdminRoleAssign">
+              <PropertyRef Name="Role_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BannerElements_Banners">
+          <End Role="Banners" Type="CONNEX_Model.Store.Banners" Multiplicity="1" />
+          <End Role="BannerElements" Type="CONNEX_Model.Store.BannerElements" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Banners">
+              <PropertyRef Name="Banner_ID" />
+            </Principal>
+            <Dependent Role="BannerElements">
+              <PropertyRef Name="Banner_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BannerElements_ContentTypes">
+          <End Role="ContentTypes" Type="CONNEX_Model.Store.ContentTypes" Multiplicity="0..1" />
+          <End Role="BannerElements" Type="CONNEX_Model.Store.BannerElements" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContentTypes">
+              <PropertyRef Name="Content_Type_ID" />
+            </Principal>
+            <Dependent Role="BannerElements">
+              <PropertyRef Name="Content_Type_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Collections_CollectionsDisplayModes">
+          <End Role="CollectionsDisplayModes" Type="CONNEX_Model.Store.CollectionsDisplayModes" Multiplicity="1" />
+          <End Role="Collections" Type="CONNEX_Model.Store.Collections" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CollectionsDisplayModes">
+              <PropertyRef Name="Display_Mode_ID" />
+            </Principal>
+            <Dependent Role="Collections">
+              <PropertyRef Name="Display_Mode_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Collections_CollectionsWidthModes">
+          <End Role="CollectionsWidthModes" Type="CONNEX_Model.Store.CollectionsWidthModes" Multiplicity="0..1" />
+          <End Role="Collections" Type="CONNEX_Model.Store.Collections" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CollectionsWidthModes">
+              <PropertyRef Name="Width_Mode_ID" />
+            </Principal>
+            <Dependent Role="Collections">
+              <PropertyRef Name="Width_Mode_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Collections_WidthModes">
+          <End Role="WidthModes" Type="CONNEX_Model.Store.WidthModes" Multiplicity="0..1" />
+          <End Role="Collections" Type="CONNEX_Model.Store.Collections" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WidthModes">
+              <PropertyRef Name="Width_Mode_ID" />
+            </Principal>
+            <Dependent Role="Collections">
+              <PropertyRef Name="Width_Mode_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comments_Posts">
+          <End Role="Posts" Type="CONNEX_Model.Store.Posts" Multiplicity="0..1" />
+          <End Role="Comments" Type="CONNEX_Model.Store.Comments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Posts">
+              <PropertyRef Name="Post_ID" />
+            </Principal>
+            <Dependent Role="Comments">
+              <PropertyRef Name="Post_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Documents_DocumentTypes">
+          <End Role="DocumentTypes" Type="CONNEX_Model.Store.DocumentTypes" Multiplicity="1" />
+          <End Role="Documents" Type="CONNEX_Model.Store.Documents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DocumentTypes">
+              <PropertyRef Name="Document_Type_ID" />
+            </Principal>
+            <Dependent Role="Documents">
+              <PropertyRef Name="Document_Type_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Documents_Libraries">
+          <End Role="Libraries" Type="CONNEX_Model.Store.Libraries" Multiplicity="0..1" />
+          <End Role="Documents" Type="CONNEX_Model.Store.Documents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Libraries">
+              <PropertyRef Name="Library_ID" />
+            </Principal>
+            <Dependent Role="Documents">
+              <PropertyRef Name="Library_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Events_Calenders">
+          <End Role="Calenders" Type="CONNEX_Model.Store.Calenders" Multiplicity="1" />
+          <End Role="Events" Type="CONNEX_Model.Store.Events" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Calenders">
+              <PropertyRef Name="Calender_ID" />
+            </Principal>
+            <Dependent Role="Events">
+              <PropertyRef Name="Calender_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Feedback_Pages">
+          <End Role="Pages" Type="CONNEX_Model.Store.Pages" Multiplicity="1" />
+          <End Role="Feedback" Type="CONNEX_Model.Store.Feedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pages">
+              <PropertyRef Name="Page_ID" />
+            </Principal>
+            <Dependent Role="Feedback">
+              <PropertyRef Name="Page_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PageAdminAssign_Admins">
+          <End Role="Admins" Type="CONNEX_Model.Store.Admins" Multiplicity="1" />
+          <End Role="PageAdminAssign" Type="CONNEX_Model.Store.PageAdminAssign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Admins">
+              <PropertyRef Name="Admin_ID" />
+            </Principal>
+            <Dependent Role="PageAdminAssign">
+              <PropertyRef Name="Admin_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PageAdminAssign_Pages">
+          <End Role="Pages" Type="CONNEX_Model.Store.Pages" Multiplicity="1" />
+          <End Role="PageAdminAssign" Type="CONNEX_Model.Store.PageAdminAssign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pages">
+              <PropertyRef Name="Page_ID" />
+            </Principal>
+            <Dependent Role="PageAdminAssign">
+              <PropertyRef Name="Page_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PageCalenderAssign_Calenders">
+          <End Role="Calenders" Type="CONNEX_Model.Store.Calenders" Multiplicity="1" />
+          <End Role="PageCalenderAssign" Type="CONNEX_Model.Store.PageCalenderAssign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Calenders">
+              <PropertyRef Name="Calender_ID" />
+            </Principal>
+            <Dependent Role="PageCalenderAssign">
+              <PropertyRef Name="Calender_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PageCalenderAssign_Pages">
+          <End Role="Pages" Type="CONNEX_Model.Store.Pages" Multiplicity="1" />
+          <End Role="PageCalenderAssign" Type="CONNEX_Model.Store.PageCalenderAssign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pages">
+              <PropertyRef Name="Page_ID" />
+            </Principal>
+            <Dependent Role="PageCalenderAssign">
+              <PropertyRef Name="Page_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PageCollectionAssign_Collections">
+          <End Role="Collections" Type="CONNEX_Model.Store.Collections" Multiplicity="1" />
+          <End Role="PageCollectionAssign" Type="CONNEX_Model.Store.PageCollectionAssign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Collections">
+              <PropertyRef Name="Collection_ID" />
+            </Principal>
+            <Dependent Role="PageCollectionAssign">
+              <PropertyRef Name="Collection_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PageCollectionAssign_Pages">
+          <End Role="Pages" Type="CONNEX_Model.Store.Pages" Multiplicity="1" />
+          <End Role="PageCollectionAssign" Type="CONNEX_Model.Store.PageCollectionAssign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pages">
+              <PropertyRef Name="Page_ID" />
+            </Principal>
+            <Dependent Role="PageCollectionAssign">
+              <PropertyRef Name="Page_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PageGalleryAssign_Galleries">
+          <End Role="Galleries" Type="CONNEX_Model.Store.Galleries" Multiplicity="1" />
+          <End Role="PageGalleryAssign" Type="CONNEX_Model.Store.PageGalleryAssign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Galleries">
+              <PropertyRef Name="Gallery_ID" />
+            </Principal>
+            <Dependent Role="PageGalleryAssign">
+              <PropertyRef Name="Gallery_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PageGalleryAssign_Pages">
+          <End Role="Pages" Type="CONNEX_Model.Store.Pages" Multiplicity="1" />
+          <End Role="PageGalleryAssign" Type="CONNEX_Model.Store.PageGalleryAssign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pages">
+              <PropertyRef Name="Page_ID" />
+            </Principal>
+            <Dependent Role="PageGalleryAssign">
+              <PropertyRef Name="Page_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PageLibraryAssign_Libraries">
+          <End Role="Libraries" Type="CONNEX_Model.Store.Libraries" Multiplicity="1" />
+          <End Role="PageLibraryAssign" Type="CONNEX_Model.Store.PageLibraryAssign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Libraries">
+              <PropertyRef Name="Library_ID" />
+            </Principal>
+            <Dependent Role="PageLibraryAssign">
+              <PropertyRef Name="Library_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PageLibraryAssign_Pages">
+          <End Role="Pages" Type="CONNEX_Model.Store.Pages" Multiplicity="1" />
+          <End Role="PageLibraryAssign" Type="CONNEX_Model.Store.PageLibraryAssign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pages">
+              <PropertyRef Name="Page_ID" />
+            </Principal>
+            <Dependent Role="PageLibraryAssign">
+              <PropertyRef Name="Page_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PageQuickLinkListsAssign_Pages">
+          <End Role="Pages" Type="CONNEX_Model.Store.Pages" Multiplicity="1" />
+          <End Role="PageQuickLinkListsAssign" Type="CONNEX_Model.Store.PageQuickLinkListsAssign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pages">
+              <PropertyRef Name="Page_ID" />
+            </Principal>
+            <Dependent Role="PageQuickLinkListsAssign">
+              <PropertyRef Name="Page_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PageQuickLinkListsAssign_QuickLinkLists">
+          <End Role="QuickLinkLists" Type="CONNEX_Model.Store.QuickLinkLists" Multiplicity="1" />
+          <End Role="PageQuickLinkListsAssign" Type="CONNEX_Model.Store.PageQuickLinkListsAssign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QuickLinkLists">
+              <PropertyRef Name="Link_List_ID" />
+            </Principal>
+            <Dependent Role="PageQuickLinkListsAssign">
+              <PropertyRef Name="Link_List_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PageRecipientAssign_NotificationRecipents">
+          <End Role="NotificationRecipents" Type="CONNEX_Model.Store.NotificationRecipents" Multiplicity="1" />
+          <End Role="PageRecipientAssign" Type="CONNEX_Model.Store.PageRecipientAssign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NotificationRecipents">
+              <PropertyRef Name="Recipient_ID" />
+            </Principal>
+            <Dependent Role="PageRecipientAssign">
+              <PropertyRef Name="Recipient_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PageRecipientAssign_Pages">
+          <End Role="Pages" Type="CONNEX_Model.Store.Pages" Multiplicity="1" />
+          <End Role="PageRecipientAssign" Type="CONNEX_Model.Store.PageRecipientAssign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pages">
+              <PropertyRef Name="Page_ID" />
+            </Principal>
+            <Dependent Role="PageRecipientAssign">
+              <PropertyRef Name="Page_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pages_Banners1">
+          <End Role="Banners" Type="CONNEX_Model.Store.Banners" Multiplicity="0..1" />
+          <End Role="Pages" Type="CONNEX_Model.Store.Pages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Banners">
+              <PropertyRef Name="Banner_ID" />
+            </Principal>
+            <Dependent Role="Pages">
+              <PropertyRef Name="Banner_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PageVideoGalleryAssign_Pages">
+          <End Role="Pages" Type="CONNEX_Model.Store.Pages" Multiplicity="1" />
+          <End Role="PageVideoGalleryAssign" Type="CONNEX_Model.Store.PageVideoGalleryAssign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pages">
+              <PropertyRef Name="Page_ID" />
+            </Principal>
+            <Dependent Role="PageVideoGalleryAssign">
+              <PropertyRef Name="Page_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PageVideoGalleryAssign_VideoGalleries">
+          <End Role="VideoGalleries" Type="CONNEX_Model.Store.VideoGalleries" Multiplicity="1" />
+          <End Role="PageVideoGalleryAssign" Type="CONNEX_Model.Store.PageVideoGalleryAssign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VideoGalleries">
+              <PropertyRef Name="Video_Gallery_ID" />
+            </Principal>
+            <Dependent Role="PageVideoGalleryAssign">
+              <PropertyRef Name="Video_Gallery_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Photos_Galleries">
+          <End Role="Galleries" Type="CONNEX_Model.Store.Galleries" Multiplicity="0..1" />
+          <End Role="Photos" Type="CONNEX_Model.Store.Photos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Galleries">
+              <PropertyRef Name="Gallery_ID" />
+            </Principal>
+            <Dependent Role="Photos">
+              <PropertyRef Name="Gallery_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Posts_Collections">
+          <End Role="Collections" Type="CONNEX_Model.Store.Collections" Multiplicity="1" />
+          <End Role="Posts" Type="CONNEX_Model.Store.Posts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Collections">
+              <PropertyRef Name="Collection_ID" />
+            </Principal>
+            <Dependent Role="Posts">
+              <PropertyRef Name="Collection_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Quick_Links_QuickLinkLists">
+          <End Role="QuickLinkLists" Type="CONNEX_Model.Store.QuickLinkLists" Multiplicity="1" />
+          <End Role="QuickLinks" Type="CONNEX_Model.Store.QuickLinks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QuickLinkLists">
+              <PropertyRef Name="Link_List_ID" />
+            </Principal>
+            <Dependent Role="QuickLinks">
+              <PropertyRef Name="Link_List_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sections_MediaTypes">
+          <End Role="MediaTypes" Type="CONNEX_Model.Store.MediaTypes" Multiplicity="0..1" />
+          <End Role="Sections" Type="CONNEX_Model.Store.Sections" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MediaTypes">
+              <PropertyRef Name="Media_Type_ID" />
+            </Principal>
+            <Dependent Role="Sections">
+              <PropertyRef Name="Media_Type_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sections_Posts">
+          <End Role="Posts" Type="CONNEX_Model.Store.Posts" Multiplicity="0..1" />
+          <End Role="Sections" Type="CONNEX_Model.Store.Sections" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Posts">
+              <PropertyRef Name="Post_ID" />
+            </Principal>
+            <Dependent Role="Sections">
+              <PropertyRef Name="Post_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sections_WidthModes1">
+          <End Role="WidthModes" Type="CONNEX_Model.Store.WidthModes" Multiplicity="0..1" />
+          <End Role="Sections" Type="CONNEX_Model.Store.Sections" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WidthModes">
+              <PropertyRef Name="Width_Mode_ID" />
+            </Principal>
+            <Dependent Role="Sections">
+              <PropertyRef Name="Media_Width_Mode_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Videos_VideoGalleries">
+          <End Role="VideoGalleries" Type="CONNEX_Model.Store.VideoGalleries" Multiplicity="1" />
+          <End Role="Videos" Type="CONNEX_Model.Store.Videos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VideoGalleries">
+              <PropertyRef Name="Video_Gallery_ID" />
+            </Principal>
+            <Dependent Role="Videos">
+              <PropertyRef Name="Video_Gallery_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CONNEX_Model" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="CONNEXDBEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Admins" EntityType="CONNEX_Model.Admin" />
+          <EntitySet Name="Banners" EntityType="CONNEX_Model.Banner" />
+          <EntitySet Name="Calenders" EntityType="CONNEX_Model.Calender" />
+          <EntitySet Name="CollectionsDisplayModes" EntityType="CONNEX_Model.CollectionsDisplayMode" />
+          <EntitySet Name="CollectionsWidthModes" EntityType="CONNEX_Model.CollectionsWidthMode" />
+          <EntitySet Name="Comments" EntityType="CONNEX_Model.Comment" />
+          <EntitySet Name="ContentTypes" EntityType="CONNEX_Model.ContentType" />
+          <EntitySet Name="Documents" EntityType="CONNEX_Model.Document" />
+          <EntitySet Name="DocumentTypes" EntityType="CONNEX_Model.DocumentType" />
+          <EntitySet Name="Galleries" EntityType="CONNEX_Model.Gallery" />
+          <EntitySet Name="Libraries" EntityType="CONNEX_Model.Library" />
+          <EntitySet Name="MediaTypes" EntityType="CONNEX_Model.MediaType" />
+          <EntitySet Name="PageAdminAssigns" EntityType="CONNEX_Model.PageAdminAssign" />
+          <EntitySet Name="PageCalenderAssigns" EntityType="CONNEX_Model.PageCalenderAssign" />
+          <EntitySet Name="PageCollectionAssigns" EntityType="CONNEX_Model.PageCollectionAssign" />
+          <EntitySet Name="PageGalleryAssigns" EntityType="CONNEX_Model.PageGalleryAssign" />
+          <EntitySet Name="PageLibraryAssigns" EntityType="CONNEX_Model.PageLibraryAssign" />
+          <EntitySet Name="Pages" EntityType="CONNEX_Model.Page" />
+          <EntitySet Name="PageVideoGalleryAssigns" EntityType="CONNEX_Model.PageVideoGalleryAssign" />
+          <EntitySet Name="Photos" EntityType="CONNEX_Model.Photo" />
+          <EntitySet Name="Posts" EntityType="CONNEX_Model.Post" />
+          <EntitySet Name="Sections" EntityType="CONNEX_Model.Section" />
+          <EntitySet Name="VideoGalleries" EntityType="CONNEX_Model.VideoGallery" />
+          <EntitySet Name="Videos" EntityType="CONNEX_Model.Video" />
+          <EntitySet Name="WidthModes" EntityType="CONNEX_Model.WidthMode" />
+          <AssociationSet Name="FK_PageAdminAssign_Admins" Association="CONNEX_Model.FK_PageAdminAssign_Admins">
+            <End Role="Admins" EntitySet="Admins" />
+            <End Role="PageAdminAssign" EntitySet="PageAdminAssigns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pages_Banners1" Association="CONNEX_Model.FK_Pages_Banners1">
+            <End Role="Banners" EntitySet="Banners" />
+            <End Role="Pages" EntitySet="Pages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PageCalenderAssign_Calenders" Association="CONNEX_Model.FK_PageCalenderAssign_Calenders">
+            <End Role="Calenders" EntitySet="Calenders" />
+            <End Role="PageCalenderAssign" EntitySet="PageCalenderAssigns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comments_Posts" Association="CONNEX_Model.FK_Comments_Posts">
+            <End Role="Posts" EntitySet="Posts" />
+            <End Role="Comments" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Documents_DocumentTypes" Association="CONNEX_Model.FK_Documents_DocumentTypes">
+            <End Role="DocumentTypes" EntitySet="DocumentTypes" />
+            <End Role="Documents" EntitySet="Documents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Documents_Libraries" Association="CONNEX_Model.FK_Documents_Libraries">
+            <End Role="Libraries" EntitySet="Libraries" />
+            <End Role="Documents" EntitySet="Documents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PageGalleryAssign_Galleries" Association="CONNEX_Model.FK_PageGalleryAssign_Galleries">
+            <End Role="Galleries" EntitySet="Galleries" />
+            <End Role="PageGalleryAssign" EntitySet="PageGalleryAssigns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Photos_Galleries" Association="CONNEX_Model.FK_Photos_Galleries">
+            <End Role="Galleries" EntitySet="Galleries" />
+            <End Role="Photos" EntitySet="Photos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PageLibraryAssign_Libraries" Association="CONNEX_Model.FK_PageLibraryAssign_Libraries">
+            <End Role="Libraries" EntitySet="Libraries" />
+            <End Role="PageLibraryAssign" EntitySet="PageLibraryAssigns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sections_MediaTypes" Association="CONNEX_Model.FK_Sections_MediaTypes">
+            <End Role="MediaTypes" EntitySet="MediaTypes" />
+            <End Role="Sections" EntitySet="Sections" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PageAdminAssign_Pages" Association="CONNEX_Model.FK_PageAdminAssign_Pages">
+            <End Role="Pages" EntitySet="Pages" />
+            <End Role="PageAdminAssign" EntitySet="PageAdminAssigns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PageCalenderAssign_Pages" Association="CONNEX_Model.FK_PageCalenderAssign_Pages">
+            <End Role="Pages" EntitySet="Pages" />
+            <End Role="PageCalenderAssign" EntitySet="PageCalenderAssigns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PageCollectionAssign_Pages" Association="CONNEX_Model.FK_PageCollectionAssign_Pages">
+            <End Role="Pages" EntitySet="Pages" />
+            <End Role="PageCollectionAssign" EntitySet="PageCollectionAssigns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PageGalleryAssign_Pages" Association="CONNEX_Model.FK_PageGalleryAssign_Pages">
+            <End Role="Pages" EntitySet="Pages" />
+            <End Role="PageGalleryAssign" EntitySet="PageGalleryAssigns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PageLibraryAssign_Pages" Association="CONNEX_Model.FK_PageLibraryAssign_Pages">
+            <End Role="Pages" EntitySet="Pages" />
+            <End Role="PageLibraryAssign" EntitySet="PageLibraryAssigns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PageVideoGalleryAssign_Pages" Association="CONNEX_Model.FK_PageVideoGalleryAssign_Pages">
+            <End Role="Pages" EntitySet="Pages" />
+            <End Role="PageVideoGalleryAssign" EntitySet="PageVideoGalleryAssigns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PageVideoGalleryAssign_VideoGalleries" Association="CONNEX_Model.FK_PageVideoGalleryAssign_VideoGalleries">
+            <End Role="VideoGalleries" EntitySet="VideoGalleries" />
+            <End Role="PageVideoGalleryAssign" EntitySet="PageVideoGalleryAssigns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sections_Posts" Association="CONNEX_Model.FK_Sections_Posts">
+            <End Role="Posts" EntitySet="Posts" />
+            <End Role="Sections" EntitySet="Sections" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sections_WidthModes1" Association="CONNEX_Model.FK_Sections_WidthModes1">
+            <End Role="WidthModes" EntitySet="WidthModes" />
+            <End Role="Sections" EntitySet="Sections" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Videos_VideoGalleries" Association="CONNEX_Model.FK_Videos_VideoGalleries">
+            <End Role="VideoGalleries" EntitySet="VideoGalleries" />
+            <End Role="Videos" EntitySet="Videos" />
+          </AssociationSet>
+          <EntitySet Name="Collections" EntityType="CONNEX_Model.Collection" />
+          <AssociationSet Name="FK_Collections_CollectionsDisplayModes" Association="CONNEX_Model.FK_Collections_CollectionsDisplayModes">
+            <End Role="CollectionsDisplayMode" EntitySet="CollectionsDisplayModes" />
+            <End Role="Collection" EntitySet="Collections" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Collections_CollectionsWidthModes" Association="CONNEX_Model.FK_Collections_CollectionsWidthModes">
+            <End Role="CollectionsWidthMode" EntitySet="CollectionsWidthModes" />
+            <End Role="Collection" EntitySet="Collections" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Collections_WidthModes" Association="CONNEX_Model.FK_Collections_WidthModes">
+            <End Role="WidthMode" EntitySet="WidthModes" />
+            <End Role="Collection" EntitySet="Collections" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PageCollectionAssign_Collections" Association="CONNEX_Model.FK_PageCollectionAssign_Collections">
+            <End Role="Collection" EntitySet="Collections" />
+            <End Role="PageCollectionAssign" EntitySet="PageCollectionAssigns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Posts_Collections" Association="CONNEX_Model.FK_Posts_Collections">
+            <End Role="Collection" EntitySet="Collections" />
+            <End Role="Post" EntitySet="Posts" />
+          </AssociationSet>
+          <EntitySet Name="Events" EntityType="CONNEX_Model.Event" />
+          <AssociationSet Name="FK_Events_Calenders" Association="CONNEX_Model.FK_Events_Calenders">
+            <End Role="Calender" EntitySet="Calenders" />
+            <End Role="Event" EntitySet="Events" />
+          </AssociationSet>
+          <EntitySet Name="Roles" EntityType="CONNEX_Model.Role" />
+          <AssociationSet Name="AdminRoleAssign" Association="CONNEX_Model.AdminRoleAssign">
+            <End Role="Admin" EntitySet="Admins" />
+            <End Role="Role" EntitySet="Roles" />
+          </AssociationSet>
+          <EntitySet Name="BannerElements" EntityType="CONNEX_Model.BannerElement" />
+          <AssociationSet Name="FK_BannerElements_Banners" Association="CONNEX_Model.FK_BannerElements_Banners">
+            <End Role="Banner" EntitySet="Banners" />
+            <End Role="BannerElement" EntitySet="BannerElements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BannerElements_ContentTypes" Association="CONNEX_Model.FK_BannerElements_ContentTypes">
+            <End Role="ContentType" EntitySet="ContentTypes" />
+            <End Role="BannerElement" EntitySet="BannerElements" />
+          </AssociationSet>
+          <EntitySet Name="Feedbacks" EntityType="CONNEX_Model.Feedback" />
+          <EntitySet Name="PageQuickLinkListsAssigns" EntityType="CONNEX_Model.PageQuickLinkListsAssign" />
+          <EntitySet Name="QuickLinkLists" EntityType="CONNEX_Model.QuickLinkList" />
+          <EntitySet Name="QuickLinks" EntityType="CONNEX_Model.QuickLink" />
+          <AssociationSet Name="FK_Feedback_Pages" Association="CONNEX_Model.FK_Feedback_Pages">
+            <End Role="Page" EntitySet="Pages" />
+            <End Role="Feedback" EntitySet="Feedbacks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PageQuickLinkListsAssign_Pages" Association="CONNEX_Model.FK_PageQuickLinkListsAssign_Pages">
+            <End Role="Page" EntitySet="Pages" />
+            <End Role="PageQuickLinkListsAssign" EntitySet="PageQuickLinkListsAssigns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PageQuickLinkListsAssign_QuickLinkLists" Association="CONNEX_Model.FK_PageQuickLinkListsAssign_QuickLinkLists">
+            <End Role="QuickLinkList" EntitySet="QuickLinkLists" />
+            <End Role="PageQuickLinkListsAssign" EntitySet="PageQuickLinkListsAssigns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Quick_Links_QuickLinkLists" Association="CONNEX_Model.FK_Quick_Links_QuickLinkLists">
+            <End Role="QuickLinkList" EntitySet="QuickLinkLists" />
+            <End Role="QuickLink" EntitySet="QuickLinks" />
+          </AssociationSet>
+          <EntitySet Name="NotificationRecipents" EntityType="CONNEX_Model.NotificationRecipent" />
+          <EntitySet Name="PageRecipientAssigns" EntityType="CONNEX_Model.PageRecipientAssign" />
+          <AssociationSet Name="FK_PageRecipientAssign_NotificationRecipents" Association="CONNEX_Model.FK_PageRecipientAssign_NotificationRecipents">
+            <End Role="NotificationRecipent" EntitySet="NotificationRecipents" />
+            <End Role="PageRecipientAssign" EntitySet="PageRecipientAssigns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PageRecipientAssign_Pages" Association="CONNEX_Model.FK_PageRecipientAssign_Pages">
+            <End Role="Page" EntitySet="Pages" />
+            <End Role="PageRecipientAssign" EntitySet="PageRecipientAssigns" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="Admin_ID" />
+          </Key>
+          <Property Name="Admin_ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Network_ID" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Full_Name" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Date_Added" Type="DateTime" Precision="3" />
+          <Property Name="Added_By" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="PageAdminAssigns" Relationship="CONNEX_Model.FK_PageAdminAssign_Admins" FromRole="Admins" ToRole="PageAdminAssign" />
+          <NavigationProperty Name="Roles" Relationship="CONNEX_Model.AdminRoleAssign" FromRole="Admin" ToRole="Role" />
+        </EntityType>
+        <EntityType Name="Banner">
+          <Key>
+            <PropertyRef Name="Banner_ID" />
+          </Key>
+          <Property Name="Banner_ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Banner_Name" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Pages" Relationship="CONNEX_Model.FK_Pages_Banners1" FromRole="Banners" ToRole="Pages" />
+          <NavigationProperty Name="BannerElements" Relationship="CONNEX_Model.FK_BannerElements_Banners" FromRole="Banner" ToRole="BannerElement" />
+        </EntityType>
+        <EntityType Name="Calender">
+          <Key>
+            <PropertyRef Name="Calender_ID" />
+          </Key>
+          <Property Name="Calender_ID" Type="Int32" Nullable="false" />
+          <Property Name="Calender_Name" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Date_Added" Type="DateTime" Precision="3" />
+          <Property Name="Added_By" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Last_Updated" Type="DateTime" Precision="3" />
+          <Property Name="Updated_By" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Date_Archived" Type="DateTime" Precision="3" />
+          <Property Name="Archived_By" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Archived" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="PageCalenderAssigns" Relationship="CONNEX_Model.FK_PageCalenderAssign_Calenders" FromRole="Calenders" ToRole="PageCalenderAssign" />
+          <NavigationProperty Name="Events" Relationship="CONNEX_Model.FK_Events_Calenders" FromRole="Calender" ToRole="Event" />
+        </EntityType>
+        <EntityType Name="CollectionsDisplayMode">
+          <Key>
+            <PropertyRef Name="Display_Mode_ID" />
+          </Key>
+          <Property Name="Display_Mode_ID" Type="Int32" Nullable="false" />
+          <Property Name="Display_Mode" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Collections" Relationship="CONNEX_Model.FK_Collections_CollectionsDisplayModes" FromRole="CollectionsDisplayMode" ToRole="Collection" />
+        </EntityType>
+        <EntityType Name="CollectionsWidthMode">
+          <Key>
+            <PropertyRef Name="Width_Mode_ID" />
+          </Key>
+          <Property Name="Width_Mode_ID" Type="Int32" Nullable="false" />
+          <Property Name="Width_Mode" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Percentage" Type="Int32" />
+          <NavigationProperty Name="Collections" Relationship="CONNEX_Model.FK_Collections_CollectionsWidthModes" FromRole="CollectionsWidthMode" ToRole="Collection" />
+        </EntityType>
+        <EntityType Name="Comment">
+          <Key>
+            <PropertyRef Name="Comment_ID" />
+          </Key>
+          <Property Name="Comment_ID" Type="Int32" Nullable="false" />
+          <Property Name="Comment1" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Submitted_By" Type="String" MaxLength="50" Unicode="true" FixedLength="false" Nullable="false" />
+          <Property Name="Date_Submitted" Type="DateTime" Precision="3" Nullable="false" />
+          <Property Name="Post_ID" Type="Int32" />
+          <Property Name="Date_Archive" Type="DateTime" Precision="3" />
+          <Property Name="Archive_By" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Archived" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Post" Relationship="CONNEX_Model.FK_Comments_Posts" FromRole="Comments" ToRole="Posts" />
+        </EntityType>
+        <EntityType Name="ContentType">
+          <Key>
+            <PropertyRef Name="Content_Type_ID" />
+          </Key>
+          <Property Name="Content_Type_ID" Type="Int32" Nullable="false" />
+          <Property Name="Content_Type" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Display_Text" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="BannerElements" Relationship="CONNEX_Model.FK_BannerElements_ContentTypes" FromRole="ContentType" ToRole="BannerElement" />
+        </EntityType>
+        <EntityType Name="Document">
+          <Key>
+            <PropertyRef Name="Document_ID" />
+          </Key>
+          <Property Name="Document_ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Path" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Library_ID" Type="Int32" />
+          <Property Name="Date_Added" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Added_By" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Date_Archive" Type="DateTime" Precision="3" />
+          <Property Name="Archive_By" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Archived" Type="Boolean" Nullable="false" />
+          <Property Name="Document_Type_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DocumentType" Relationship="CONNEX_Model.FK_Documents_DocumentTypes" FromRole="Documents" ToRole="DocumentTypes" />
+          <NavigationProperty Name="Library" Relationship="CONNEX_Model.FK_Documents_Libraries" FromRole="Documents" ToRole="Libraries" />
+        </EntityType>
+        <EntityType Name="DocumentType">
+          <Key>
+            <PropertyRef Name="Document_Type_ID" />
+          </Key>
+          <Property Name="Document_Type_ID" Type="Int32" Nullable="false" />
+          <Property Name="Content_Type" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Extension" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Documents" Relationship="CONNEX_Model.FK_Documents_DocumentTypes" FromRole="DocumentTypes" ToRole="Documents" />
+        </EntityType>
+        <EntityType Name="Gallery">
+          <Key>
+            <PropertyRef Name="Gallery_ID" />
+          </Key>
+          <Property Name="Gallery_ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Gallery_Name" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Date_Added" Type="DateTime" Precision="3" />
+          <Property Name="Added_By" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Last_Updated" Type="DateTime" Precision="3" />
+          <Property Name="Updated_By" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Date_Archive" Type="DateTime" Precision="3" />
+          <Property Name="Archive_By" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Archived" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="PageGalleryAssigns" Relationship="CONNEX_Model.FK_PageGalleryAssign_Galleries" FromRole="Galleries" ToRole="PageGalleryAssign" />
+          <NavigationProperty Name="Photos" Relationship="CONNEX_Model.FK_Photos_Galleries" FromRole="Galleries" ToRole="Photos" />
+        </EntityType>
+        <EntityType Name="Library">
+          <Key>
+            <PropertyRef Name="Library_ID" />
+          </Key>
+          <Property Name="Library_ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Library_Name" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Date_Added" Type="DateTime" Precision="3" />
+          <Property Name="Added_By" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Date_Archive" Type="DateTime" Precision="3" />
+          <Property Name="Archive_By" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Archived" Type="Boolean" Nullable="false" />
+          <Property Name="Title_Text" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Documents" Relationship="CONNEX_Model.FK_Documents_Libraries" FromRole="Libraries" ToRole="Documents" />
+          <NavigationProperty Name="PageLibraryAssigns" Relationship="CONNEX_Model.FK_PageLibraryAssign_Libraries" FromRole="Libraries" ToRole="PageLibraryAssign" />
+        </EntityType>
+        <EntityType Name="MediaType">
+          <Key>
+            <PropertyRef Name="Media_Type_ID" />
+          </Key>
+          <Property Name="Media_Type_ID" Type="Int32" Nullable="false" />
+          <Property Name="Media_Types" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Sections" Relationship="CONNEX_Model.FK_Sections_MediaTypes" FromRole="MediaTypes" ToRole="Sections" />
+        </EntityType>
+        <EntityType Name="PageAdminAssign">
+          <Key>
+            <PropertyRef Name="Page_ID" />
+            <PropertyRef Name="Admin_ID" />
+          </Key>
+          <Property Name="Page_ID" Type="Int32" Nullable="false" />
+          <Property Name="Admin_ID" Type="Int32" Nullable="false" />
+          <Property Name="Date_Added" Type="DateTime" Precision="3" />
+          <Property Name="Added_By" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Admin" Relationship="CONNEX_Model.FK_PageAdminAssign_Admins" FromRole="PageAdminAssign" ToRole="Admins" />
+          <NavigationProperty Name="Page" Relationship="CONNEX_Model.FK_PageAdminAssign_Pages" FromRole="PageAdminAssign" ToRole="Pages" />
+        </EntityType>
+        <EntityType Name="PageCalenderAssign">
+          <Key>
+            <PropertyRef Name="Calender_ID" />
+            <PropertyRef Name="Page_ID" />
+          </Key>
+          <Property Name="Calender_ID" Type="Int32" Nullable="false" />
+          <Property Name="Page_ID" Type="Int32" Nullable="false" />
+          <Property Name="Date_Added" Type="DateTime" Precision="3" />
+          <Property Name="Added_By" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Last_Updated" Type="DateTime" Precision="3" />
+          <Property Name="Updated_By" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Date_Archive" Type="DateTime" Precision="3" />
+          <Property Name="Archive_By" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Archived" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Calender" Relationship="CONNEX_Model.FK_PageCalenderAssign_Calenders" FromRole="PageCalenderAssign" ToRole="Calenders" />
+          <NavigationProperty Name="Page" Relationship="CONNEX_Model.FK_PageCalenderAssign_Pages" FromRole="PageCalenderAssign" ToRole="Pages" />
+        </EntityType>
+        <EntityType Name="PageCollectionAssign">
+          <Key>
+            <PropertyRef Name="Page_ID" />
+            <PropertyRef Name="Collection_ID" />
+          </Key>
+          <Property Name="Page_ID" Type="Int32" Nullable="false" />
+          <Property Name="Collection_ID" Type="Int32" Nullable="false" />
+          <Property Name="Sequence_No" Type="Int32" Nullable="false" />
+          <Property Name="Date_Added" Type="DateTime" Precision="3" />
+          <Property Name="Added_By" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Date_Archive" Type="DateTime" Precision="3" />
+          <Property Name="Archive_By" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Last_Updated" Type="DateTime" Precision="3" />
+          <Property Name="Updated_By" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Archived" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Page" Relationship="CONNEX_Model.FK_PageCollectionAssign_Pages" FromRole="PageCollectionAssign" ToRole="Pages" />
+          <NavigationProperty Name="Collection" Relationship="CONNEX_Model.FK_PageCollectionAssign_Collections" FromRole="PageCollectionAssign" ToRole="Collection" />
+        </EntityType>
+        <EntityType Name="PageGalleryAssign">
+          <Key>
+            <PropertyRef Name="Page_ID" />
+            <PropertyRef Name="Gallery_ID" />
+          </Key>
+          <Property Name="Page_ID" Type="Int32" Nullable="false" />
+          <Property Name="Gallery_ID" Type="Int32" Nullable="false" />
+          <Property Name="Added_By" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Date_Added" Type="DateTime" Precision="3" />
+          <Property Name="Last_Updated" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Updated_By" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Date_Archive" Type="DateTime" Precision="3" />
+          <Property Name="Archive_By" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Archived" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Gallery" Relationship="CONNEX_Model.FK_PageGalleryAssign_Galleries" FromRole="PageGalleryAssign" ToRole="Galleries" />
+          <NavigationProperty Name="Page" Relationship="CONNEX_Model.FK_PageGalleryAssign_Pages" FromRole="PageGalleryAssign" ToRole="Pages" />
+        </EntityType>
+        <EntityType Name="PageLibraryAssign">
+          <Key>
+            <PropertyRef Name="Page_ID" />
+            <PropertyRef Name="Library_ID" />
+          </Key>
+          <Property Name="Page_ID" Type="Int32" Nullable="false" />
+          <Property Name="Library_ID" Type="Int32" Nullable="false" />
+          <Property Name="Date_Added" Type="DateTime" Precision="3" />
+          <Property Name="Added_By" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Date_Archive" Type="DateTime" Precision="3" />
+          <Property Name="Archive_By" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Archived" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Library" Relationship="CONNEX_Model.FK_PageLibraryAssign_Libraries" FromRole="PageLibraryAssign" ToRole="Libraries" />
+          <NavigationProperty Name="Page" Relationship="CONNEX_Model.FK_PageLibraryAssign_Pages" FromRole="PageLibraryAssign" ToRole="Pages" />
+        </EntityType>
+        <EntityType Name="Page">
+          <Key>
+            <PropertyRef Name="Page_ID" />
+          </Key>
+          <Property Name="Page_ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Page_Name" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="URL" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Title_Text" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Banner_ID" Type="Int32" />
+          <Property Name="Is_Default" Type="Boolean" Nullable="false" />
+          <Property Name="Parent_Page_ID" Type="Int32" />
+          <Property Name="Is_Top" Type="Boolean" Nullable="false" />
+          <Property Name="Archived" Type="Boolean" Nullable="false" />
+          <Property Name="Archived_By" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Date_Archived" Type="DateTime" Precision="3" />
+          <Property Name="Date_Modified" Type="DateTime" Precision="3" />
+          <Property Name="Modified_By" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Has_Children" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Banner" Relationship="CONNEX_Model.FK_Pages_Banners1" FromRole="Pages" ToRole="Banners" />
+          <NavigationProperty Name="PageAdminAssigns" Relationship="CONNEX_Model.FK_PageAdminAssign_Pages" FromRole="Pages" ToRole="PageAdminAssign" />
+          <NavigationProperty Name="PageCalenderAssigns" Relationship="CONNEX_Model.FK_PageCalenderAssign_Pages" FromRole="Pages" ToRole="PageCalenderAssign" />
+          <NavigationProperty Name="PageCollectionAssigns" Relationship="CONNEX_Model.FK_PageCollectionAssign_Pages" FromRole="Pages" ToRole="PageCollectionAssign" />
+          <NavigationProperty Name="PageGalleryAssigns" Relationship="CONNEX_Model.FK_PageGalleryAssign_Pages" FromRole="Pages" ToRole="PageGalleryAssign" />
+          <NavigationProperty Name="PageLibraryAssigns" Relationship="CONNEX_Model.FK_PageLibraryAssign_Pages" FromRole="Pages" ToRole="PageLibraryAssign" />
+          <NavigationProperty Name="PageVideoGalleryAssigns" Relationship="CONNEX_Model.FK_PageVideoGalleryAssign_Pages" FromRole="Pages" ToRole="PageVideoGalleryAssign" />
+          <Property Type="DateTime" Name="Date_Added" Precision="3" />
+          <Property Type="String" Name="Added_By" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Sequence_No" Nullable="false" />
+          <Property Type="Boolean" Name="Display_In_Menu" Nullable="false" />
+          <Property Type="Boolean" Name="Redirect" Nullable="false" />
+          <Property Type="String" Name="Redirect_URL" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="Allow_Feedback" Nullable="false" />
+          <NavigationProperty Name="Feedbacks" Relationship="CONNEX_Model.FK_Feedback_Pages" FromRole="Page" ToRole="Feedback" />
+          <NavigationProperty Name="PageQuickLinkListsAssigns" Relationship="CONNEX_Model.FK_PageQuickLinkListsAssign_Pages" FromRole="Page" ToRole="PageQuickLinkListsAssign" />
+          <NavigationProperty Name="PageRecipientAssigns" Relationship="CONNEX_Model.FK_PageRecipientAssign_Pages" FromRole="Page" ToRole="PageRecipientAssign" />
+        </EntityType>
+        <EntityType Name="PageVideoGalleryAssign">
+          <Key>
+            <PropertyRef Name="Page_ID" />
+            <PropertyRef Name="Video_Gallery_ID" />
+          </Key>
+          <Property Name="Page_ID" Type="Int32" Nullable="false" />
+          <Property Name="Video_Gallery_ID" Type="Int32" Nullable="false" />
+          <Property Name="Date_Added" Type="DateTime" Precision="3" />
+          <Property Name="Added_By" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Date_Archive" Type="DateTime" Precision="3" />
+          <Property Name="Archive_By" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Archived" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Page" Relationship="CONNEX_Model.FK_PageVideoGalleryAssign_Pages" FromRole="PageVideoGalleryAssign" ToRole="Pages" />
+          <NavigationProperty Name="VideoGallery" Relationship="CONNEX_Model.FK_PageVideoGalleryAssign_VideoGalleries" FromRole="PageVideoGalleryAssign" ToRole="VideoGalleries" />
+        </EntityType>
+        <EntityType Name="Photo">
+          <Key>
+            <PropertyRef Name="Photo_ID" />
+          </Key>
+          <Property Name="Photo_ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="File_Path" Type="String" MaxLength="255" Unicode="true" FixedLength="false" Nullable="false" />
+          <Property Name="Thumb_Path" Type="String" MaxLength="255" Unicode="true" FixedLength="false" Nullable="false" />
+          <Property Name="Date_Added" Type="DateTime" Precision="3" />
+          <Property Name="Added_By" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Date_Archive" Type="DateTime" Precision="3" />
+          <Property Name="Archive_By" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Archived" Type="Boolean" Nullable="false" />
+          <Property Name="Gallery_ID" Type="Int32" />
+          <NavigationProperty Name="Gallery" Relationship="CONNEX_Model.FK_Photos_Galleries" FromRole="Photos" ToRole="Galleries" />
+        </EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="Post_ID" />
+          </Key>
+          <Property Name="Post_ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Header" Type="String" MaxLength="255" Unicode="true" FixedLength="false" Nullable="false" />
+          <Property Name="Thumb_Path" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Collection_ID" Type="Int32" Nullable="false" />
+          <Property Name="Date_Added" Type="DateTime" Precision="3" />
+          <Property Name="Added_By" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Date_Archive" Type="DateTime" Precision="3" />
+          <Property Name="Archive_By" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Last_Updated" Type="DateTime" Precision="3" />
+          <Property Name="Updated_By" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Archived" Type="Boolean" Nullable="false" />
+          <Property Name="Summary" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Comments" Relationship="CONNEX_Model.FK_Comments_Posts" FromRole="Posts" ToRole="Comments" />
+          <NavigationProperty Name="Sections" Relationship="CONNEX_Model.FK_Sections_Posts" FromRole="Posts" ToRole="Sections" />
+          <NavigationProperty Name="Collection" Relationship="CONNEX_Model.FK_Posts_Collections" FromRole="Post" ToRole="Collection" />
+          <Property Type="Boolean" Name="Allow_Comments" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Section">
+          <Key>
+            <PropertyRef Name="Section_ID" />
+          </Key>
+          <Property Name="Section_ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Sub_Header" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Text_Block" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Post_ID" Type="Int32" />
+          <Property Name="Media_Path" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Media_Width_Mode_ID" Type="Int32" />
+          <Property Name="Hyperlink" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Media_Type_ID" Type="Int32" />
+          <NavigationProperty Name="MediaType" Relationship="CONNEX_Model.FK_Sections_MediaTypes" FromRole="Sections" ToRole="MediaTypes" />
+          <NavigationProperty Name="Post" Relationship="CONNEX_Model.FK_Sections_Posts" FromRole="Sections" ToRole="Posts" />
+          <NavigationProperty Name="WidthMode" Relationship="CONNEX_Model.FK_Sections_WidthModes1" FromRole="Sections" ToRole="WidthModes" />
+          <Property Type="String" Name="Hyperlink_Text" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="VideoGallery">
+          <Key>
+            <PropertyRef Name="Video_Gallery_ID" />
+          </Key>
+          <Property Name="Video_Gallery_ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Gallery_Name" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Date_Added" Type="DateTime" Precision="3" />
+          <Property Name="Added_By" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Last_Updated" Type="DateTime" Precision="3" />
+          <Property Name="Updated_By" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Date_Archive" Type="DateTime" Precision="3" />
+          <Property Name="Archive_By" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Archived" Type="Boolean" Nullable="false" />
+          <Property Name="Details" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="PageVideoGalleryAssigns" Relationship="CONNEX_Model.FK_PageVideoGalleryAssign_VideoGalleries" FromRole="VideoGalleries" ToRole="PageVideoGalleryAssign" />
+          <NavigationProperty Name="Videos" Relationship="CONNEX_Model.FK_Videos_VideoGalleries" FromRole="VideoGalleries" ToRole="Videos" />
+        </EntityType>
+        <EntityType Name="Video">
+          <Key>
+            <PropertyRef Name="Video_ID" />
+          </Key>
+          <Property Name="Video_ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="File_Path" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Thumb_Path" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Date_Added" Type="DateTime" Precision="3" />
+          <Property Name="Added_By" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Date_Archive" Type="DateTime" Precision="3" />
+          <Property Name="Archive_By" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Archived" Type="Boolean" Nullable="false" />
+          <Property Name="Video_Gallery_ID" Type="Int32" Nullable="false" />
+          <Property Name="Title_Text" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Caption" Type="String" MaxLength="1000" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="VideoGallery" Relationship="CONNEX_Model.FK_Videos_VideoGalleries" FromRole="Videos" ToRole="VideoGalleries" />
+        </EntityType>
+        <EntityType Name="WidthMode">
+          <Key>
+            <PropertyRef Name="Width_Mode_ID" />
+          </Key>
+          <Property Name="Width_Mode_ID" Type="Int32" Nullable="false" />
+          <Property Name="Width_Mode" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Bootstrap_Class" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Remainder_Class" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Sections" Relationship="CONNEX_Model.FK_Sections_WidthModes1" FromRole="WidthModes" ToRole="Sections" />
+          <NavigationProperty Name="Collections" Relationship="CONNEX_Model.FK_Collections_WidthModes" FromRole="WidthMode" ToRole="Collection" />
+        </EntityType>
+        <Association Name="FK_PageAdminAssign_Admins">
+          <End Role="Admins" Type="CONNEX_Model.Admin" Multiplicity="1" />
+          <End Role="PageAdminAssign" Type="CONNEX_Model.PageAdminAssign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Admins">
+              <PropertyRef Name="Admin_ID" />
+            </Principal>
+            <Dependent Role="PageAdminAssign">
+              <PropertyRef Name="Admin_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pages_Banners1">
+          <End Role="Banners" Type="CONNEX_Model.Banner" Multiplicity="0..1" />
+          <End Role="Pages" Type="CONNEX_Model.Page" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Banners">
+              <PropertyRef Name="Banner_ID" />
+            </Principal>
+            <Dependent Role="Pages">
+              <PropertyRef Name="Banner_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PageCalenderAssign_Calenders">
+          <End Role="Calenders" Type="CONNEX_Model.Calender" Multiplicity="1" />
+          <End Role="PageCalenderAssign" Type="CONNEX_Model.PageCalenderAssign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Calenders">
+              <PropertyRef Name="Calender_ID" />
+            </Principal>
+            <Dependent Role="PageCalenderAssign">
+              <PropertyRef Name="Calender_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comments_Posts">
+          <End Role="Posts" Type="CONNEX_Model.Post" Multiplicity="0..1" />
+          <End Role="Comments" Type="CONNEX_Model.Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Posts">
+              <PropertyRef Name="Post_ID" />
+            </Principal>
+            <Dependent Role="Comments">
+              <PropertyRef Name="Post_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Documents_DocumentTypes">
+          <End Role="DocumentTypes" Type="CONNEX_Model.DocumentType" Multiplicity="1" />
+          <End Role="Documents" Type="CONNEX_Model.Document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DocumentTypes">
+              <PropertyRef Name="Document_Type_ID" />
+            </Principal>
+            <Dependent Role="Documents">
+              <PropertyRef Name="Document_Type_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Documents_Libraries">
+          <End Role="Libraries" Type="CONNEX_Model.Library" Multiplicity="0..1" />
+          <End Role="Documents" Type="CONNEX_Model.Document" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Libraries">
+              <PropertyRef Name="Library_ID" />
+            </Principal>
+            <Dependent Role="Documents">
+              <PropertyRef Name="Library_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PageGalleryAssign_Galleries">
+          <End Role="Galleries" Type="CONNEX_Model.Gallery" Multiplicity="1" />
+          <End Role="PageGalleryAssign" Type="CONNEX_Model.PageGalleryAssign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Galleries">
+              <PropertyRef Name="Gallery_ID" />
+            </Principal>
+            <Dependent Role="PageGalleryAssign">
+              <PropertyRef Name="Gallery_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Photos_Galleries">
+          <End Role="Galleries" Type="CONNEX_Model.Gallery" Multiplicity="0..1" />
+          <End Role="Photos" Type="CONNEX_Model.Photo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Galleries">
+              <PropertyRef Name="Gallery_ID" />
+            </Principal>
+            <Dependent Role="Photos">
+              <PropertyRef Name="Gallery_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PageLibraryAssign_Libraries">
+          <End Role="Libraries" Type="CONNEX_Model.Library" Multiplicity="1" />
+          <End Role="PageLibraryAssign" Type="CONNEX_Model.PageLibraryAssign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Libraries">
+              <PropertyRef Name="Library_ID" />
+            </Principal>
+            <Dependent Role="PageLibraryAssign">
+              <PropertyRef Name="Library_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sections_MediaTypes">
+          <End Role="MediaTypes" Type="CONNEX_Model.MediaType" Multiplicity="0..1" />
+          <End Role="Sections" Type="CONNEX_Model.Section" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MediaTypes">
+              <PropertyRef Name="Media_Type_ID" />
+            </Principal>
+            <Dependent Role="Sections">
+              <PropertyRef Name="Media_Type_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PageAdminAssign_Pages">
+          <End Role="Pages" Type="CONNEX_Model.Page" Multiplicity="1" />
+          <End Role="PageAdminAssign" Type="CONNEX_Model.PageAdminAssign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pages">
+              <PropertyRef Name="Page_ID" />
+            </Principal>
+            <Dependent Role="PageAdminAssign">
+              <PropertyRef Name="Page_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PageCalenderAssign_Pages">
+          <End Role="Pages" Type="CONNEX_Model.Page" Multiplicity="1" />
+          <End Role="PageCalenderAssign" Type="CONNEX_Model.PageCalenderAssign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pages">
+              <PropertyRef Name="Page_ID" />
+            </Principal>
+            <Dependent Role="PageCalenderAssign">
+              <PropertyRef Name="Page_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PageCollectionAssign_Pages">
+          <End Role="Pages" Type="CONNEX_Model.Page" Multiplicity="1" />
+          <End Role="PageCollectionAssign" Type="CONNEX_Model.PageCollectionAssign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pages">
+              <PropertyRef Name="Page_ID" />
+            </Principal>
+            <Dependent Role="PageCollectionAssign">
+              <PropertyRef Name="Page_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PageGalleryAssign_Pages">
+          <End Role="Pages" Type="CONNEX_Model.Page" Multiplicity="1" />
+          <End Role="PageGalleryAssign" Type="CONNEX_Model.PageGalleryAssign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pages">
+              <PropertyRef Name="Page_ID" />
+            </Principal>
+            <Dependent Role="PageGalleryAssign">
+              <PropertyRef Name="Page_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PageLibraryAssign_Pages">
+          <End Role="Pages" Type="CONNEX_Model.Page" Multiplicity="1" />
+          <End Role="PageLibraryAssign" Type="CONNEX_Model.PageLibraryAssign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pages">
+              <PropertyRef Name="Page_ID" />
+            </Principal>
+            <Dependent Role="PageLibraryAssign">
+              <PropertyRef Name="Page_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PageVideoGalleryAssign_Pages">
+          <End Role="Pages" Type="CONNEX_Model.Page" Multiplicity="1" />
+          <End Role="PageVideoGalleryAssign" Type="CONNEX_Model.PageVideoGalleryAssign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pages">
+              <PropertyRef Name="Page_ID" />
+            </Principal>
+            <Dependent Role="PageVideoGalleryAssign">
+              <PropertyRef Name="Page_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PageVideoGalleryAssign_VideoGalleries">
+          <End Role="VideoGalleries" Type="CONNEX_Model.VideoGallery" Multiplicity="1" />
+          <End Role="PageVideoGalleryAssign" Type="CONNEX_Model.PageVideoGalleryAssign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VideoGalleries">
+              <PropertyRef Name="Video_Gallery_ID" />
+            </Principal>
+            <Dependent Role="PageVideoGalleryAssign">
+              <PropertyRef Name="Video_Gallery_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sections_Posts">
+          <End Role="Posts" Type="CONNEX_Model.Post" Multiplicity="0..1" />
+          <End Role="Sections" Type="CONNEX_Model.Section" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Posts">
+              <PropertyRef Name="Post_ID" />
+            </Principal>
+            <Dependent Role="Sections">
+              <PropertyRef Name="Post_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sections_WidthModes1">
+          <End Role="WidthModes" Type="CONNEX_Model.WidthMode" Multiplicity="0..1" />
+          <End Role="Sections" Type="CONNEX_Model.Section" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WidthModes">
+              <PropertyRef Name="Width_Mode_ID" />
+            </Principal>
+            <Dependent Role="Sections">
+              <PropertyRef Name="Media_Width_Mode_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Videos_VideoGalleries">
+          <End Role="VideoGalleries" Type="CONNEX_Model.VideoGallery" Multiplicity="1" />
+          <End Role="Videos" Type="CONNEX_Model.Video" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VideoGalleries">
+              <PropertyRef Name="Video_Gallery_ID" />
+            </Principal>
+            <Dependent Role="Videos">
+              <PropertyRef Name="Video_Gallery_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Collection">
+          <Key>
+            <PropertyRef Name="Collection_ID" />
+          </Key>
+          <Property Type="Int32" Name="Collection_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Collection_Title" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Collection_Description" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Width_Mode_ID" />
+          <Property Type="Int32" Name="Display_Mode_ID" Nullable="false" />
+          <Property Type="Boolean" Name="Archived" Nullable="false" />
+          <NavigationProperty Name="CollectionsDisplayMode" Relationship="CONNEX_Model.FK_Collections_CollectionsDisplayModes" FromRole="Collection" ToRole="CollectionsDisplayMode" />
+          <NavigationProperty Name="CollectionsWidthMode" Relationship="CONNEX_Model.FK_Collections_CollectionsWidthModes" FromRole="Collection" ToRole="CollectionsWidthMode" />
+          <NavigationProperty Name="WidthMode" Relationship="CONNEX_Model.FK_Collections_WidthModes" FromRole="Collection" ToRole="WidthMode" />
+          <NavigationProperty Name="PageCollectionAssigns" Relationship="CONNEX_Model.FK_PageCollectionAssign_Collections" FromRole="Collection" ToRole="PageCollectionAssign" />
+          <NavigationProperty Name="Posts" Relationship="CONNEX_Model.FK_Posts_Collections" FromRole="Collection" ToRole="Post" />
+        </EntityType>
+        <Association Name="FK_Collections_CollectionsDisplayModes">
+          <End Type="CONNEX_Model.CollectionsDisplayMode" Role="CollectionsDisplayMode" Multiplicity="1" />
+          <End Type="CONNEX_Model.Collection" Role="Collection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CollectionsDisplayMode">
+              <PropertyRef Name="Display_Mode_ID" />
+            </Principal>
+            <Dependent Role="Collection">
+              <PropertyRef Name="Display_Mode_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Collections_CollectionsWidthModes">
+          <End Type="CONNEX_Model.CollectionsWidthMode" Role="CollectionsWidthMode" Multiplicity="0..1" />
+          <End Type="CONNEX_Model.Collection" Role="Collection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CollectionsWidthMode">
+              <PropertyRef Name="Width_Mode_ID" />
+            </Principal>
+            <Dependent Role="Collection">
+              <PropertyRef Name="Width_Mode_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Collections_WidthModes">
+          <End Type="CONNEX_Model.WidthMode" Role="WidthMode" Multiplicity="0..1" />
+          <End Type="CONNEX_Model.Collection" Role="Collection" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WidthMode">
+              <PropertyRef Name="Width_Mode_ID" />
+            </Principal>
+            <Dependent Role="Collection">
+              <PropertyRef Name="Width_Mode_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PageCollectionAssign_Collections">
+          <End Type="CONNEX_Model.Collection" Role="Collection" Multiplicity="1" />
+          <End Type="CONNEX_Model.PageCollectionAssign" Role="PageCollectionAssign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Collection">
+              <PropertyRef Name="Collection_ID" />
+            </Principal>
+            <Dependent Role="PageCollectionAssign">
+              <PropertyRef Name="Collection_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Posts_Collections">
+          <End Type="CONNEX_Model.Collection" Role="Collection" Multiplicity="1" />
+          <End Type="CONNEX_Model.Post" Role="Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Collection">
+              <PropertyRef Name="Collection_ID" />
+            </Principal>
+            <Dependent Role="Post">
+              <PropertyRef Name="Collection_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="Event_ID" />
+          </Key>
+          <Property Type="Int32" Name="Event_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Event_Name" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Thumb_Path" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Image_Path" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Calender_ID" Nullable="false" />
+          <Property Type="DateTime" Name="Date_Added" Precision="3" />
+          <Property Type="String" Name="Added_By" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Last_Updated" Precision="3" />
+          <Property Type="String" Name="Updated_By" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Date_Archive" Precision="3" />
+          <Property Type="String" Name="Archive_By" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="Archived" Nullable="false" />
+          <Property Type="DateTime" Name="Start_Date_Time" Precision="3" Nullable="false" />
+          <Property Type="DateTime" Name="End_Date_Time" Precision="3" Nullable="false" />
+          <Property Type="String" Name="Location" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Calender" Relationship="CONNEX_Model.FK_Events_Calenders" FromRole="Event" ToRole="Calender" />
+        </EntityType>
+        <Association Name="FK_Events_Calenders">
+          <End Type="CONNEX_Model.Calender" Role="Calender" Multiplicity="1" />
+          <End Type="CONNEX_Model.Event" Role="Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Calender">
+              <PropertyRef Name="Calender_ID" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="Calender_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Role_ID" />
+          </Key>
+          <Property Type="Int32" Name="Role_ID" Nullable="false" />
+          <Property Type="String" Name="Role1" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Admins" Relationship="CONNEX_Model.AdminRoleAssign" FromRole="Role" ToRole="Admin" />
+        </EntityType>
+        <Association Name="AdminRoleAssign">
+          <End Type="CONNEX_Model.Admin" Role="Admin" Multiplicity="*" />
+          <End Type="CONNEX_Model.Role" Role="Role" Multiplicity="*" />
+        </Association>
+        <EntityType Name="BannerElement">
+          <Key>
+            <PropertyRef Name="Element_ID" />
+          </Key>
+          <Property Type="Int32" Name="Element_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Header_Text" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Image_Path" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Summary" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Content_ID" />
+          <Property Type="DateTime" Name="Date_Added" Precision="3" />
+          <Property Type="DateTime" Name="Date_Archive" Precision="3" />
+          <Property Type="String" Name="Archive_By" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="Archived" Nullable="false" />
+          <Property Type="Int32" Name="Banner_ID" Nullable="false" />
+          <Property Type="DateTime" Name="Last_Updated" Precision="3" />
+          <Property Type="String" Name="Updated_By" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Added_By" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Content_Type_ID" />
+          <NavigationProperty Name="Banner" Relationship="CONNEX_Model.FK_BannerElements_Banners" FromRole="BannerElement" ToRole="Banner" />
+          <NavigationProperty Name="ContentType" Relationship="CONNEX_Model.FK_BannerElements_ContentTypes" FromRole="BannerElement" ToRole="ContentType" />
+        </EntityType>
+        <Association Name="FK_BannerElements_Banners">
+          <End Type="CONNEX_Model.Banner" Role="Banner" Multiplicity="1" />
+          <End Type="CONNEX_Model.BannerElement" Role="BannerElement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Banner">
+              <PropertyRef Name="Banner_ID" />
+            </Principal>
+            <Dependent Role="BannerElement">
+              <PropertyRef Name="Banner_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BannerElements_ContentTypes">
+          <End Type="CONNEX_Model.ContentType" Role="ContentType" Multiplicity="0..1" />
+          <End Type="CONNEX_Model.BannerElement" Role="BannerElement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContentType">
+              <PropertyRef Name="Content_Type_ID" />
+            </Principal>
+            <Dependent Role="BannerElement">
+              <PropertyRef Name="Content_Type_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Feedback">
+          <Key>
+            <PropertyRef Name="Feedback_ID" />
+          </Key>
+          <Property Type="Int32" Name="Feedback_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Feedback_Details" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Date_Submitted" Nullable="false" Precision="3" />
+          <Property Type="Int32" Name="Page_ID" Nullable="false" />
+          <NavigationProperty Name="Page" Relationship="CONNEX_Model.FK_Feedback_Pages" FromRole="Feedback" ToRole="Page" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PageQuickLinkListsAssign">
+          <Key>
+            <PropertyRef Name="Link_List_ID" />
+            <PropertyRef Name="Page_ID" />
+          </Key>
+          <Property Type="Int32" Name="Link_List_ID" Nullable="false" />
+          <Property Type="Int32" Name="Page_ID" Nullable="false" />
+          <Property Type="Boolean" Name="Archived" Nullable="false" />
+          <Property Type="DateTime" Name="Date_Archived" Precision="3" />
+          <Property Type="String" Name="Archived_By" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Date_Added" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Added_By" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Page" Relationship="CONNEX_Model.FK_PageQuickLinkListsAssign_Pages" FromRole="PageQuickLinkListsAssign" ToRole="Page" />
+          <NavigationProperty Name="QuickLinkList" Relationship="CONNEX_Model.FK_PageQuickLinkListsAssign_QuickLinkLists" FromRole="PageQuickLinkListsAssign" ToRole="QuickLinkList" />
+        </EntityType>
+        <EntityType Name="QuickLinkList">
+          <Key>
+            <PropertyRef Name="Link_List_ID" />
+          </Key>
+          <Property Type="Int32" Name="Link_List_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Date_Created" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Created_By" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Date_Archived" Precision="3" />
+          <Property Type="String" Name="Archived_By" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="Archived" Nullable="false" />
+          <NavigationProperty Name="PageQuickLinkListsAssigns" Relationship="CONNEX_Model.FK_PageQuickLinkListsAssign_QuickLinkLists" FromRole="QuickLinkList" ToRole="PageQuickLinkListsAssign" />
+          <NavigationProperty Name="QuickLinks" Relationship="CONNEX_Model.FK_Quick_Links_QuickLinkLists" FromRole="QuickLinkList" ToRole="QuickLink" />
+        </EntityType>
+        <EntityType Name="QuickLink">
+          <Key>
+            <PropertyRef Name="Quick_Link_ID" />
+          </Key>
+          <Property Type="Int32" Name="Quick_Link_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="URL" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Display_Text" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Date_Added" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Added_By" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Date_Archived" Precision="3" />
+          <Property Type="String" Name="Archived_By" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="Archived" Nullable="false" />
+          <Property Type="Int32" Name="Link_List_ID" Nullable="false" />
+          <NavigationProperty Name="QuickLinkList" Relationship="CONNEX_Model.FK_Quick_Links_QuickLinkLists" FromRole="QuickLink" ToRole="QuickLinkList" />
+        </EntityType>
+        <Association Name="FK_Feedback_Pages">
+          <End Type="CONNEX_Model.Page" Role="Page" Multiplicity="1" />
+          <End Type="CONNEX_Model.Feedback" Role="Feedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Page">
+              <PropertyRef Name="Page_ID" />
+            </Principal>
+            <Dependent Role="Feedback">
+              <PropertyRef Name="Page_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PageQuickLinkListsAssign_Pages">
+          <End Type="CONNEX_Model.Page" Role="Page" Multiplicity="1" />
+          <End Type="CONNEX_Model.PageQuickLinkListsAssign" Role="PageQuickLinkListsAssign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Page">
+              <PropertyRef Name="Page_ID" />
+            </Principal>
+            <Dependent Role="PageQuickLinkListsAssign">
+              <PropertyRef Name="Page_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PageQuickLinkListsAssign_QuickLinkLists">
+          <End Type="CONNEX_Model.QuickLinkList" Role="QuickLinkList" Multiplicity="1" />
+          <End Type="CONNEX_Model.PageQuickLinkListsAssign" Role="PageQuickLinkListsAssign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QuickLinkList">
+              <PropertyRef Name="Link_List_ID" />
+            </Principal>
+            <Dependent Role="PageQuickLinkListsAssign">
+              <PropertyRef Name="Link_List_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Quick_Links_QuickLinkLists">
+          <End Type="CONNEX_Model.QuickLinkList" Role="QuickLinkList" Multiplicity="1" />
+          <End Type="CONNEX_Model.QuickLink" Role="QuickLink" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QuickLinkList">
+              <PropertyRef Name="Link_List_ID" />
+            </Principal>
+            <Dependent Role="QuickLink">
+              <PropertyRef Name="Link_List_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="NotificationRecipent">
+          <Key>
+            <PropertyRef Name="Recipient_ID" />
+          </Key>
+          <Property Type="Int32" Name="Recipient_ID" Nullable="false" />
+          <Property Type="String" Name="Recipient_Name" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Recipient_Email" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Date_Added" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Added_By" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="PageRecipientAssigns" Relationship="CONNEX_Model.FK_PageRecipientAssign_NotificationRecipents" FromRole="NotificationRecipent" ToRole="PageRecipientAssign" />
+        </EntityType>
+        <EntityType Name="PageRecipientAssign">
+          <Key>
+            <PropertyRef Name="Recipient_ID" />
+            <PropertyRef Name="Page_ID" />
+          </Key>
+          <Property Type="Int32" Name="Recipient_ID" Nullable="false" />
+          <Property Type="Int32" Name="Page_ID" Nullable="false" />
+          <Property Type="DateTime" Name="Date_Added" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Added_By" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="NotificationRecipent" Relationship="CONNEX_Model.FK_PageRecipientAssign_NotificationRecipents" FromRole="PageRecipientAssign" ToRole="NotificationRecipent" />
+          <NavigationProperty Name="Page" Relationship="CONNEX_Model.FK_PageRecipientAssign_Pages" FromRole="PageRecipientAssign" ToRole="Page" />
+        </EntityType>
+        <Association Name="FK_PageRecipientAssign_NotificationRecipents">
+          <End Type="CONNEX_Model.NotificationRecipent" Role="NotificationRecipent" Multiplicity="1" />
+          <End Type="CONNEX_Model.PageRecipientAssign" Role="PageRecipientAssign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NotificationRecipent">
+              <PropertyRef Name="Recipient_ID" />
+            </Principal>
+            <Dependent Role="PageRecipientAssign">
+              <PropertyRef Name="Recipient_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PageRecipientAssign_Pages">
+          <End Type="CONNEX_Model.Page" Role="Page" Multiplicity="1" />
+          <End Type="CONNEX_Model.PageRecipientAssign" Role="PageRecipientAssign" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Page">
+              <PropertyRef Name="Page_ID" />
+            </Principal>
+            <Dependent Role="PageRecipientAssign">
+              <PropertyRef Name="Page_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CONNEX_ModelStoreContainer" CdmEntityContainer="CONNEXDBEntities">
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="CONNEX_Model.Admin">
+              <MappingFragment StoreEntitySet="Admins">
+                <ScalarProperty Name="Admin_ID" ColumnName="Admin_ID" />
+                <ScalarProperty Name="Network_ID" ColumnName="Network_ID" />
+                <ScalarProperty Name="Full_Name" ColumnName="Full_Name" />
+                <ScalarProperty Name="Date_Added" ColumnName="Date_Added" />
+                <ScalarProperty Name="Added_By" ColumnName="Added_By" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Banners">
+            <EntityTypeMapping TypeName="CONNEX_Model.Banner">
+              <MappingFragment StoreEntitySet="Banners">
+                <ScalarProperty Name="Banner_ID" ColumnName="Banner_ID" />
+                <ScalarProperty Name="Banner_Name" ColumnName="Banner_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Calenders">
+            <EntityTypeMapping TypeName="CONNEX_Model.Calender">
+              <MappingFragment StoreEntitySet="Calenders">
+                <ScalarProperty Name="Calender_ID" ColumnName="Calender_ID" />
+                <ScalarProperty Name="Calender_Name" ColumnName="Calender_Name" />
+                <ScalarProperty Name="Date_Added" ColumnName="Date_Added" />
+                <ScalarProperty Name="Added_By" ColumnName="Added_By" />
+                <ScalarProperty Name="Last_Updated" ColumnName="Last_Updated" />
+                <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
+                <ScalarProperty Name="Date_Archived" ColumnName="Date_Archived" />
+                <ScalarProperty Name="Archived_By" ColumnName="Archived_By" />
+                <ScalarProperty Name="Archived" ColumnName="Archived" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CollectionsDisplayModes">
+            <EntityTypeMapping TypeName="CONNEX_Model.CollectionsDisplayMode">
+              <MappingFragment StoreEntitySet="CollectionsDisplayModes">
+                <ScalarProperty Name="Display_Mode_ID" ColumnName="Display_Mode_ID" />
+                <ScalarProperty Name="Display_Mode" ColumnName="Display_Mode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CollectionsWidthModes">
+            <EntityTypeMapping TypeName="CONNEX_Model.CollectionsWidthMode">
+              <MappingFragment StoreEntitySet="CollectionsWidthModes">
+                <ScalarProperty Name="Width_Mode_ID" ColumnName="Width_Mode_ID" />
+                <ScalarProperty Name="Width_Mode" ColumnName="Width_Mode" />
+                <ScalarProperty Name="Percentage" ColumnName="Percentage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Comments">
+            <EntityTypeMapping TypeName="CONNEX_Model.Comment">
+              <MappingFragment StoreEntitySet="Comments">
+                <ScalarProperty Name="Comment_ID" ColumnName="Comment_ID" />
+                <ScalarProperty Name="Comment1" ColumnName="Comment1" />
+                <ScalarProperty Name="Submitted_By" ColumnName="Submitted_By" />
+                <ScalarProperty Name="Date_Submitted" ColumnName="Date_Submitted" />
+                <ScalarProperty Name="Post_ID" ColumnName="Post_ID" />
+                <ScalarProperty Name="Date_Archive" ColumnName="Date_Archive" />
+                <ScalarProperty Name="Archive_By" ColumnName="Archive_By" />
+                <ScalarProperty Name="Archived" ColumnName="Archived" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContentTypes">
+            <EntityTypeMapping TypeName="CONNEX_Model.ContentType">
+              <MappingFragment StoreEntitySet="ContentTypes">
+                <ScalarProperty Name="Content_Type_ID" ColumnName="Content_Type_ID" />
+                <ScalarProperty Name="Content_Type" ColumnName="Content_Type" />
+                <ScalarProperty Name="Display_Text" ColumnName="Display_Text" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Documents">
+            <EntityTypeMapping TypeName="CONNEX_Model.Document">
+              <MappingFragment StoreEntitySet="Documents">
+                <ScalarProperty Name="Document_ID" ColumnName="Document_ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="Library_ID" ColumnName="Library_ID" />
+                <ScalarProperty Name="Date_Added" ColumnName="Date_Added" />
+                <ScalarProperty Name="Added_By" ColumnName="Added_By" />
+                <ScalarProperty Name="Date_Archive" ColumnName="Date_Archive" />
+                <ScalarProperty Name="Archive_By" ColumnName="Archive_By" />
+                <ScalarProperty Name="Archived" ColumnName="Archived" />
+                <ScalarProperty Name="Document_Type_ID" ColumnName="Document_Type_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DocumentTypes">
+            <EntityTypeMapping TypeName="CONNEX_Model.DocumentType">
+              <MappingFragment StoreEntitySet="DocumentTypes">
+                <ScalarProperty Name="Document_Type_ID" ColumnName="Document_Type_ID" />
+                <ScalarProperty Name="Content_Type" ColumnName="Content_Type" />
+                <ScalarProperty Name="Extension" ColumnName="Extension" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Galleries">
+            <EntityTypeMapping TypeName="CONNEX_Model.Gallery">
+              <MappingFragment StoreEntitySet="Galleries">
+                <ScalarProperty Name="Gallery_ID" ColumnName="Gallery_ID" />
+                <ScalarProperty Name="Gallery_Name" ColumnName="Gallery_Name" />
+                <ScalarProperty Name="Date_Added" ColumnName="Date_Added" />
+                <ScalarProperty Name="Added_By" ColumnName="Added_By" />
+                <ScalarProperty Name="Last_Updated" ColumnName="Last_Updated" />
+                <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
+                <ScalarProperty Name="Date_Archive" ColumnName="Date_Archive" />
+                <ScalarProperty Name="Archive_By" ColumnName="Archive_By" />
+                <ScalarProperty Name="Archived" ColumnName="Archived" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Libraries">
+            <EntityTypeMapping TypeName="CONNEX_Model.Library">
+              <MappingFragment StoreEntitySet="Libraries">
+                <ScalarProperty Name="Library_ID" ColumnName="Library_ID" />
+                <ScalarProperty Name="Library_Name" ColumnName="Library_Name" />
+                <ScalarProperty Name="Date_Added" ColumnName="Date_Added" />
+                <ScalarProperty Name="Added_By" ColumnName="Added_By" />
+                <ScalarProperty Name="Date_Archive" ColumnName="Date_Archive" />
+                <ScalarProperty Name="Archive_By" ColumnName="Archive_By" />
+                <ScalarProperty Name="Archived" ColumnName="Archived" />
+                <ScalarProperty Name="Title_Text" ColumnName="Title_Text" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MediaTypes">
+            <EntityTypeMapping TypeName="CONNEX_Model.MediaType">
+              <MappingFragment StoreEntitySet="MediaTypes">
+                <ScalarProperty Name="Media_Type_ID" ColumnName="Media_Type_ID" />
+                <ScalarProperty Name="Media_Types" ColumnName="Media_Types" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PageAdminAssigns">
+            <EntityTypeMapping TypeName="CONNEX_Model.PageAdminAssign">
+              <MappingFragment StoreEntitySet="PageAdminAssign">
+                <ScalarProperty Name="Page_ID" ColumnName="Page_ID" />
+                <ScalarProperty Name="Admin_ID" ColumnName="Admin_ID" />
+                <ScalarProperty Name="Date_Added" ColumnName="Date_Added" />
+                <ScalarProperty Name="Added_By" ColumnName="Added_By" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PageCalenderAssigns">
+            <EntityTypeMapping TypeName="CONNEX_Model.PageCalenderAssign">
+              <MappingFragment StoreEntitySet="PageCalenderAssign">
+                <ScalarProperty Name="Calender_ID" ColumnName="Calender_ID" />
+                <ScalarProperty Name="Page_ID" ColumnName="Page_ID" />
+                <ScalarProperty Name="Date_Added" ColumnName="Date_Added" />
+                <ScalarProperty Name="Added_By" ColumnName="Added_By" />
+                <ScalarProperty Name="Last_Updated" ColumnName="Last_Updated" />
+                <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
+                <ScalarProperty Name="Date_Archive" ColumnName="Date_Archive" />
+                <ScalarProperty Name="Archive_By" ColumnName="Archive_By" />
+                <ScalarProperty Name="Archived" ColumnName="Archived" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PageCollectionAssigns">
+            <EntityTypeMapping TypeName="CONNEX_Model.PageCollectionAssign">
+              <MappingFragment StoreEntitySet="PageCollectionAssign">
+                <ScalarProperty Name="Page_ID" ColumnName="Page_ID" />
+                <ScalarProperty Name="Collection_ID" ColumnName="Collection_ID" />
+                <ScalarProperty Name="Sequence_No" ColumnName="Sequence_No" />
+                <ScalarProperty Name="Date_Added" ColumnName="Date_Added" />
+                <ScalarProperty Name="Added_By" ColumnName="Added_By" />
+                <ScalarProperty Name="Date_Archive" ColumnName="Date_Archive" />
+                <ScalarProperty Name="Archive_By" ColumnName="Archive_By" />
+                <ScalarProperty Name="Last_Updated" ColumnName="Last_Updated" />
+                <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
+                <ScalarProperty Name="Archived" ColumnName="Archived" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PageGalleryAssigns">
+            <EntityTypeMapping TypeName="CONNEX_Model.PageGalleryAssign">
+              <MappingFragment StoreEntitySet="PageGalleryAssign">
+                <ScalarProperty Name="Page_ID" ColumnName="Page_ID" />
+                <ScalarProperty Name="Gallery_ID" ColumnName="Gallery_ID" />
+                <ScalarProperty Name="Added_By" ColumnName="Added_By" />
+                <ScalarProperty Name="Date_Added" ColumnName="Date_Added" />
+                <ScalarProperty Name="Last_Updated" ColumnName="Last_Updated" />
+                <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
+                <ScalarProperty Name="Date_Archive" ColumnName="Date_Archive" />
+                <ScalarProperty Name="Archive_By" ColumnName="Archive_By" />
+                <ScalarProperty Name="Archived" ColumnName="Archived" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PageLibraryAssigns">
+            <EntityTypeMapping TypeName="CONNEX_Model.PageLibraryAssign">
+              <MappingFragment StoreEntitySet="PageLibraryAssign">
+                <ScalarProperty Name="Page_ID" ColumnName="Page_ID" />
+                <ScalarProperty Name="Library_ID" ColumnName="Library_ID" />
+                <ScalarProperty Name="Date_Added" ColumnName="Date_Added" />
+                <ScalarProperty Name="Added_By" ColumnName="Added_By" />
+                <ScalarProperty Name="Date_Archive" ColumnName="Date_Archive" />
+                <ScalarProperty Name="Archive_By" ColumnName="Archive_By" />
+                <ScalarProperty Name="Archived" ColumnName="Archived" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pages">
+            <EntityTypeMapping TypeName="CONNEX_Model.Page">
+              <MappingFragment StoreEntitySet="Pages">
+                <ScalarProperty Name="Allow_Feedback" ColumnName="Allow_Feedback" />
+                <ScalarProperty Name="Redirect_URL" ColumnName="Redirect_URL" />
+                <ScalarProperty Name="Redirect" ColumnName="Redirect" />
+                <ScalarProperty Name="Display_In_Menu" ColumnName="Display_In_Menu" />
+                <ScalarProperty Name="Sequence_No" ColumnName="Sequence_No" />
+                <ScalarProperty Name="Added_By" ColumnName="Added_By" />
+                <ScalarProperty Name="Date_Added" ColumnName="Date_Added" />
+                <ScalarProperty Name="Page_ID" ColumnName="Page_ID" />
+                <ScalarProperty Name="Page_Name" ColumnName="Page_Name" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="Title_Text" ColumnName="Title_Text" />
+                <ScalarProperty Name="Banner_ID" ColumnName="Banner_ID" />
+                <ScalarProperty Name="Is_Default" ColumnName="Is_Default" />
+                <ScalarProperty Name="Parent_Page_ID" ColumnName="Parent_Page_ID" />
+                <ScalarProperty Name="Is_Top" ColumnName="Is_Top" />
+                <ScalarProperty Name="Archived" ColumnName="Archived" />
+                <ScalarProperty Name="Archived_By" ColumnName="Archived_By" />
+                <ScalarProperty Name="Date_Archived" ColumnName="Date_Archived" />
+                <ScalarProperty Name="Date_Modified" ColumnName="Date_Modified" />
+                <ScalarProperty Name="Modified_By" ColumnName="Modified_By" />
+                <ScalarProperty Name="Has_Children" ColumnName="Has_Children" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PageVideoGalleryAssigns">
+            <EntityTypeMapping TypeName="CONNEX_Model.PageVideoGalleryAssign">
+              <MappingFragment StoreEntitySet="PageVideoGalleryAssign">
+                <ScalarProperty Name="Page_ID" ColumnName="Page_ID" />
+                <ScalarProperty Name="Video_Gallery_ID" ColumnName="Video_Gallery_ID" />
+                <ScalarProperty Name="Date_Added" ColumnName="Date_Added" />
+                <ScalarProperty Name="Added_By" ColumnName="Added_By" />
+                <ScalarProperty Name="Date_Archive" ColumnName="Date_Archive" />
+                <ScalarProperty Name="Archive_By" ColumnName="Archive_By" />
+                <ScalarProperty Name="Archived" ColumnName="Archived" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Photos">
+            <EntityTypeMapping TypeName="CONNEX_Model.Photo">
+              <MappingFragment StoreEntitySet="Photos">
+                <ScalarProperty Name="Photo_ID" ColumnName="Photo_ID" />
+                <ScalarProperty Name="File_Path" ColumnName="File_Path" />
+                <ScalarProperty Name="Thumb_Path" ColumnName="Thumb_Path" />
+                <ScalarProperty Name="Date_Added" ColumnName="Date_Added" />
+                <ScalarProperty Name="Added_By" ColumnName="Added_By" />
+                <ScalarProperty Name="Date_Archive" ColumnName="Date_Archive" />
+                <ScalarProperty Name="Archive_By" ColumnName="Archive_By" />
+                <ScalarProperty Name="Archived" ColumnName="Archived" />
+                <ScalarProperty Name="Gallery_ID" ColumnName="Gallery_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Posts">
+            <EntityTypeMapping TypeName="CONNEX_Model.Post">
+              <MappingFragment StoreEntitySet="Posts">
+                <ScalarProperty Name="Allow_Comments" ColumnName="Allow_Comments" />
+                <ScalarProperty Name="Post_ID" ColumnName="Post_ID" />
+                <ScalarProperty Name="Header" ColumnName="Header" />
+                <ScalarProperty Name="Thumb_Path" ColumnName="Thumb_Path" />
+                <ScalarProperty Name="Collection_ID" ColumnName="Collection_ID" />
+                <ScalarProperty Name="Date_Added" ColumnName="Date_Added" />
+                <ScalarProperty Name="Added_By" ColumnName="Added_By" />
+                <ScalarProperty Name="Date_Archive" ColumnName="Date_Archive" />
+                <ScalarProperty Name="Archive_By" ColumnName="Archive_By" />
+                <ScalarProperty Name="Last_Updated" ColumnName="Last_Updated" />
+                <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
+                <ScalarProperty Name="Archived" ColumnName="Archived" />
+                <ScalarProperty Name="Summary" ColumnName="Summary" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sections">
+            <EntityTypeMapping TypeName="CONNEX_Model.Section">
+              <MappingFragment StoreEntitySet="Sections">
+                <ScalarProperty Name="Hyperlink_Text" ColumnName="Hyperlink_Text" />
+                <ScalarProperty Name="Section_ID" ColumnName="Section_ID" />
+                <ScalarProperty Name="Sub_Header" ColumnName="Sub_Header" />
+                <ScalarProperty Name="Text_Block" ColumnName="Text_Block" />
+                <ScalarProperty Name="Post_ID" ColumnName="Post_ID" />
+                <ScalarProperty Name="Media_Path" ColumnName="Media_Path" />
+                <ScalarProperty Name="Media_Width_Mode_ID" ColumnName="Media_Width_Mode_ID" />
+                <ScalarProperty Name="Hyperlink" ColumnName="Hyperlink" />
+                <ScalarProperty Name="Media_Type_ID" ColumnName="Media_Type_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VideoGalleries">
+            <EntityTypeMapping TypeName="CONNEX_Model.VideoGallery">
+              <MappingFragment StoreEntitySet="VideoGalleries">
+                <ScalarProperty Name="Video_Gallery_ID" ColumnName="Video_Gallery_ID" />
+                <ScalarProperty Name="Gallery_Name" ColumnName="Gallery_Name" />
+                <ScalarProperty Name="Date_Added" ColumnName="Date_Added" />
+                <ScalarProperty Name="Added_By" ColumnName="Added_By" />
+                <ScalarProperty Name="Last_Updated" ColumnName="Last_Updated" />
+                <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
+                <ScalarProperty Name="Date_Archive" ColumnName="Date_Archive" />
+                <ScalarProperty Name="Archive_By" ColumnName="Archive_By" />
+                <ScalarProperty Name="Archived" ColumnName="Archived" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Videos">
+            <EntityTypeMapping TypeName="CONNEX_Model.Video">
+              <MappingFragment StoreEntitySet="Videos">
+                <ScalarProperty Name="Video_ID" ColumnName="Video_ID" />
+                <ScalarProperty Name="File_Path" ColumnName="File_Path" />
+                <ScalarProperty Name="Thumb_Path" ColumnName="Thumb_Path" />
+                <ScalarProperty Name="Date_Added" ColumnName="Date_Added" />
+                <ScalarProperty Name="Added_By" ColumnName="Added_By" />
+                <ScalarProperty Name="Date_Archive" ColumnName="Date_Archive" />
+                <ScalarProperty Name="Archive_By" ColumnName="Archive_By" />
+                <ScalarProperty Name="Archived" ColumnName="Archived" />
+                <ScalarProperty Name="Video_Gallery_ID" ColumnName="Video_Gallery_ID" />
+                <ScalarProperty Name="Title_Text" ColumnName="Title_Text" />
+                <ScalarProperty Name="Caption" ColumnName="Caption" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WidthModes">
+            <EntityTypeMapping TypeName="CONNEX_Model.WidthMode">
+              <MappingFragment StoreEntitySet="WidthModes">
+                <ScalarProperty Name="Width_Mode_ID" ColumnName="Width_Mode_ID" />
+                <ScalarProperty Name="Width_Mode" ColumnName="Width_Mode" />
+                <ScalarProperty Name="Bootstrap_Class" ColumnName="Bootstrap_Class" />
+                <ScalarProperty Name="Remainder_Class" ColumnName="Remainder_Class" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Collections">
+            <EntityTypeMapping TypeName="CONNEX_Model.Collection">
+              <MappingFragment StoreEntitySet="Collections">
+                <ScalarProperty Name="Archived" ColumnName="Archived" />
+                <ScalarProperty Name="Display_Mode_ID" ColumnName="Display_Mode_ID" />
+                <ScalarProperty Name="Width_Mode_ID" ColumnName="Width_Mode_ID" />
+                <ScalarProperty Name="Collection_Description" ColumnName="Collection_Description" />
+                <ScalarProperty Name="Collection_Title" ColumnName="Collection_Title" />
+                <ScalarProperty Name="Collection_ID" ColumnName="Collection_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Events">
+            <EntityTypeMapping TypeName="CONNEX_Model.Event">
+              <MappingFragment StoreEntitySet="Events">
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="End_Date_Time" ColumnName="End_Date_Time" />
+                <ScalarProperty Name="Start_Date_Time" ColumnName="Start_Date_Time" />
+                <ScalarProperty Name="Archived" ColumnName="Archived" />
+                <ScalarProperty Name="Archive_By" ColumnName="Archive_By" />
+                <ScalarProperty Name="Date_Archive" ColumnName="Date_Archive" />
+                <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
+                <ScalarProperty Name="Last_Updated" ColumnName="Last_Updated" />
+                <ScalarProperty Name="Added_By" ColumnName="Added_By" />
+                <ScalarProperty Name="Date_Added" ColumnName="Date_Added" />
+                <ScalarProperty Name="Calender_ID" ColumnName="Calender_ID" />
+                <ScalarProperty Name="Image_Path" ColumnName="Image_Path" />
+                <ScalarProperty Name="Thumb_Path" ColumnName="Thumb_Path" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Event_Name" ColumnName="Event_Name" />
+                <ScalarProperty Name="Event_ID" ColumnName="Event_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="CONNEX_Model.Role">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="Role1" ColumnName="Role" />
+                <ScalarProperty Name="Role_ID" ColumnName="Role_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AdminRoleAssign" TypeName="CONNEX_Model.AdminRoleAssign" StoreEntitySet="AdminRoleAssign">
+            <EndProperty Name="Role">
+              <ScalarProperty Name="Role_ID" ColumnName="Role_ID" />
+            </EndProperty>
+            <EndProperty Name="Admin">
+              <ScalarProperty Name="Admin_ID" ColumnName="Admin_ID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="BannerElements">
+            <EntityTypeMapping TypeName="CONNEX_Model.BannerElement">
+              <MappingFragment StoreEntitySet="BannerElements">
+                <ScalarProperty Name="Content_Type_ID" ColumnName="Content_Type_ID" />
+                <ScalarProperty Name="Added_By" ColumnName="Added_By" />
+                <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
+                <ScalarProperty Name="Last_Updated" ColumnName="Last_Updated" />
+                <ScalarProperty Name="Banner_ID" ColumnName="Banner_ID" />
+                <ScalarProperty Name="Archived" ColumnName="Archived" />
+                <ScalarProperty Name="Archive_By" ColumnName="Archive_By" />
+                <ScalarProperty Name="Date_Archive" ColumnName="Date_Archive" />
+                <ScalarProperty Name="Date_Added" ColumnName="Date_Added" />
+                <ScalarProperty Name="Content_ID" ColumnName="Content_ID" />
+                <ScalarProperty Name="Summary" ColumnName="Summary" />
+                <ScalarProperty Name="Image_Path" ColumnName="Image_Path" />
+                <ScalarProperty Name="Header_Text" ColumnName="Header_Text" />
+                <ScalarProperty Name="Element_ID" ColumnName="Element_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Feedbacks">
+            <EntityTypeMapping TypeName="CONNEX_Model.Feedback">
+              <MappingFragment StoreEntitySet="Feedback">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Page_ID" ColumnName="Page_ID" />
+                <ScalarProperty Name="Date_Submitted" ColumnName="Date_Submitted" />
+                <ScalarProperty Name="Feedback_Details" ColumnName="Feedback_Details" />
+                <ScalarProperty Name="Feedback_ID" ColumnName="Feedback_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PageQuickLinkListsAssigns">
+            <EntityTypeMapping TypeName="CONNEX_Model.PageQuickLinkListsAssign">
+              <MappingFragment StoreEntitySet="PageQuickLinkListsAssign">
+                <ScalarProperty Name="Added_By" ColumnName="Added_By" />
+                <ScalarProperty Name="Date_Added" ColumnName="Date_Added" />
+                <ScalarProperty Name="Archived_By" ColumnName="Archived_By" />
+                <ScalarProperty Name="Date_Archived" ColumnName="Date_Archived" />
+                <ScalarProperty Name="Archived" ColumnName="Archived" />
+                <ScalarProperty Name="Page_ID" ColumnName="Page_ID" />
+                <ScalarProperty Name="Link_List_ID" ColumnName="Link_List_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QuickLinkLists">
+            <EntityTypeMapping TypeName="CONNEX_Model.QuickLinkList">
+              <MappingFragment StoreEntitySet="QuickLinkLists">
+                <ScalarProperty Name="Archived" ColumnName="Archived" />
+                <ScalarProperty Name="Archived_By" ColumnName="Archived_By" />
+                <ScalarProperty Name="Date_Archived" ColumnName="Date_Archived" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Date_Created" ColumnName="Date_Created" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Link_List_ID" ColumnName="Link_List_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QuickLinks">
+            <EntityTypeMapping TypeName="CONNEX_Model.QuickLink">
+              <MappingFragment StoreEntitySet="QuickLinks">
+                <ScalarProperty Name="Link_List_ID" ColumnName="Link_List_ID" />
+                <ScalarProperty Name="Archived" ColumnName="Archived" />
+                <ScalarProperty Name="Archived_By" ColumnName="Archived_By" />
+                <ScalarProperty Name="Date_Archived" ColumnName="Date_Archived" />
+                <ScalarProperty Name="Added_By" ColumnName="Added_By" />
+                <ScalarProperty Name="Date_Added" ColumnName="Date_Added" />
+                <ScalarProperty Name="Display_Text" ColumnName="Display_Text" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="Quick_Link_ID" ColumnName="Quick_Link_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NotificationRecipents">
+            <EntityTypeMapping TypeName="CONNEX_Model.NotificationRecipent">
+              <MappingFragment StoreEntitySet="NotificationRecipents">
+                <ScalarProperty Name="Added_By" ColumnName="Added_By" />
+                <ScalarProperty Name="Date_Added" ColumnName="Date_Added" />
+                <ScalarProperty Name="Recipient_Email" ColumnName="Recipient_Email" />
+                <ScalarProperty Name="Recipient_Name" ColumnName="Recipient_Name" />
+                <ScalarProperty Name="Recipient_ID" ColumnName="Recipient_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PageRecipientAssigns">
+            <EntityTypeMapping TypeName="CONNEX_Model.PageRecipientAssign">
+              <MappingFragment StoreEntitySet="PageRecipientAssign">
+                <ScalarProperty Name="Added_By" ColumnName="Added_By" />
+                <ScalarProperty Name="Date_Added" ColumnName="Date_Added" />
+                <ScalarProperty Name="Page_ID" ColumnName="Page_ID" />
+                <ScalarProperty Name="Recipient_ID" ColumnName="Recipient_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

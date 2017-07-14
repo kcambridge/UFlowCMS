@@ -1,0 +1,16 @@
+﻿@model IEnumerable<connex.Models.Photo>
+
+@{
+    ViewBag.Title = "Multiple file upload with asp.net mvc and HTML5";
+}
+
+@using (Html.BeginForm("Index", "FileUpload", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.Hidden("Page_ID", 2)
+    @Html.Hidden("Gallery_ID", 11)
+    @Html.Hidden("Gallery_Name", "New Upload")
+    <h3>Multiple file upload with asp.net MVCc/MVC3/MVC4/MVC5, C# and HTML5 </h3>
+    <input type="file" name="files" value="" multiple="multiple"/>
+    <input type="submit" value="Upload You Image"  title="Uplad"/>
+    <div style="color:Red;font-size:14px">@Html.Raw(@ViewBag.Message)</div>
+}

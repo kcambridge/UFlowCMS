@@ -1,0 +1,106 @@
+﻿@model connex.ViewModels.QuickLinkListEditViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.Page_ID)
+    
+    <div class="form-horizontal">
+        <h4>Quick Link List</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.Link_List_ID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Name, new {@class="form-control col-md-5"})
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Archived, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Archived)
+                @Html.ValidationMessageFor(model => model.Archived)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save Changes" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Quick Links</h3>
+    </div>
+    <div class="panel-body">
+           @using (Html.BeginForm("AddQuickLink", "QuickLinkLists", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken();
+                @Html.HiddenFor(model => model.Page_ID)
+                @Html.HiddenFor(model => model.Link_List_ID)
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        @Html.Label("Display Text", new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBox("Display_Text", null, new{@class="form-control col-md-5"})
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("URL", new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBox("URL", null, new{@class="form-control col-md-5"})
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <button type="submit" value="Add Quick Link" class="btn btn-default">Add Quick Link</button>
+                        </div>
+                    </div>
+                 </div>
+               }
+
+        <fieldset>  
+            <legend>Quick Links</legend>  
+        </fieldset>
+        <div class="container">
+               @foreach (var link in Model.quickLinks.Where(x => x.Archived == false))
+               {
+                    <div class="row row-trim">
+                             <div class="col-md-12">
+                                  @using (Html.BeginForm("RemoveQuickLink", "QuickLinkLists", FormMethod.Post))
+                                 {
+                                        @Html.AntiForgeryToken()
+                                        @Html.HiddenFor(model => model.Page_ID)
+                                        @Html.HiddenFor(model => model.Link_List_ID)
+                                        @Html.Hidden("Quick_Link_ID", link.Quick_Link_ID)
+                                    <div class="caption">
+                                        <h3>@link.Display_Text</h3>
+                                        
+                                         
+                                        <p><strong>URL:</strong> &nbsp;&nbsp;<a href="@link.URL" target="_blank">@link.URL</a></p>
+                                        <p>
+                                            <button type="submit" class="btn btn-primary" role="button">Remove</button> 
+                                        </p>
+                                    </div>
+                                  }
+                             </div>
+                        </div>
+                        <br />
+                   
+               }
+        </div>
+    </div>
+</div>

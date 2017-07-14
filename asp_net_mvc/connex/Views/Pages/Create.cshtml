@@ -1,0 +1,96 @@
+﻿@model connex.ViewModels.PageCreateViewModel
+
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+
+    });
+</script>
+<h2>Create</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Page</h4>
+        <hr />
+        <span class="text-danger">@Html.ValidationSummary(true)</span>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.pageName,"Page Name", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+               @Html.TextBoxFor(m => m.pageName, new { @class="form-control col-md-5"})
+               @Html.ValidationMessageFor(model => model.pageName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.url, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.url, new { @class="form-control col-md-5"})
+                @Html.ValidationMessageFor(model => model.url)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.displayName,"Display Name", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.displayName, new { @class="form-control col-md-5"})
+                @Html.ValidationMessageFor(model => model.displayName)
+            </div>
+        </div>
+       
+        <div class="form-group">
+           
+            @Html.LabelFor(model => model.parentPageID, "Parent Page", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+               <select class="form-control" id="parentPageID" name="parentPageID">
+                    <option value="None">None</option>
+                    @foreach (var page in Model.availablePages)
+                    {
+                        <option value="@page.Page_ID">@page.Page_Name</option>
+                    }
+                </select>
+            </div>
+            
+            
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.defaultPage,"Default Page", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.CheckBoxFor(m => m.defaultPage, new { @class="form-control"})
+                @Html.ValidationMessageFor(model => model.defaultPage)
+            </div>
+        </div>
+
+         <div class="form-group">
+            @Html.LabelFor(model => model.displayInMenu,"Display In Menu", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.CheckBoxFor(m => m.displayInMenu, new { @class="form-control"})
+                @Html.ValidationMessageFor(model => model.displayInMenu)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

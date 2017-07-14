@@ -1,0 +1,575 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Connex</title>
+    <link rel="stylesheet" href="~/Content/bootstrap.css">
+    <link rel="stylesheet" href="~/Content/animate.css">
+    <link rel="stylesheet" href="~/Content/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Content/slick.css">
+    <link rel="stylesheet" href="~/Scripts/rs-plugin/css/settings.css">
+    <link rel="stylesheet" href="~/Content/freeze.css">
+    <link rel="stylesheet" href="~/Content/jquery-ui.css">
+    <script type="text/javascript" src="~/Scripts/modernizr.custom.32033.js"></script>
+
+
+    <!--*****************CSS For File Upload Plugin**************************-->
+    <link rel="stylesheet" href="~/Content/slimbox2.css" type="text/css" media="screen" />
+    <!-- blueimp Gallery styles -->
+    <link rel="stylesheet" href="~/Content/blueimp-gallery.min.css">
+    <!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
+    <link rel="stylesheet" href="~/Content/jquery.fileupload.css">
+    <link rel="stylesheet" href="~/Content/jquery.fileupload-ui.css">
+    <!-- CSS adjustments for browsers with JavaScript disabled -->
+    <noscript><link rel="stylesheet" href="~/Content/jquery.fileupload-noscript.css"></noscript>
+    <noscript><link rel="stylesheet" href="~/Content/jquery.fileupload-ui-noscript.css"></noscript>
+    <!--**************************************************************************-->
+    <!--***********************CSS for Time Picker********************************-->
+    <link rel="stylesheet" type="text/css" href="~/Content/bootstrap-timepicker.css" />
+    <!--**************************************************************************-->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body style="background-image:url(http://192.168.128.98:91/images/background4.jpg);">
+    <div class="pre-loader">
+        <div class="load-con">
+            <img src="~/images/connex.png" class="animated fadeInDown" alt="">
+            <div class="spinner">
+              <div class="bounce1"></div>
+              <div class="bounce2"></div>
+              <div class="bounce3"></div>
+            </div>
+        </div>
+    </div>
+   
+    <header>
+           
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+               
+                        <div class="navbar-primary">
+                         <div class="form-horizontal">
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                 @using (Html.BeginForm("Index", "Search"))
+                                 {
+                                     if (User.Identity.IsAuthenticated)
+                                     {
+                                         <div class="col-md-10 align-right">
+                                             <div class="pull-right">
+                                                 <span class="white">
+                                                     Logged in as <strong> @User.Identity.Name </strong>&nbsp;
+                                                 </span>
+                                                 @Html.ActionLink("Logout", "Logout", "Account", new { ReturnUrl = Request.Url.PathAndQuery }, new { @class = "btn btn-default", @role = "button" })
+                                             </div>
+                                         </div>
+                                     }
+                                     else
+                                     {
+                                         <div class="col-md-10 align-right">
+                                             <div class="pull-right">
+                                                @Html.ActionLink("Login", "Login", "Account", new { ReturnUrl = Request.Url.PathAndQuery }, new { @class = "btn btn-default", @role = "button" })
+                                             </div>
+                                         </div>
+                                     }
+                                    <div class="col-md-2 input-group">
+                                         <input type="text" class="form-control col-xs-9" autocomplete="off" placeholder="Search" name="id"/>
+                                        <div class="input-group-addon from-control">
+                                            <span class="glyphicon glyphicon-search white"/>
+                                        </div>
+                                    </div>
+                                  
+                                 }
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                
+                <div>
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                       <a class="navbar-brand navbar-navbar-right" href="@Url.Action("Index", "Pages")">
+                            <img src="~/images/connex.png" alt="" class="logo">
+                        </a>
+                        <a class="navbar-right navbar-brand navbar-nav hidden-md hidden-lg hidden-xl" href="@Url.Action("Index", "Pages")">
+                            <img src="~/images/flowclear.png" alt="" class="logo">
+                        </a>
+                        <ul class="nav navbar-nav navbar-left">
+                            @{
+                                connex.Models.CONNEXDBEntities db = new connex.Models.CONNEXDBEntities();
+                                List<connex.Models.Page> pages = (List<connex.Models.Page>)(from res in db.Pages where res.Archived == false && res.Display_In_Menu == true select res).ToList();
+                                foreach (var page in pages.Where(x => x.Is_Top == true).OrderBy(x => x.Sequence_No))
+                                {
+                                    if (page.Has_Children)
+                                    {
+                                            <li class="dropdown">
+                                                <a data-toggle="dropdown" class="dropdown-toggle" href="@Url.Action("View", "Pages", new { id = page.Page_Name })">@page.Title_Text</a>
+                                                @getSubPages(page)
+                                            </li>
+                                    }
+                                    else
+                                    {
+                                            <li class="dropdown">
+                                                <a href="@Url.Action("View", "Pages", new { id = page.URL })">@page.Title_Text</a>
+                                            </li>
+                                    }
+                                }
+                              }
+                        </ul>
+                        <a class="navbar-right navbar-brand hidden-sm hidden-xs" href="@Url.Action("Index", "Pages")">
+                            <img src="~/images/flowclear.png" alt="" class="logo">
+                        </a>
+                    </div>
+                    <!-- /.navbar-collapse -->
+                    
+                </div>
+                <!-- /.container-->
+        </nav>
+       
+        @helper getSubPages(connex.Models.Page myPage)
+{
+    connex.Models.CONNEXDBEntities db = new connex.Models.CONNEXDBEntities();
+    List<connex.Models.Page> subPages = (List<connex.Models.Page>)(from res in db.Pages where res.Parent_Page_ID == myPage.Page_ID && res.Archived == false && res.Display_In_Menu == true select res).OrderBy(x => x.Sequence_No).ToList();
+    if (subPages.Count > 0)
+    {
+                <ul class="dropdown-menu">
+                @foreach (var page in subPages)
+                {
+                        <li class="dropdown dropdown-submenu">
+                            
+                            @if (page.Has_Children)
+                            {
+                                <a data-toggle="dropdown" class="dropdown-toggle" href="#">@page.Title_Text</a>
+                                @getSubPages(page);
+                            }
+                            else
+                            {
+                                <a href="@Url.Action("View", "Pages", new { id = page.URL })">@page.Title_Text</a>
+                            }
+                        </li>
+                       
+
+                }
+                </ul>
+    }
+        }
+
+        @helper getMoreSubPages(connex.Models.Page myPage)
+{
+    connex.Models.CONNEXDBEntities db = new connex.Models.CONNEXDBEntities();
+    List<connex.Models.Page> subPages = (List<connex.Models.Page>)(from res in db.Pages where res.Parent_Page_ID == myPage.Page_ID && res.Archived == false && res.Display_In_Menu == true select res).OrderBy(x => x.Sequence_No).ToList();
+    if (subPages.Count > 0)
+    {
+                <ul class="dropdown-menu">
+                @foreach (var page in subPages)
+                {
+                        <li class="menu-item dropdown dropdown-submenu">
+                            
+                            @if (page.Has_Children)
+                            {
+                                <a data-toggle="dropdown" class="dropdown-toggle" href="@Url.Action("View", "Pages", new { id = page.Page_Name })">@page.Title_Text</a>
+                                @getSubPages(page);
+                            }
+                            else
+                            {
+                                <a href="@Url.Action("View", "Pages", new { id = page.URL })">@page.Title_Text</a>
+                            }
+                        </li>
+                       
+
+                }
+                </ul>
+    }
+        }
+
+    </header>
+    <div style="height:130px">
+
+    </div>
+    <table class="col-md-12">
+        <tr>
+            <td class="col-md-2 col-sm-1 hidden-xs"></td>
+            <td class="col-md-8 col-sm-10 col-xs-12">
+                <div class="container body-content" style=" background-color:#FFFFFF;">
+        @RenderBody()
+        <hr />
+        
+    </div>
+
+    <footer>
+        <div class="rights">&copy; 2015 Columbus Communications Trinidad Limited</div>
+        <br />    
+        
+   </footer>
+            </td>
+            <td class="col-md-2 col-sm-1 hidden-xs"></td>
+        </tr>
+    </table>
+    
+    
+
+    <script src="~/Scripts/jquery-1.11.1.min.js"></script>
+    <script src="~/Scripts/jquery-ui.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/slick.min.js"></script>
+    <script src="~/Scripts/placeholdem.min.js"></script>
+    <script src="~/Scripts/rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
+    <script src="~/Scripts/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+    <script src="~/Scripts/waypoints.min.js"></script>
+    <script src="~/Scripts/scripts.js"></script>
+    <script type="text/javascript" src="~/Scripts/slimbox2.js"></script>
+    <!--********************************Script for Time Picker*********************************-->
+    <script type="text/javascript" src="~/Scripts/bootstrap-timepicker.js"></script>
+    <!--****************************************************************************************-->
+
+    <script>
+        //Display correct media player depending on browser
+        $(document).ready(function() {
+            appMaster.preLoader();
+            if (navigator.appName == "Microsoft Internet Explorer") {
+                $(".mediaSrvVidDiv").show();
+                $(".html5VidDiv").hide();
+                $(".mediaSrvVidDiv").height(450);
+            }
+            else {
+                $(".mediaSrvVidDiv").hide();
+                $(".html5VidDiv").show();
+                $(".mediaSrvVidDiv").height(0);
+            }
+            $(".CommentsToggle").hide();
+            $(".HideInit").hide();
+
+            $('.RedirectCheckBox').change(function () {
+                if ($('.RedirectCheckBox').is(':checked')) {
+                    $('.RedirectURL').show();
+                }
+                else {
+                    $('.RedirectURL').hide();
+                }
+            });
+            $('.FeedbackCheckBox').change(function () {
+                if ($('.FeedbackCheckBox').is(':checked')) {
+                    $('.AllowFeedback').show();
+                }
+                else {
+                    $('.AllowFeedback').hide();
+                }
+            });
+
+            if ($('.FeedbackCheckBox').is(':checked')) {
+                $('.AllowFeedback').show();
+            }
+            else {
+                $('.AllowFeedback').hide();
+            }
+            loadRecipients();
+
+        });
+
+        $(document).on('change', '#Content_Type_Select', function () {
+            
+            var contentID = $('#Content_Type_Select').val();
+            if (contentID != 0) {
+                $.ajax({
+                    url: "http://192.168.128.98:91/ajax/GetContentIds.ashx?Content_Type_ID=" + contentID, success: function (result) {
+                        $('#Content_ID_Select').html(result);
+                    }
+                });
+                $('#Content_ID_Select').show();
+                $('#Content_ID_Select_Label').show();
+            }
+            else {
+                $('#Content_ID_Select').hide();
+                $('#Content_ID_Select_Label').hide();
+            }
+        });
+        $(function () {
+            $(".accordion").accordion();
+           
+        });
+        $('ul.dropdown-menu [data-toggle=dropdown]').on('click', function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+            $(this).parent().siblings().removeClass('open');
+            $(this).parent().toggleClass('open');
+        });
+       
+        $("ol.carousel-indicators-img > li > img").click(function () {
+            $("ol.carousel-indicators-img > li > img").removeClass("active");
+            $(this).addClass("active");
+        });
+        $('#myTab a').click(function (e) {
+            e.preventDefault()
+            $(this).tab('show')
+        });
+
+        $(".AddRecipientButton").click(function () {
+            addRecipient();
+            loadRecipients();
+            $(".Recipient_Email").val("");
+            $(".Recipient_Name").val("");
+        });
+
+        $(".CommentsToggleButton").click(function () {
+            var postID = $(this).val();
+            if ($(this).html() == "Hide Previous Comments") {
+                $(".CommentsToggle-" + postID).hide();
+                $(".CommentsToggleButton").html("Show Previous Comments");
+            }
+            else {
+                $(".CommentsToggle-" + postID).show();
+                $(".CommentsToggleButton").html("Hide Previous Comments");
+            }
+        });
+        //Move Video Gallery Selected Video Slider on carousel slide event
+        $('.carousel').carousel({
+            interval: 5000
+        }).on('slide', function (e) {
+            var curSlide = $(this).find("div.active").attr('id');
+            if (curSlide != null) {
+                var parts = curSlide.split('_');
+                if (parts.length == 3) {
+                    $("ol.carousel-indicators-img > li > img").removeClass("active");
+                    var index = parseInt(parts[2]) + 1;
+                    
+                    if ($("#" + parts[0] + "_CarouselIndicator_" + (index).toString()).length) {
+                        $("#" + parts[0] + "_CarouselIndicator_" + (index).toString()).addClass("active");
+                    }
+                    else {
+                        $("#" + parts[0] + "_CarouselIndicator_0").addClass("active");
+                    }
+                    parts[2] = 'random';
+                }
+            }
+            
+        });
+
+        //init time pickers
+        $('.TimePicker').timepicker({
+            defaultTime:'12:00 AM'
+        });
+        //init date pickers
+        $(function () {
+            $(".DatePicker").datepicker({
+                startDate:'-0d'
+            });
+        });
+
+        function loadRecipients() {
+            if ($('.Recipients_Temp').val() != "") {
+                var html = '<table class="table table-striped"><tr><th>Name</th><th>Email</th><th></th></tr>';
+                var recipients = $('.Recipients_Temp').val().split('|');
+                var index = 0;
+                for (var x in recipients) {
+                    var parts = recipients[x].split(',');
+                    if (parts.length == 3) {
+                        html += '<tr><td>' + parts[1] + '</td><td>' + parts[2] + '</td><td><button type="button" class="btn btn-danger" role="button" onclick="removeRecipient(' + index + ');">Remove</button></td></tr>';
+                        index++;
+                    }
+                }
+                html += '</table>';
+                $('.RecipientsDiv').html(html);
+            }
+            else {
+                $('.RecipientsDiv').html('<div class="col-md-12" align="center">No Notification Recipients</div>');
+            }
+            
+        }
+        function removeRecipient(index) {
+            if ($('.Recipients_Temp').val() != "") {
+                var current = $('.Recipients_Temp').val();
+                var recipients = current.split('|');
+                if (index <= recipients.length - 1) {
+                    var final = "";
+                    for (i = 0; i <= recipients.length - 1; i++) {
+                        if (i != index) {
+                            final += recipients[i] + "|";
+                        }
+                    }
+                    if (final.length > 0) {
+                        final = final.substr(0,final.length - 1);
+                    }
+                    $('.Recipients_Temp').val(final);
+                    loadRecipients();
+                }
+            }
+            else {
+                alert('No Recipients to remove');
+            }
+        }
+        function validEmail(email) {
+            var regex = /^\S{1,}@@\S{1,}[.]\S{1,}$/;
+            return regex.test(email);
+        }
+        function addRecipient() {
+            if ($(".Recipient_Name").val() != "" && $(".Recipient_Email").val() != "") {
+                var name = $(".Recipient_Name").val();
+                var email = $(".Recipient_Email").val();
+                var current = $('.Recipients_Temp').val();
+                if (validEmail(email))
+                {
+                    var recipients = current.split('|');
+                    var exists = false;
+                    for (var x in recipients) {
+                        var parts = recipients[x].split(',');
+                        if (parts.length == 3) {
+                            if (parts[1] == name && parts[2] == email) {
+                                exists = true;
+                                alert('This recipient is already in the list');
+                                break;
+                            }
+                        }
+                    }
+                    if (!exists) {
+                        if (current.length > 0) {
+                            $('.Recipients_Temp').val(current + "|," + name + "," + email);
+                        }
+                        else {
+                            $('.Recipients_Temp').val("," + name + "," + email); 
+                        }
+                    }
+                }
+                else{
+                    alert('Invalid Email Address');
+                }
+            }
+            else {
+                alert('Both the Recipient Name and Recipient Email fields must be filled out');
+            }
+            
+        }
+
+
+    </script>
+    <script type="text/javascript">
+        //re-size IE video player on browser re-size
+        $(window).resize(function () {
+            if (navigator.appName == "Microsoft Internet Explorer") {
+                var newHeight = ($("#WMVVideo").width()) * 0.65;
+                $("#WMVVideo").height(newHeight);
+                $("#mediaSrvVidDiv").height(newHeight);
+            }
+            
+        });
+    </script>
+
+    @*<!--******************************Javascript For File Upload Plugin*************************************-->
+
+
+    <!-- The template to display files available for upload -->
+    <script id="template-upload" type="text/x-tmpl">
+    {% for (var i=0, file; file=o.files[i]; i++) { %}
+        <tr class="template-upload fade">
+            <td>
+                <span class="preview"></span>
+            </td>
+            <td>
+                <p class="name">{%=file.name%}</p>
+                <strong class="error text-danger"></strong>
+            </td>
+            <td>
+                <p class="size">Processing...</p>
+                <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="progress-bar progress-bar-success" style="width:0%;"></div></div>
+            </td>
+            <td>
+                {% if (!i && !o.options.autoUpload) { %}
+                    <button class="btn btn-primary start" disabled>
+                        <i class="glyphicon glyphicon-upload"></i>
+                        <span>Start</span>
+                    </button>
+                {% } %}
+                {% if (!i) { %}
+                    <button class="btn btn-warning cancel">
+                        <i class="glyphicon glyphicon-ban-circle"></i>
+                        <span>Cancel</span>
+                    </button>
+                {% } %}
+            </td>
+        </tr>
+    {% } %}
+    </script>
+    <!-- The template to display files available for download -->
+    <script id="template-download" type="text/x-tmpl">
+    
+    {% for (var i=0, file; file=o.files[i]; i++) { %}
+        <tr class="template-download fade">
+            <td class="col-md-6">
+                <span class="preview">
+                    {% if (file.thumbnailUrl) { %}
+                        <div class="col-sm-6 col-md-4">
+                            <div class="thumbnail">
+                                <a rel="lightbox-cats" href="{%=file.url%}" title="{%=file.name%}" target="_blank"><img class="img-responsive" alt="No Image Found" src="{%=file.thumbnailUrl%}"></img></a>
+                            </div>
+                        </div>
+                    {% } %}
+                </span>
+            </td>
+            <td class="col-md-2">
+                <p class="name">
+                    {% if (file.url) { %}
+                        <a href="{%=file.url%}" title="{%=file.name%}" download="{%=file.name%}" {%=file.thumbnailUrl?'data-gallery':''%}>{%=file.name%}</a>
+                    {% } else { %}
+                        <span>{%=file.name%}</span>
+                    {% } %}
+                </p>
+                {% if (file.error) { %}
+                    <div><span class="label label-danger">Error</span> {%=file.error%}</div>
+                {% } %}
+            </td>
+            <td class="col-md-2">
+                <span class="size">{%=o.formatFileSize(file.size)%}</span>
+            </td>
+            <td class="col-md-2">
+                {% if (file.url) { %}
+                    <img class="img-responsive col-md-6" src="../images/green_tick.png" alt"No Image Found"></img>
+                {% } else if (file.error){ %}
+                    <img class="img-responsive col-md-6" src="../images/red_x.png" alt"No Image Found"></img>
+                {% } %}
+
+            </td>
+        </tr>
+    {% } %}
+    </script>*@
+    @*<script src="~/Scripts/vendor/jquery.ui.widget.js"></script>
+    <!-- The Templates plugin is included to render the upload/download listings -->
+    <!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
+
+<script src="//blueimp.github.io/JavaScript-Templates/js/tmpl.min.js"></script>
+<!-- The Load Image plugin is included for the preview images and image resizing functionality -->
+<script src="//blueimp.github.io/JavaScript-Load-Image/js/load-image.all.min.js"></script>
+<!-- The Canvas to Blob plugin is included for image resizing functionality -->
+<script src="//blueimp.github.io/JavaScript-Canvas-to-Blob/js/canvas-to-blob.min.js"></script>
+
+<!-- blueimp Gallery script -->
+<script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+<!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
+    <script src="~/Scripts/jquery.iframe-transport.js"></script>
+    <!-- The basic File Upload plugin -->
+    <script src="~/Scripts/jquery.fileupload.js"></script>
+    <!-- The File Upload processing plugin -->
+    <script src="~/Scripts/jquery.fileupload-process.js"></script>
+    <!-- The File Upload image preview & resize plugin -->
+    <script src="~/Scripts/jquery.fileupload-image.js"></script>
+    <!-- The File Upload audio preview plugin -->
+    <script src="~/Scripts/jquery.fileupload-audio.js"></script>
+    <!-- The File Upload video preview plugin -->
+    <script src="~/Scripts/jquery.fileupload-video.js"></script>
+    <!-- The File Upload validation plugin -->
+    <script src="~/Scripts/jquery.fileupload-validate.js"></script>
+    <!-- The File Upload user interface plugin -->
+    <script src="~/Scripts/jquery.fileupload-ui.js"></script>
+    <!-- The main application script -->
+    <script src="~/Scripts/main.js"></script>
+    <!-- The XDomainRequest Transport is included for cross-domain file deletion for IE 8 and IE 9 -->
+    <!--[if (gte IE 8)&(lt IE 10)]>
+    <script src="~/Scripts/cors/jquery.xdr-transport.js"></script>
+    <![endif]-->*@
+
+
+</body>
+</html>

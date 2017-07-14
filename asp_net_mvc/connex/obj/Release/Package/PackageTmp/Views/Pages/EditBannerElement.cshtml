@@ -1,0 +1,81 @@
+﻿@model connex.ViewModels.BannerElementEditViewModel
+@{
+    ViewBag.Title = "EditBannerElement";
+}
+
+<h2>EditBannerElement</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.Page_ID)
+    @Html.HiddenFor(model => model.Banner_ID)
+    @Html.HiddenFor(model => model.Element_ID)
+    
+    <div class="form-horizontal">
+        <div class="form-group">
+            @Html.LabelFor(model => model.Header_Text, new { @class="control-label col-md-2"})
+            <div class="col-md-10">
+                <div class="col-md-12">@Html.TextBoxFor(m => m.Header_Text, new { @class="form-control col-md-5"})</div>
+                <span class="text-danger">@Html.ValidationMessageFor(m => m.Header_Text)</span>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Summary, new { @class="control-label col-md-2"})
+            <div class="col-md-10">
+                <div class="col-md-12">@Html.TextAreaFor(m => m.Summary, new { @class="form-control col-md-5", @rows="5"})</div>
+                <span class="text-danger">@Html.ValidationMessageFor(m => m.Summary)</span>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Image", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="col-md-12">
+                     <input type="file" name="BannerImage"  class="form-control" id="BannerImage"/>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Link To", new { @class="control-label col-md-2"})
+            <div class="col-md-10">
+                <div class="col-md-12">
+                        <select id="Content_Type_Select" name="Content_Type_ID" class="form-control">
+                            <option value="0">None</option>
+                            @foreach (var c in Model.availableContentTypes)
+                            {
+                                if (Model.Content_Type_ID != null)
+                                {
+                                    if (Model.Content_Type_ID == c.Content_Type_ID)
+                                    {
+                                        <option value="@c.Content_Type_ID" selected="selected">@c.Content_Type</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@c.Content_Type_ID">@c.Content_Type</option>
+                                    }
+                                }
+                                else
+                                {
+                                    <option value="@c.Content_Type_ID">@c.Content_Type</option>
+                                }
+                                
+                            }
+                        </select>
+                </div>
+                <span class="text-danger">@Html.ValidationMessageFor(m => m.Summary)</span>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Content", new {@class="control-label col-md-2", @id="Content_ID_Select_Label", @style="display:none;"})
+            <div class="col-md-10">
+                <div class="col-md-12">
+                     <select id="Content_ID_Select" name="Content_ID" class="form-control" style="display:none;">
+                         
+                     </select>
+                </div>
+                
+            </div>
+        </div>
+        <button role="button" type="submit" class="btn-btn-default">Save</button>
+    </div>
+}
+

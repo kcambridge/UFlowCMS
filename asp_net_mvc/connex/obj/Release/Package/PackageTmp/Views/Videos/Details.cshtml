@@ -1,0 +1,98 @@
+﻿@model connex.Models.Video
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Video</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.File_Path)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.File_Path)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Thumb_Path)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Thumb_Path)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date_Added)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date_Added)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Added_By)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Added_By)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date_Archive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date_Archive)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Archive_By)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Archive_By)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Archived)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Archived)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title_Text)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title_Text)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Caption)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Caption)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VideoGallery.Gallery_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VideoGallery.Gallery_Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Video_ID }) |
+    
+</p>

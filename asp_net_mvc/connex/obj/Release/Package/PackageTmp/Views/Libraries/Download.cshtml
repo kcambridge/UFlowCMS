@@ -1,0 +1,20 @@
+﻿@model connex.Models.Document
+
+@{
+    ViewBag.Title = "Document Download- Connex";
+}
+
+@{
+    
+    string[] parts = Model.Path.Replace("\\", "~").Split('~');
+    
+    if (parts.Length > 0)
+    {
+        string fileName = parts[parts.Length - 1];
+        Response.ContentType = Model.DocumentType.Content_Type;
+        Response.AddHeader("content-disposition", "attachment; filename=" + fileName);
+        Response.TransmitFile(Server.MapPath("~/" + Model.Path));
+        Response.End();
+    }
+    
+}

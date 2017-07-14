@@ -1,0 +1,222 @@
+﻿@model connex.ViewModels.SearchViewModel
+@{
+    ViewBag.Title = "Search";
+}
+
+<h2>Search Connex</h2>
+
+@using (Html.BeginForm("Advanced", "Search"))
+{
+    <div class="form-horizontal">
+        <div class="form-group">
+            @Html.Label("Search", new{@class="control-label col-md-2"})
+            @Html.TextBoxFor(model => model.id, new{@class="form-control col-md-8"})
+            <div class="col-md-8 col-md-offset-2">
+                @Html.Label("Include:", new{@class="control-label lead"}) &nbsp;&nbsp;
+
+                @Html.Label("Posts")
+                @Html.CheckBoxFor(model => model.Inc_Posts)
+                &nbsp;
+                @Html.Label("Documents", new{@class="control-label"})
+                @Html.CheckBoxFor(model => model.Inc_Documents)
+                &nbsp;
+                @Html.Label("Events", new{@class="control-label"})
+                @Html.CheckBoxFor(model => model.Inc_Events)
+                &nbsp;
+                @Html.Label("Galleries", new{@class="control-label"})
+                @Html.CheckBoxFor(model => model.Inc_Galleries)
+                &nbsp;
+                @Html.Label("Videos", new{@class="control-label"})
+                @Html.CheckBoxFor(model => model.Inc_Videos)
+            </div>
+        </div>
+    </div>
+    
+    if (Model.posts.Count > 0)
+    {
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">Posts</h3>
+            </div>
+            <div class="panel-body">
+                <div class="container">
+                    @foreach(var post in Model.posts)
+                    {
+                        <div class="row row-trim">
+                            <div class="col-md-3">
+                                <div class="thumbnail">
+                                    <img src="~/@post.Thumb_Path" alt="No Image" class="img-responsive">
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                               <div class="caption">
+                                    <h3>@post.Header</h3>
+                                   <span class="label label-info">Posted on @post.Date_Added.Value.ToShortDateString()</span>
+                                   <br /><br />
+                                    <p>@post.Summary</p>
+                                    <p>@Html.ActionLink("Read More", "View", "Posts", new { id = post.Post_ID }, new {@class="btn btn-primary", @role="button"})</p>
+                                </div>
+                            </div>
+                        </div>
+                        <br />   
+                    }
+                </div>
+            </div>
+        </div>
+    }
+    
+    if (Model.documents.Count > 0)
+    {   
+         <br />
+         <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">Documents</h3>
+            </div>
+            <div class="panel-body">
+              <div class="container">
+                <div class="row row-trim">
+                    <br />
+                    @foreach (var doc in Model.documents.Where(x => x.Archived == false).OrderBy(x => x.Date_Added))
+                    {
+                        
+                    <div class="col-xs-2">
+                        <div class="thumbnail">
+                            <h5>@doc.Name</h5>
+                            <p class="align-center">
+                                @if (doc.DocumentType.Extension == ".pdf" || doc.DocumentType.Extension == ".jpg" || doc.DocumentType.Extension == ".png")
+                                {
+                                    <a href="http://192.168.128.98:91/@doc.Path" class="btn btn-primary" target="_blank">View</a>
+                                    ///TODO: Need to replace this with 'connex' or find a way to determine site root dynamically
+                                }
+                                else
+                                {
+                                    @Html.ActionLink("View", "Download", "Libraries", new{id = doc.Document_ID}, new{@class="btn btn-primary", @target="_blank"})
+                                }
+                            </p> 
+                        </div>
+                    </div>
+
+                    }
+                </div>
+            </div>
+            </div>
+         </div>
+    }
+
+    if (Model.events.Count > 0)
+    {
+        <br />
+         <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">Events</h3>
+            </div>
+            <div class="panel-body">
+                <div class="container">
+                     @foreach (var ev in Model.events)
+                     {
+                        <div class="row row-trim">
+                            <br />
+                            <div class="col-md-3">
+                                <div class="thumbnail">
+                                    <img src="~/@ev.Thumb_Path" alt="No Image" class="img-responsive">
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="caption">
+                                    <h4>@ev.Event_Name</h4>
+                                    <p>
+                                        @ev.Description
+                                    </p>
+                                    <p>
+                                        <strong>From:</strong>&nbsp;@ev.Start_Date_Time &nbsp;
+                                        <br /><strong>To:</strong>&nbsp;@ev.End_Date_Time
+                                        <br /><br /><strong>Location:</strong>&nbsp;@ev.Location
+                                    </p>
+
+                                    <p class="align-center">
+                                       @Html.ActionLink("View", "View", "Events", new{id = ev.Event_ID}, new{@class="btn btn-primary"})
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+
+                    }
+                </div>
+            </div>
+        </div>
+    }
+
+    if (Model.galleries.Count > 0)
+    {
+        <br />
+         <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">Image Galleries</h3>
+            </div>
+            <div class="panel-body">
+                <div class="container">
+                @foreach (var gal in Model.galleries.Where(x => x.Archived == false))
+                {
+                    <div class="row row-trim">
+                            <div class="col-md-12">
+                            <div class="caption">
+                                <h3>@gal.Gallery_Name</h3>
+                                <span class="label label-info">@gal.Photos.Where(x => x.Archived == false).ToList().Count photo(s)</span>
+                                    <br /><br />
+                                <p>
+                                    @Html.ActionLink("View", "View", "Galleries", new { id = gal.Gallery_ID}, new {@class="btn btn-primary", @role="button"})
+                                        
+                                </p>
+                            </div>
+                            </div>
+                    </div>
+                    <br />
+                }
+            </div>
+            </div>
+        </div>
+    }
+
+    if (Model.videos.Count > 0)
+    {
+        <br />
+         <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">Videos</h3>
+            </div>
+            <div class="panel-body">
+                <div class="container">
+            <div class="row row-trim">
+                <br/>
+                @foreach (var vid in Model.videos.Where(x => x.Archived == false))
+                {
+                    <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <img src="~/@vid.Thumb_Path" alt="No Image" class="img-responsive">
+                            <br />
+                            <div class="thumbnail-caption">
+                                <h4 class="carousel-caption-header">@vid.Title_Text</h4>
+                                @Html.ActionLink("View", "View", "Videos", new{id = vid.Video_ID},new{@class="btn btn-primary", @role="button"})
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+            </div>
+         </div>
+    }
+
+    if (Model.posts.Count == 0 && Model.documents.Count == 0 && Model.events.Count == 0 && Model.galleries.Count == 0 && Model.videos.Count == 0)
+    {
+        <div class="alert alert-info">
+            <strong>No results</strong>
+        </div>
+    }
+}
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

@@ -1,0 +1,43 @@
+﻿@model connex.ViewModels.GalleryCreateViewModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Gallery</h4>
+        <hr />
+        <span class="text-danger">@Html.ValidationSummary(true)</span>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Gallery_Name, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Gallery_Name, new{@class="form-control col-md-5"})
+                @Html.ValidationMessageFor(model => model.Gallery_Name)
+            </div>
+        </div>
+
+        
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Next" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

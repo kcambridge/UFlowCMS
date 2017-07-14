@@ -1,0 +1,37 @@
+﻿@model connex.Models.Video
+
+@{
+    ViewBag.Title = @Model.Title_Text+" - Connex";
+    var WMV_Path = Model.File_Path + ".wmv";
+    var MP4_Path = Model.File_Path + ".mp4";
+}
+
+<div class="page-header">
+    <h2>@Model.Title_Text</h2>
+</div>
+<div class="container">
+    <h4>@Model.Caption</h4>
+    <div id="mediaSrvVidDiv" style="display:none;" align="center" class="col-md-12 img-responsive mediaSrvVidDiv">
+        
+		<object id="WMVVideo" style="width:100%; height:100%" classid="CLSID:6bf52a52-394a-11d3-b153-00c04f79faa6">
+			<param name="url" value="~/@WMV_Path" />
+			<!--<param name="url" value="video/CC_Interactive_Solutions.wmv" />-->
+			<param name="sendplaystatechangeevents" value="true" />
+			<param name="autoStart" value="false"/>
+			<param name="volume" value="100" /> 
+			<param name="playcount" value="9999" />
+        </object>
+       
+	</div>
+     <div>
+        <br />
+        <br />
+        <br />
+    </div>
+	<div id="html5VidDiv" align="center" class="col-md-12 img-responsive html5VidDiv">
+		<video width="100%" height="100%" controls>
+            <source src="~/@MP4_Path" type=video/mp4 />
+		</video>
+	</div>
+
+</div>

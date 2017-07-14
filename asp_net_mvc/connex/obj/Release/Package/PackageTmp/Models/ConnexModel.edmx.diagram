@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2870c47ab68349e5815147f9f798a441" Name="Diagram1" ZoomLevel="104">
+        <EntityTypeShape EntityType="CONNEX_Model.Admin" Width="1.5" PointX="3" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONNEX_Model.Banner" Width="1.5" PointX="0.75" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONNEX_Model.Calender" Width="1.5" PointX="6" PointY="26.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONNEX_Model.CollectionsDisplayMode" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONNEX_Model.CollectionsWidthMode" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONNEX_Model.Comment" Width="1.5" PointX="7.5" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONNEX_Model.ContentType" Width="1.5" PointX="0.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONNEX_Model.Document" Width="1.5" PointX="11.25" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONNEX_Model.DocumentType" Width="1.5" PointX="9" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONNEX_Model.Gallery" Width="1.5" PointX="3" PointY="27.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONNEX_Model.Library" Width="1.5" PointX="6" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONNEX_Model.MediaType" Width="1.5" PointX="6.25" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONNEX_Model.PageAdminAssign" Width="2" PointX="5.375" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONNEX_Model.PageCalenderAssign" Width="1.5" PointX="8.25" PointY="18.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONNEX_Model.PageCollectionAssign" Width="1.5" PointX="5.25" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONNEX_Model.PageGalleryAssign" Width="1.5" PointX="5.25" PointY="22.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONNEX_Model.PageLibraryAssign" Width="1.5" PointX="8.25" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONNEX_Model.Page" Width="1.5" PointX="3" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONNEX_Model.PageVideoGalleryAssign" Width="1.5" PointX="8.25" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONNEX_Model.Photo" Width="1.5" PointX="5.25" PointY="34.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONNEX_Model.Post" Width="1.5" PointX="5.25" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONNEX_Model.Section" Width="1.5" PointX="8.5" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONNEX_Model.VideoGallery" Width="1.5" PointX="6" PointY="30.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONNEX_Model.Video" Width="1.5" PointX="8.25" PointY="30.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CONNEX_Model.WidthMode" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
+        <AssociationConnector Association="CONNEX_Model.FK_PageAdminAssign_Admins" ManuallyRouted="false" />
+        <AssociationConnector Association="CONNEX_Model.FK_Pages_Banners1" ManuallyRouted="false" />
+        <AssociationConnector Association="CONNEX_Model.FK_PageCalenderAssign_Calenders" ManuallyRouted="false" />
+        <AssociationConnector Association="CONNEX_Model.FK_Comments_Posts" ManuallyRouted="false" />
+        <AssociationConnector Association="CONNEX_Model.FK_Documents_DocumentTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="CONNEX_Model.FK_Documents_Libraries" ManuallyRouted="false" />
+        <AssociationConnector Association="CONNEX_Model.FK_PageGalleryAssign_Galleries" ManuallyRouted="false" />
+        <AssociationConnector Association="CONNEX_Model.FK_Photos_Galleries" ManuallyRouted="false" />
+        <AssociationConnector Association="CONNEX_Model.FK_PageLibraryAssign_Libraries" ManuallyRouted="false" />
+        <AssociationConnector Association="CONNEX_Model.FK_Sections_MediaTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="CONNEX_Model.FK_PageAdminAssign_Pages" ManuallyRouted="false" />
+        <AssociationConnector Association="CONNEX_Model.FK_PageCalenderAssign_Pages" ManuallyRouted="false" />
+        <AssociationConnector Association="CONNEX_Model.FK_PageCollectionAssign_Pages" ManuallyRouted="false" />
+        <AssociationConnector Association="CONNEX_Model.FK_PageGalleryAssign_Pages" ManuallyRouted="false" />
+        <AssociationConnector Association="CONNEX_Model.FK_PageLibraryAssign_Pages" ManuallyRouted="false" />
+        <AssociationConnector Association="CONNEX_Model.FK_PageVideoGalleryAssign_Pages" ManuallyRouted="false" />
+        <AssociationConnector Association="CONNEX_Model.FK_PageVideoGalleryAssign_VideoGalleries" ManuallyRouted="false" />
+        <AssociationConnector Association="CONNEX_Model.FK_Sections_Posts" ManuallyRouted="false" />
+        <AssociationConnector Association="CONNEX_Model.FK_Sections_WidthModes1" ManuallyRouted="false" />
+        <AssociationConnector Association="CONNEX_Model.FK_Videos_VideoGalleries" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CONNEX_Model.Collection" Width="1.5" PointX="9.1391689000367968" PointY="24.860526841534547" />
+        <AssociationConnector Association="CONNEX_Model.FK_Collections_CollectionsDisplayModes" />
+        <AssociationConnector Association="CONNEX_Model.FK_Collections_CollectionsWidthModes" />
+        <AssociationConnector Association="CONNEX_Model.FK_Collections_WidthModes" />
+        <AssociationConnector Association="CONNEX_Model.FK_PageCollectionAssign_Collections" />
+        <AssociationConnector Association="CONNEX_Model.FK_Posts_Collections" />
+        <EntityTypeShape EntityType="CONNEX_Model.Event" Width="1.5" PointX="2.625" PointY="0.75" />
+        <AssociationConnector Association="CONNEX_Model.FK_Events_Calenders" />
+        <EntityTypeShape EntityType="CONNEX_Model.Role" Width="1.5" PointX="10.38960150554292" PointY="12.60099565079482" />
+        <AssociationConnector Association="CONNEX_Model.AdminRoleAssign" />
+        <EntityTypeShape EntityType="CONNEX_Model.BannerElement" Width="1.5" PointX="10.712509407993643" PointY="16.192175097853028" />
+        <AssociationConnector Association="CONNEX_Model.FK_BannerElements_Banners" />
+        <AssociationConnector Association="CONNEX_Model.FK_BannerElements_ContentTypes" />
+        <EntityTypeShape EntityType="CONNEX_Model.Feedback" Width="1.5" PointX="8.5335154927026089" PointY="29.949369444488255" />
+        <EntityTypeShape EntityType="CONNEX_Model.PageQuickLinkListsAssign" Width="1.5" PointX="9.3731067838953379" PointY="1.5989961631591414" />
+        <EntityTypeShape EntityType="CONNEX_Model.QuickLinkList" Width="1.5" PointX="4.0629213080103144" PointY="9.3773964091098847" />
+        <EntityTypeShape EntityType="CONNEX_Model.QuickLink" Width="1.5" PointX="4.7714689470694722" PointY="9.5640642985534221" />
+        <AssociationConnector Association="CONNEX_Model.FK_Feedback_Pages" />
+        <AssociationConnector Association="CONNEX_Model.FK_PageQuickLinkListsAssign_Pages" />
+        <AssociationConnector Association="CONNEX_Model.FK_PageQuickLinkListsAssign_QuickLinkLists" />
+        <AssociationConnector Association="CONNEX_Model.FK_Quick_Links_QuickLinkLists" />
+        <EntityTypeShape EntityType="CONNEX_Model.NotificationRecipent" Width="1.5" PointX="7.477949507291406" PointY="6.2661762266727985" />
+        <EntityTypeShape EntityType="CONNEX_Model.PageRecipientAssign" Width="1.5" PointX="4.2186683119361605" PointY="8.60749456687248" />
+        <AssociationConnector Association="CONNEX_Model.FK_PageRecipientAssign_NotificationRecipents" />
+        <AssociationConnector Association="CONNEX_Model.FK_PageRecipientAssign_Pages" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

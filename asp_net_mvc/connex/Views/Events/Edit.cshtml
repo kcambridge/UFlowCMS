@@ -1,0 +1,131 @@
+﻿@model connex.ViewModels.EventEditViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm("Edit", "Events", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <span class="text-danger">@Html.ValidationSummary(true)</span>
+    @Html.HiddenFor(model => model.Event_ID)
+    @Html.HiddenFor(model => model.Page_ID)
+    @Html.HiddenFor(model => model.Calender_ID)
+    @Html.HiddenFor(model => model.Thumb_Path)
+    @Html.HiddenFor(model => model.Image_Path)
+    if (ViewBag.Return_Home != null)
+    {
+        @Html.Hidden("Return_Home", true)
+        @Html.Hidden("Page_Url", (string)ViewBag.Page_Url)
+    }
+    
+    <div class="form-horizontal">
+        <h4>Event</h4>
+        <hr />
+       
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Event_Name, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Event_Name, new { @class = "form-control col-md-5" })
+                @Html.ValidationMessageFor(model => model.Event_Name)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Description, new { @class = "form-control col-md-5", @rows = "5" })
+                @Html.ValidationMessageFor(model => model.Description)
+            </div>
+        </div>
+
+        
+        <div class="form-group">
+                    @Html.Label("Start Date", new { @class = "col-md-2 control-label" })
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(model => model.Start_Date, new { @class = "form-control DatePicker" })
+                        <span class="text-danger col-md-12">
+                            @Html.ValidationMessageFor(model => model.Start_Date)
+                        </span>
+                    </div>
+                    @Html.Label("Start Time", new { @class = "col-md-1 control-label" })
+                    <div class="input-append bootstrap-timepicker col-md-2">
+                        <span class="add-on">
+                            @Html.TextBoxFor(model => model.Start_Time, new { @class = "input-small TimePicker col-md-6 form-control" })
+                        </span>
+                        
+                    </div>
+                    <span class="text-danger col-md-3">
+                         @Html.ValidationMessageFor(model => model.Start_Time)
+                    </span>
+                </div>
+                 <div class="form-group">
+                    @Html.Label("End Date", new { @class = "col-md-2 control-label" })
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(model => model.End_Date, new { @class = "form-control DatePicker" })
+                        <span class="text-danger col-md-12">
+                            @Html.ValidationMessageFor(model => model.End_Date) 
+                        </span>
+                    </div>
+                    @Html.Label("End Time", new { @class = "col-md-1 control-label" })
+                    <div class="input-append bootstrap-timepicker col-md-2">
+                        <span class="add-on">
+                            @Html.TextBoxFor(model => model.End_Time, new { @class = "input-small TimePicker col-md-6 form-control" })
+                            
+                        </span>
+                        
+                    </div>
+                    <span class="text-danger col-md-3">
+                            @Html.ValidationMessageFor(model => model.End_Time)
+                    </span>
+                </div>
+        
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Location, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Location, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Location)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Current Flyer/Image", new { @class = "control-label col-md-2" })
+            <div class="col-sm-3 col-md-2">
+                <div class="thumbnail">
+                    <a href="~/@Model.Image_Path" rel="lightbox-cats" title=""><img src="~/@Model.Thumb_Path" alt="No Image Found" class="img-responsive"></a>
+                </div>
+            </div>
+        </div>
+         <div class="form-group">
+                @Html.Label("New Flyer/Image", new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    <input type="file" name="Flyer" class="form-control"/>
+                </div>
+         </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Archived, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.CheckBoxFor(model => model.Archived)
+                @Html.ValidationMessageFor(model => model.Archived)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

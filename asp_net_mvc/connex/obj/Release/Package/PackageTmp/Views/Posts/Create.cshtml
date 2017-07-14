@@ -1,0 +1,59 @@
+﻿@model connex.ViewModels.PostCreateViewModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm("Create", "Posts", FormMethod.Post, new { enctype = "multipart/form-data" })) 
+{
+    @Html.AntiForgeryToken()
+    @Html.Hidden("Page_ID", Model.Page_ID)
+    @Html.Hidden("Collection_ID", Model.Collection_ID)
+    
+    <div class="form-horizontal">
+        <h4>Post</h4>
+        <hr />
+        <span class="text-danger">@Html.ValidationSummary(true)</span>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Header, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Header, new{@class="form-control col-md-5"})
+                @Html.ValidationMessageFor(model => model.Header)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Thumbnail", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+               <input type="file" name="Thumbnail"  class="form-control" id="Thumbnail"/>  <br />
+                @Html.ValidationMessageFor(model => model.Thumb_Path)
+            </div>
+        </div>
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.Summary, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Summary, new { @class="form-control col-md-5", @rows="5"})
+                @Html.ValidationMessageFor(model => model.Summary)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Next" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

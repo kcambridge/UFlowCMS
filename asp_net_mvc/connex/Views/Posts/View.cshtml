@@ -1,0 +1,128 @@
+﻿@model connex.Models.Post
+
+@{
+    ViewBag.Title = Model.Header+" - Connex";
+}
+
+<div class="page-header"><h1>@Model.Header</h1></div>
+<span class="text-danger">@Html.ValidationSummary(true)</span>
+<div class="container">
+@foreach(var sect in Model.Sections.OrderBy(x => x.Section_ID))
+{
+    <div class="col-md-12">
+        @if(sect.Sub_Header != null)
+        {
+            <h3>@sect.Sub_Header</h3>
+        }
+        @if(sect.MediaType != null)
+        {
+            if (sect.Media_Width_Mode_ID != 1)
+            {
+                <div class="@sect.WidthMode.Remainder_Class"></div>   
+            }
+            <div class="@sect.WidthMode.Bootstrap_Class">
+                <img src="~/@sect.Media_Path" alt="Image not found" class="img-responsive" />
+            </div>
+            if (sect.Media_Width_Mode_ID != 1)
+            {
+                <div class="@sect.WidthMode.Remainder_Class"></div>   
+            }
+        }
+        <div class="col-md-12">
+            @if(@sect.Text_Block != null)
+            {
+            
+                    <br />
+                    <p>
+                        <span style="white-space: pre-line">@Html.Raw(@sect.Text_Block)</span>
+                    </p>
+            
+            }
+            @if (@sect.Hyperlink != null)
+            {
+                <br />
+                <div class="text-left">
+                    <a href="@sect.Hyperlink" target="_blank">@sect.Hyperlink_Text</a>
+                </div>
+            }
+        </div>
+        
+    </div>
+    <br />
+}
+</div>
+<br /><br />
+@if (Model.Allow_Comments)
+{
+    int cnt = 0;
+    <div class="container">
+        <fieldset>  
+                <legend>Comment(s) &nbsp; <span class="badge">@Model.Comments.Where(x =>x.Archived == false).Count()</span></legend>  
+        </fieldset>
+        
+        <div class="col-xs-11">
+           @foreach(var comment in Model.Comments.Where(x =>x.Archived == false).OrderBy(x => x.Date_Submitted))
+           {
+               if (Model.Comments.Where(y => y.Archived == false).Count() > 3 && cnt == 0)
+               {
+                   <button type="button" role="button" class="btn btn-info CommentsToggleButton" value="@Model.Post_ID">Show Previous Comments</button>
+                    <br /><br />
+               }
+               if (cnt > Model.Comments.Where(y => y.Archived == false).Count() - 4 || Model.Comments.Where(y => y.Archived == false).Count() <= 3)
+               {
+                   <div class="panel panel-default">
+                      <div class="panel-heading">
+                          <strong>@comment.Submitted_By</strong>
+                          <span class="pull-right"><span class="glyphicon glyphicon-time"></span>&nbsp;&nbsp;@comment.Date_Submitted.ToString("hh:mm tt on MMMM dd, yyyy")</span>
+                      </div>
+                      <div class="panel-body">
+                          <h4>@comment.Comment1</h4>
+                      </div>
+                   </div>
+               }
+               else
+               {
+                   <div class="panel panel-default CommentsToggle CommentsToggle-@Model.Post_ID">
+                      <div class="panel-heading">
+                          <strong>@comment.Submitted_By</strong>
+                          <span class="pull-right"><span class="glyphicon glyphicon-time"></span>&nbsp;&nbsp;@comment.Date_Submitted.ToString("hh:mm tt on MMMM dd, yyyy")</span>
+                      </div>
+                      <div class="panel-body">
+                          <h4>@comment.Comment1</h4>
+                      </div>
+                   </div>
+               }
+               cnt++;
+           }
+    
+            @if (User.Identity.IsAuthenticated)
+            {
+                using (Html.BeginForm("AddComment", "Posts", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(model => model.Post_ID)
+                     <div class="form-horizontal">
+                        <div class="form-group">
+                        
+                            <div class="col-md-12">
+                               @Html.TextArea("Comment", new { @class="form-control col-md-12", @rows = "5", @placeholder="Enter your comment here"})
+                            </div>
+                        </div>
+                         <div class="form-group">
+                            <div class="col-md-offset-10 col-md-2">
+                                <input type="submit" value="Submit Comment" class="btn btn-default" />
+                            </div>
+                        </div>
+                     </div>
+                }
+            }
+            else
+            {
+                <div class="alert alert-info alert-dismissible" role="alert">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <strong>Info</strong> You must be logged in to comment
+                </div>
+            }
+      </div>
+    </div>
+}

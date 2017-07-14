@@ -1,0 +1,62 @@
+--Device Registration Queries
+
+
+--checking for device existence and inserting if missiing
+SELECT * FROM mwo_device_info WHERE device_serial_no = @serialNo
+INSERT INTO mwo_device_info (device_serial_no, device_status_cd, added_dt) VALUES (@serialNo, 'ACT', @date)
+
+--checking for tech id validity
+SELECT * FROM staff WHERE ingres_username = @techID
+
+--check for existence in staff_info, add if missing
+SELECT * FROM mwo_staff_info WHERE ingres_username = @techID
+INSERT INTO mwo_staff_info (ingres_username, acc_status_cd) VALUES(@techID, 'NEW')
+
+-- checking if tech has already registered to this device
+SELECT s.staff_id, s.device_id, sd.active_yn FROM mwo_staff_info s, mwo_staff_device_map sd, mwo_device_info d
+WHERE sd.device_id = d.device_id AND sd.staff_id = s.staff_id AND d.device_serial_no = @serialno AND s.ingres_username = @techID 
+
+--if tech was already registered to device previously
+UPDATE staff_device_map SET active_yn 'Y', assigned_dt = @date WHERE device_id = @deviceID AND staff_id = @staffID
+
+--else
+INSERT INTO mwo_staff_device_map (device_id, staff_id, assigned_dt, active_yn) VALUES (@deviceID, @staff_id, @assigned_dt, 'Y')
+
+
+
+
+--Password Creation
+
+
+--checking account status before creating password. Disabled accounts should should not be permitted
+SELECT acc_status_cd FROM mwo_staff_info WHERE ingres_username = @techID
+UPDATE mwo_staff_info SET password = @password, acc_status_cd = 'REG' WHERE staff_id = (SELECT staff_id FROM mwo_staff_info WHERE ingres_username = @techID)--add password to tech account as long as not disabled
+
+
+
+--Login
+
+
+--retrieve password for comparison
+SELECT password FROM mwo_staff_info WHERE ingres_username = @techID
+
+--update account status and timestamp
+UPDATE mwo_staff_info SET acc_status_cd = 'ACT' WHERE ingres_username = @techID
+
+
+
+--Password Change
+
+
+--change password for tech account
+UPDATE mwo_staff_info SET password = @password WHERE ingress_username = @techID
+
+
+
+--Kill Switch
+
+
+--Check for Kill Switch flag
+SELECT device_status_cd FROM mwo_device_info WHERE device_serial_no = @serialNo
+--apply kill swith flag
+UPDATE mwo_device_info SET device_status_cd = 'DIS', disabled_dt = @date WHERE device_serial_no = @serialNo

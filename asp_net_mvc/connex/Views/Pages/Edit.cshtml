@@ -1,0 +1,556 @@
+﻿@model connex.ViewModels.PageEditViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+<script type="text/javascript">
+    $(document).ready(function(){
+       
+    });
+</script>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Page</h4>
+        <hr />
+        <span class="text-danger">@Html.ValidationSummary(true)</span>
+        @Html.HiddenFor(model => model.Page_ID)
+        <div class="container">
+           @Html.ActionLink("Done Editing","View", "Pages", new{id=ViewBag.Page_Url}, new{@class="btn btn-default col-md-2"})
+        </div>
+        <br />
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Page Details</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Page_Name,"Page Name", new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.Page_Name, new { @class="form-control col-md-5"})
+                        @Html.ValidationMessageFor(model => model.Page_Name)
+                    </div>
+                </div>
+
+                 <div class="form-group">
+                    @Html.LabelFor(model => model.URL,"URL", new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.URL, new { @class="form-control col-md-5"})
+                        @Html.ValidationMessageFor(model => model.URL)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Title_Text, "Title Text", new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.Title_Text, new { @class="form-control col-md-5"})
+                        @Html.ValidationMessageFor(model => model.Title_Text)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Is_Default, "Default Page", new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Is_Default)
+                        @Html.ValidationMessageFor(model => model.Is_Default)
+                    </div>
+                </div>
+
+                 <div class="form-group">
+                    @Html.LabelFor(model => model.Display_In_Menu, "Display In Menu", new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Display_In_Menu)
+                        @Html.ValidationMessageFor(model => model.Display_In_Menu)
+                    </div>
+                </div>
+
+                 <div class="form-group">
+                    @Html.LabelFor(model => model.Redirect, "Redirect", new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.CheckBoxFor(model => model.Redirect, new { @class="form-control RedirectCheckBox"})
+                        @Html.ValidationMessageFor(model => model.Redirect)
+                    </div>
+                </div>
+                
+                @if(Model.Redirect)
+                {
+                     <div class="form-group RedirectURL">
+                     
+                        @Html.LabelFor(model => model.Redirect_URL, "Redirect URL", new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(model => model.Redirect_URL, new{@class="form-control col-md-5"})
+                            @Html.ValidationMessageFor(model => model.Redirect_URL)
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="form-group RedirectURL HideInit">
+                     
+                        @Html.LabelFor(model => model.Redirect_URL, "Redirect URL", new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(model => model.Redirect_URL, new{@class="form-control col-md-5"})
+                            @Html.ValidationMessageFor(model => model.Redirect_URL)
+                        </div>
+                    </div>
+                }
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Parent_Page_ID, "Parent Page", new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                       <select class="form-control" id="Parent_Page_ID" name="Parent_Page_ID">
+                            <option value="None">None</option>
+                            @foreach (var page in Model.availablePages)
+                            {
+                                if (Model.Parent_Page_ID != null)
+                                {
+                                    if (Model.Parent_Page_ID == page.Page_ID)
+                                    {
+                                        <option value="@page.Page_ID" selected="selected">@page.Page_Name</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@page.Page_ID">@page.Page_Name</option>
+                                    }
+                                }
+                                else
+                                {
+                                    <option value="@page.Page_ID">@page.Page_Name</option>
+                                }
+                                
+                            }
+                        </select>
+                    </div>
+                </div>
+                 <div class="form-group">
+                    @Html.HiddenFor(model => model.Recipients_Temp, new { @class="Recipients_Temp"})
+                    @Html.LabelFor(model => model.Allow_Feedback, "Allow User Feedback", new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.CheckBoxFor(model => model.Allow_Feedback, new { @class="form-control FeedbackCheckBox"})
+                        @Html.ValidationMessageFor(model => model.Allow_Feedback)
+                    </div>
+                     @if(Model.Allow_Feedback)
+                     {
+                         <div class="col-md-10 col-md-offset-2 AllowFeedback">
+                             <div class="panel panel-info">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Notification Recipients</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        @Html.Label("Name", new { @class = "control-label col-md-1" })
+                                        @Html.TextBox("Recipient_Name","", new{@class="form-control col-md-3 Recipient_Name"})
+                                        @Html.Label("Email", new{@class="control-label col-md-1"})
+                                        @Html.TextBox("Recipient_Email","", new {@class="form-control col-md-3 Recipient_Email"})
+                                        <span class="col-md-1"></span>
+                                        <button type="button" role="button" class="btn btn-default AddRecipientButton">Add</button>
+                                    </div>
+                                    <div class="form-group RecipientsDiv">
+
+                                    </div>
+                                </div>
+                             </div>
+                         </div>
+                     }
+                     else
+                     {
+                         <div class="col-md-10 col-md-offset-2 AllowFeedback HideInit">
+                             <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Notification Recipients</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        @Html.Label("Name", new { @class = "control-label col-md-1" })
+                                        @Html.TextBox("Recipient_Name","", new{@class="form-control col-md-3 Recipient_Name"})
+                                        @Html.Label("Email", new{@class="control-label col-md-1"})
+                                        @Html.TextBox("Recipient_Email","", new {@class="form-control col-md-3 Recipient_Email"})
+                                        <span class="col-md-1"></span>
+                                        <button type="button" role="button" class="btn btn-default AddRecipientButton col-md-2">Add</button>
+                                    </div>
+                                    <div class="form-group RecipientsDiv">
+
+                                    </div>
+                                </div>
+                             </div>
+                         </div>
+                     }
+                </div>
+                
+                 <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Save Changes" class="btn btn-default" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+       
+    </div>
+}
+
+<div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Banner</h3>
+            </div>
+            <div class="panel-body">
+                @using (Html.BeginForm("AddBannerElement", "Pages", FormMethod.Post, new { enctype = "multipart/form-data"}))  
+                {  
+                    @Html.HiddenFor(model => model.Page_ID)
+                    @Html.AntiForgeryToken();
+                    
+                      @Html.LabelFor(model => model.banner, "Banner", new { @class = "control-label col-md-2" })
+                        <select class="form-control" id="Banner_ID" name="Banner_ID">
+                            @if(Model.banner == null)
+                            {
+                                <option value="one">New</option>
+                            }
+                            @foreach (var banner in Model.availableBanners)
+                            {
+                                if (Model.banner != null)
+                                {
+                                    if (Model.banner.Banner_ID == banner.Banner_ID)
+                                    {
+                                        <option value="@banner.Banner_ID" selected="selected">@banner.Banner_Name</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@banner.Banner_ID">@banner.Banner_Name</option>
+                                    }
+                                }
+                                else
+                                {
+                                    <option value="@banner.Banner_ID">@banner.Banner_Name</option>
+                                }
+                            }
+                        </select><br />
+                    
+                    <fieldset>  
+                        <legend>Add Banner Image</legend>  
+                       
+                        
+                        @Html.Label("Image", new { @class = "control-label col-md-2" })
+                        <input type="file" name="BannerImage"  class="form-control" id="BannerImage"/>  <br />
+                        @Html.Label("Title Text", new { @class = "control-label col-md-2" })
+                        <input type="text" name="Header_Text" id="Header_Text" class="form-control" /><br />
+                        @Html.Label("Summary", new { @class = "control-label col-md-2" })
+                        <textarea id="Summary" name="Summary" class="form-control" cols="50" rows="5"></textarea><br />
+                        @Html.Label("Link To", new { @class="control-label col-md-2"})
+                        <select id="Content_Type_Select" name="Content_Type_ID" class="form-control">
+                            <option value="0">None</option>
+                            @foreach (var c in Model.availableContentTypes)
+                            {
+                                <option value="@c.Content_Type_ID">@c.Content_Type</option>
+                            }
+                        </select><br />
+                        @Html.Label("Content", new {@class="control-label col-md-2", @id="Content_ID_Select_Label", @style="display:none;"})
+                        <select id="Content_ID_Select" name="Content_ID" class="form-control" style="display:none;">
+
+                        </select><br />
+
+                        <input type="submit" value="Add Banner Image" name="BannerImage" class="btn btn-default col-md-offset-2"/>  
+                        
+                    </fieldset>  
+                }
+                <br />
+                @if (Model.banner != null)
+                {
+                     
+                        <div class="container">
+                            @foreach (var element in Model.banner.BannerElements.Where(x => x.Archived == false))
+                            {
+                                using (Html.BeginForm("RemoveBannerElement", "Pages", FormMethod.Post))
+                                {
+                                    @Html.Hidden("Page_ID", Model.Page_ID)
+                                    @Html.Hidden("Element_ID", element.Element_ID)
+                                    @Html.AntiForgeryToken();
+                                    <div class="col-sm-4 col-md-3">
+                                         <div class="thumbnail">
+                                            <img src="~/@element.Image_Path" alt="Image not found" />
+                                             <br />
+                         
+                                            <div class="thumbnail-caption left-caption text-left">
+                                                <h4 class="carousel-caption-header">@element.Header_Text</h4>
+                                                <button type="submit" class="btn btn-primary" role="button">Remove</button>  
+                                            </div>
+                       
+                                         </div>
+                                     </div>
+                                }
+                            }
+                        </div>
+                     
+                }
+                
+            </div>
+
+        </div>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Collections</h3>
+        </div>
+        <div class="panel-body">
+            @Html.ActionLink("Add New Collection", "Create", "Collections", new { Page_ID = Model.Page_ID }, new { @class = "btn btn-default", @role = "button" })
+            <br /><br />
+             <fieldset>  
+                  <legend>Collection(s)</legend>  
+             </fieldset>
+            <div class="container">
+                @foreach (var coll in Model.collections.Where(x => x.Archived == false && x.PageCollectionAssigns.Where(y => y.Page_ID == Model.Page_ID).FirstOrDefault().Archived == false))
+                {
+                     using (Html.BeginForm("RemoveCollection", "Pages", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.HiddenFor(model => model.Page_ID)
+                        @Html.Hidden("Collection_ID", coll.Collection_ID)
+                        <div class="row row-trim">
+                             <div class="col-md-12">
+                                <div class="caption">
+                                    <h3>@coll.Collection_Title</h3>
+                                    <span class="label label-info">@coll.Posts.Where(y => y.Archived == false).Count() Post(s)</span>
+                                     <br /><br />
+                                    <p>@coll.Collection_Description</p>
+                                    <p>
+                                        @Html.ActionLink("Edit", "Edit", "Collections", new { Page_ID = Model.Page_ID, Collection_ID = coll.Collection_ID }, new {@class="btn btn-primary", @role="button"})
+                                        <button type="submit" class="btn btn-primary" role="button">Remove</button>
+                                    </p>
+                                </div>
+                             </div>
+                        </div>
+                        <br />
+                    }
+                }
+
+            </div>
+        </div>
+    </div>
+
+ <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Quick Link Lists</h3>
+        </div>
+        <div class="panel-body">
+            @Html.ActionLink("Add New Quick Link List", "Create", "QuickLinkLists",new {Page_ID = Model.Page_ID}, new {@role="button", @class="btn btn-default"})
+             <br /><br />
+             <fieldset>  
+                  <legend>Quick Link Lists</legend>  
+             </fieldset>
+            <div class="container">
+                @foreach (var list in Model.quickLinkLists.Where(x => x.Archived == false && x.PageQuickLinkListsAssigns.Where(y => y.Page_ID == Model.Page_ID).FirstOrDefault().Archived == false))
+                {
+                    using (Html.BeginForm("RemoveQuickLinkList", "Pages", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.HiddenFor(model => model.Page_ID)
+                        @Html.Hidden("Link_List_ID", list.Link_List_ID)
+                        <div class="row row-trim">
+                             <div class="col-md-12">
+                                <div class="caption">
+                                    <h3>@list.Name</h3>
+                                    <span class="label label-info">@list.QuickLinks.Where(y => y.Archived == false).Count() Link(s)</span>
+                                     <br /><br />
+                                    <p>
+                                        @Html.ActionLink("Edit", "Edit", "QuickLinkLists", new { Page_ID = Model.Page_ID, Link_List_ID = list.Link_List_ID}, new {@class="btn btn-primary", @role="button"})
+                                        <button type="submit" class="btn btn-primary" role="button">Remove</button>
+                                    </p>
+                                </div>
+                             </div>
+                        </div>
+                        <br />
+                    }
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Document Libraries</h3>
+        </div>
+        <div class="panel-body">
+            @Html.ActionLink("Add New Document Library", "Create", "Libraries",new {Page_ID = Model.Page_ID}, new {@role="button", @class="btn btn-default"})
+             <br /><br />
+             <fieldset>  
+                  <legend>Document Libraries</legend>  
+             </fieldset>
+            <div class="container">
+                @foreach (var lib in Model.libraries.Where(x => x.Archived == false && x.PageLibraryAssigns.Where(y => y.Page_ID == Model.Page_ID).FirstOrDefault().Archived == false))
+                {
+                    using (Html.BeginForm("RemoveLibrary", "Pages", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.HiddenFor(model => model.Page_ID)
+                        @Html.Hidden("Library_ID", lib.Library_ID)
+                        <div class="row row-trim">
+                             <div class="col-md-12">
+                                <div class="caption">
+                                    <h3>@lib.Title_Text</h3>
+                                    <span class="label label-info">@lib.Documents.Where(y => y.Archived == false).Count() Document(s)</span>
+                                     <br /><br />
+                                    <p>@lib.Description</p>
+                                    <p>
+                                        @Html.ActionLink("Edit", "Edit", "Libraries", new { Page_ID = Model.Page_ID, Library_ID = lib.Library_ID }, new {@class="btn btn-primary", @role="button"})
+                                        <button type="submit" class="btn btn-primary" role="button">Remove</button>
+                                    </p>
+                                </div>
+                             </div>
+                        </div>
+                        <br />
+                    }
+                }
+            </div>
+        </div>
+    </div>
+    
+        <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Image Galleries</h3>
+        </div>
+        <div class="panel-body">
+            @Html.ActionLink("Add New Image Gallery", "Create", "Galleries",new {Page_ID = Model.Page_ID}, new {@role="button", @class="btn btn-default"})
+             <br /><br />
+             <fieldset>  
+                  <legend>Image Galleries</legend>  
+             </fieldset>
+            <div class="container">
+                @foreach (var gal in Model.galleries.Where(x => x.Archived == false && x.PageGalleryAssigns.Where(y => y.Page_ID == Model.Page_ID).FirstOrDefault().Archived == false))
+                {
+                    using (Html.BeginForm("RemoveImageGallery", "Pages", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.HiddenFor(model => model.Page_ID)
+                        @Html.Hidden("Gallery_ID", gal.Gallery_ID)
+                        <div class="row row-trim">
+                             <div class="col-md-12">
+                                <div class="caption">
+                                    <h3>@gal.Gallery_Name</h3>
+                                    <span class="label label-info">@gal.Photos.Where(x => x.Archived == false).ToList().Count photo(s)</span>
+                                     <br /><br />
+                                    <p>
+                                        @Html.ActionLink("Edit", "Edit", "Galleries", new { Page_ID = Model.Page_ID, Gallery_ID = gal.Gallery_ID }, new {@class="btn btn-primary", @role="button"})
+                                        <button type="submit" class="btn btn-primary" role="button">Remove</button>
+                                    </p>
+                                </div>
+                             </div>
+                        </div>
+                        <br />
+                    }
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Video Galleries</h3>
+        </div>
+        <div class="panel-body">
+            @Html.ActionLink("Add New Video Gallery", "Create", "VideoGalleries",new {Page_ID = Model.Page_ID}, new {@role="button", @class="btn btn-default"})
+             <br /><br />
+             <fieldset>  
+                  <legend>Video Galleries</legend>  
+             </fieldset>
+            <div class="container">
+                @foreach (var vidGal in Model.videoGalleries.Where(x => x.Archived == false && x.PageVideoGalleryAssigns.Where(y => y.Page_ID == Model.Page_ID).FirstOrDefault().Archived == false))
+                {
+                    using (Html.BeginForm("RemoveVideoGallery", "Pages", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.HiddenFor(model => model.Page_ID)
+                        @Html.Hidden("Video_Gallery_ID", vidGal.Video_Gallery_ID)
+                        <div class="row row-trim">
+                             <div class="col-md-12">
+                                <div class="caption">
+                                    <h3>@vidGal.Gallery_Name</h3>
+                                    <span class="label label-info">@vidGal.Videos.Where(y => y.Archived == false).Count() Video(s)</span>
+                                     <br /><br />
+                                    <p>@vidGal.Details</p>
+                                    <p>
+                                        @Html.ActionLink("Edit", "Edit", "VideoGalleries", new { Page_ID = Model.Page_ID, Video_Gallery_ID = vidGal.Video_Gallery_ID }, new {@class="btn btn-primary", @role="button"})
+                                        <button type="submit" class="btn btn-primary" role="button">Remove</button>
+                                    </p>
+                                </div>
+                             </div>
+                        </div>
+                        <br />
+                    }
+                }
+            </div>
+        </div>
+    </div>
+
+ <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Calenders</h3>
+        </div>
+        <div class="panel-body">
+            @Html.ActionLink("Add New Calender", "Create", "Calenders",new {Page_ID = Model.Page_ID}, new {@role="button", @class="btn btn-default"})
+             <br /><br />
+             <fieldset>  
+                  <legend>Calenders</legend>  
+             </fieldset>
+            <div class="container">
+                @foreach (var cal in Model.calenders.Where(x => x.Archived == false && x.PageCalenderAssigns.Where(y => y.Page_ID == Model.Page_ID).FirstOrDefault().Archived == false))
+                {
+                    using (Html.BeginForm("RemoveCalender", "Pages", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.HiddenFor(model => model.Page_ID)
+                        @Html.Hidden("Calender_ID", cal.Calender_ID)
+                        <div class="row row-trim">
+                             <div class="col-md-12">
+                                <div class="caption">
+                                    <h3>@cal.Calender_Name</h3>
+                                    <span class="label label-info">@cal.Events.Where(y => y.Archived == false).Count() Event(s)</span>
+                                     <br /><br />
+                                    <p>
+                                        @Html.ActionLink("Edit", "Edit", "Calenders", new { Page_ID = Model.Page_ID, Calender_ID = cal.Calender_ID }, new {@class="btn btn-primary", @role="button"})
+                                        <button type="submit" class="btn btn-primary" role="button">Remove</button>
+                                    </p>
+                                </div>
+                             </div>
+                        </div>
+                        <br />
+                    }
+                }
+            </div>
+        </div>
+    </div>
+
+
+
+@if(Model.allFeedback.Count > 0)
+{
+     <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">User Feedback</h3>
+            </div>
+            <div class="panel-body">
+                <table class="table table-striped">
+                    <tr>
+                        <th>Name</th>
+                        <th>Feedback</th>
+                        <th>Submitted</th>
+                    </tr>
+                    @foreach (var feedback in Model.allFeedback.OrderByDescending(x => x.Date_Submitted))
+                    {
+                        <tr><td>@feedback.Name</td><td>@feedback.Feedback_Details</td><td>@feedback.Date_Submitted.ToString("MM/dd/yy HH:mm")</td></tr>
+                    }
+                </table>
+            </div>
+      </div>
+}
+<div>
+    
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

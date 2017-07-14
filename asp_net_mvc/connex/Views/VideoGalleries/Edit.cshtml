@@ -1,0 +1,151 @@
+﻿@model connex.ViewModels.VideoGalleryEditViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Video Gallery Details</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-horizontal">
+                    <h4>Video Gallery</h4>
+                    <hr />
+                    <span class="text-danger">@Html.ValidationSummary(true)</span>
+                    @Html.HiddenFor(model => model.Video_Gallery_ID)
+                    @Html.HiddenFor(model => model.Page_ID)
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Gallery_Name, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(model => model.Gallery_Name, new {@class="form-control"})
+                            @Html.ValidationMessageFor(model => model.Gallery_Name)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Details, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextAreaFor(model => model.Details, new {@class="form-control", @rows="5", @cols="50"})
+                            @Html.ValidationMessageFor(model => model.Details)
+                        </div>
+                    </div>
+        
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Archived, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Archived)
+                            @Html.ValidationMessageFor(model => model.Archived)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Save" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+         </div>
+    </div>
+}
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Videos</h3>
+    </div>
+    <div class="panel-body">
+        @using (Html.BeginForm("AddVideo", "VideoGalleries", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken();
+            @Html.HiddenFor(model => model.Page_ID)
+            @Html.HiddenFor(model => model.Video_Gallery_ID)
+            <div class="form-horizontal">
+                <div class="form-group">
+                    @Html.Label("Title", new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBox("Title_Text", null, new{@class="form-control col-md-5"})
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Caption", new {@class="control-label col-md-2"})
+                    <div class="col-md-10">
+                        @Html.TextArea("Caption", null, new{@class="form-control", @rows="5", @cols="50"})
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("WMV File", new {@class="control-label col-md-2"})
+                    <div class="col-md-10">
+                        <input type="file" name="WMVFile" class="form-control" /><span class="text-info">(100 MB or less)</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("MP4 File", new {@class="control-label col-md-2"})
+                    <div class="col-md-10">
+                        <input type="file" name="MP4File" class="form-control" /><span class="text-info">(100 MB or less)</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Preview Image", new {@class="control-label col-md-2"})
+                    <div class="col-md-10">
+                        <input type="file" name="BannerImage" class="form-control " /><span class="text-info">(10 MB or less)</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <button type="submit" value="Add Video" class="btn btn-default">Add Video</button>
+                    </div>
+                </div>
+
+            </div>
+        }
+
+        <fieldset>  
+            <legend>Videos</legend>  
+        </fieldset>
+        <div class="container">
+            <div class="row row-default">
+                <br/>
+                @foreach (var vid in Model.videos.Where(x => x.Archived == false))
+                {
+                    using (Html.BeginForm("RemoveVideo", "VideoGalleries", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.HiddenFor(model => model.Page_ID)
+                        @Html.HiddenFor(model => model.Video_Gallery_ID)
+                        @Html.Hidden("Video_ID", vid.Video_ID)
+                        <div class="col-sm-6 col-md-4">
+                            <div class="thumbnail">
+                                <img src="~/@vid.Thumb_Path" alt="No Image" class="img-responsive">
+                                <br />
+                                <div class="thumbnail-caption">
+                                    <h4 class="carousel-caption-header">@vid.Title_Text</h4>
+                                    <button type="submit" class="btn btn-primary" role="button">Remove</button> 
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+    
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

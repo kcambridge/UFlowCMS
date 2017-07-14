@@ -1,0 +1,233 @@
+﻿@model connex.ViewModels.LibraryEditViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.Page_ID)
+    
+    <div class="form-horizontal">
+        <h4>Library</h4>
+        <hr />
+        <span class="text-danger">@Html.ValidationSummary(true)</span>
+        @Html.HiddenFor(model => model.Library_ID)
+
+         <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Library Details</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Title_Text,"Library Name", new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.Title_Text, new{@class="form-control"})
+                        @Html.ValidationMessageFor(model => model.Title_Text)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Description, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(model => model.Description, new{@class="form-control", @rows="5", @cols="50"})
+                        @Html.ValidationMessageFor(model => model.Description)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Archived, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.CheckBoxFor(model => model.Archived, new {@class="form-control"})
+                        @Html.ValidationMessageFor(model => model.Archived)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Save" class="btn btn-default" />
+                    </div>
+                </div>
+        </div>
+    </div>
+  </div>
+}
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Documents</h3>
+    </div>
+    <div class="panel-body">
+        <fieldset>  
+            <legend>Single-Upload</legend>  
+        </fieldset>
+        <div class="col-md-12">
+            @using (Html.BeginForm("AddDocument", "Libraries", FormMethod.Post, new { enctype = "multipart/form-data"}))  
+             {  
+                 @Html.AntiForgeryToken();
+                 @Html.HiddenFor(model => model.Page_ID)
+                 @Html.HiddenFor(model => model.Library_ID)
+                 <div class="form-horizontal">
+                    <div class="form-group">
+                        @Html.Label("Document Name", new {@class="col-md-2 control-label"})
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(model => model.Name, new { @class="form-control col-md-5"})
+                            @Html.ValidationMessageFor(model => model.Name)
+                        </div>
+                        
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Document", new {@class="col-md-2 control-label"})
+                        <div class="col-md-10">
+                            <input type="file" name="Document" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-md-offset-2 col-md-10">
+                        <button type="submit" role="button" class="btn btn-default">Add Document</button>
+                    </div>
+                 </div>
+             }
+            <br />
+        </div>
+         
+        <fieldset>  
+            <legend>Multi-Upload</legend>  
+        </fieldset>
+        @*@using (Html.BeginForm("AddDocuments", "Libraries", FormMethod.Post, new { enctype = "multipart/form-data", @id = "fileupload" }))
+        {
+        <!--<form id="fileupload" action="/Upload/UploadHandler.ashx" method="POST" enctype="multipart/form-data">-->
+            <!-- Redirect browsers with JavaScript disabled to the origin page -->
+            <noscript><input type="hidden" name="redirect" value="https://connex/" data-url="@Url.Action("AddDocuments","Libraries")"></noscript>
+            <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
+            @Html.HiddenFor(model => model.Page_ID)
+            @Html.HiddenFor(model => model.Library_ID)
+            @Html.Hidden("Library_Name", Model.Title_Text)
+            @Html.AntiForgeryToken()
+            <div class="container">
+            <div class="row row-transparent">
+                @Html.ActionLink("Done Uploading Files", "Edit", "Libraries", new { Page_ID = Model.Page_ID, Library_ID = Model.Library_ID }, new { @class="btn btn-default", @role="button"})
+                <br />
+                <br />
+            </div>
+            <div class="row-transparent fileupload-buttonbar">
+                <div class="col-lg-7">
+                    <!-- The fileinput-button span is used to style the file input field as button -->
+                    <span class="btn btn-success fileinput-button">
+                        <i class="glyphicon glyphicon-plus"></i>
+                        <span>Add files...</span>
+                        <input type="file" name="files[]" multiple>
+                    </span>
+                    <button type="submit" class="btn btn-info start">
+                        <i class="glyphicon glyphicon-upload"></i>
+                        <span>Start upload</span>
+                    </button>
+                    <button type="reset" class="btn btn-warning cancel">
+                        <i class="glyphicon glyphicon-ban-circle"></i>
+                        <span>Cancel upload</span>
+                    </button>
+                    
+                    <!-- The global file processing state -->
+                    <span class="fileupload-process"></span>
+                </div>
+                <!-- The global progress state -->
+                <div class="col-lg-5 fileupload-progress fade">
+                    <!-- The global progress bar -->
+                    <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar progress-bar-success" style="width:0%;"></div>
+                    </div>
+                    <!-- The extended global progress state -->
+                    <div class="progress-extended">&nbsp;</div>
+                </div>
+            </div>
+            </div>
+            <!-- The table listing the files available for upload/download -->
+            <table role="presentation" class="table table-striped"><tbody class="files"></tbody></table>
+        <!--</form>-->
+        }*@
+        <div class="col-md-12">
+            @using (Html.BeginForm("AddDocuments", "Libraries", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div class="alert alert-info alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <strong>Important:</strong> Total file size must be 200 MB or less for each batch
+                </div>
+
+                @Html.ActionLink("Done Uploading Files", "Edit", "Libraries", new { Page_ID = Model.Page_ID, Library_ID = Model.Library_ID }, new { @class="btn btn-default", @role="button"})
+                <br />
+                <br />
+        
+                @Html.Hidden("Page_ID", Model.Page_ID)
+                @Html.Hidden("Library_ID", Model.Library_ID)
+                @Html.Hidden("Library_Name", Model.Name)
+                @Html.AntiForgeryToken()
+                <input type="file" name="files" value="" multiple class="form-control col-md-3 col-xs-12">
+                <button type="submit" class="btn btn-info start">
+                    <i class="glyphicon glyphicon-upload"></i>
+                    <span>Upload</span>
+                </button>
+                <!--<input type="file" name="files" value="" multiple="multiple"/>
+                <input type="submit" value="Upload You Image"  title="Uplad"/>-->
+            }
+            <br />
+            <div class="container col-md-12">@Html.Raw(@ViewBag.Upload_Counts)</div>
+            <br />
+            <!--<div class="container col-md-12">@Html.Raw(@ViewBag.Success_Uploads)</div>-->
+            <div class="container col-md-12">@Html.Raw(@ViewBag.Failed_Uploads)</div>
+            <br />
+        </div>
+        
+        <fieldset>  
+            <legend>Documents</legend>  
+        </fieldset>
+            <div class="container">
+                <div class="row row-default">
+                    <br />
+                    @foreach (var doc in Model.documents.Where(x => x.Archived == false).OrderBy(x => x.Date_Added))
+                    {
+                        
+                    <div class="col-xs-2">
+                        <div class="thumbnail">
+                            <h5>@doc.Name</h5>
+                            <p class="align-center">
+                                @using (Html.BeginForm("RemoveDocument", "Libraries", FormMethod.Post))
+                                {
+                                    @Html.Hidden("Page_ID", Model.Page_ID)
+                                    @Html.Hidden("Library_ID", Model.Library_ID)
+                                    @Html.Hidden("Document_ID", doc.Document_ID)
+                                    @Html.AntiForgeryToken();
+                                    <button class="btn btn-primary align-center" role="button" type="submit">Remove</button>
+                                    
+                                }
+                            </p>
+                            <p class="align-center">
+                                @if (doc.DocumentType.Extension == ".pdf" || doc.DocumentType.Extension == ".jpg" || doc.DocumentType.Extension == ".png")
+                                {
+                                    <a href="http://192.168.128.98:91/@doc.Path" class="btn btn-primary" target="_blank">Preview</a>
+                                    ///TODO: Need to replace this with 'connex' or find a way to determine site root dynamically
+                                }
+                                else
+                                {
+                                    @Html.ActionLink("Preview", "Download", "Libraries", new{id = doc.Document_ID}, new{@class="btn btn-primary", @target="_blank"})
+                                }
+                            </p> 
+                        </div>
+                    </div>
+
+                    }
+                </div>
+            </div>
+
+    </div>
+</div>
+
+<div>
+    
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

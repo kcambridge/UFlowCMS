@@ -1,0 +1,707 @@
+﻿@model connex.ViewModels.PageViewModel
+
+@{
+    ViewBag.Title = @Model.thisPage.Title_Text+" - Connex";
+}
+
+<div class="page-header">
+    <h1>@Model.thisPage.Title_Text</h1>
+    <span class="text-danger">@Html.ValidationSummary(true)</span>
+     @if(ViewBag.CanEdit)
+    {
+        <a href="@Url.Action("Edit", new { id = Model.thisPage.Page_ID })" class="btn btn-warning">
+            <i class="glyphicon glyphicon-edit"></i>&nbsp;Edit Page
+        </a>
+    }
+</div>
+<div class="container">
+<div class="col-md-1"></div>
+<div class="col-md-10">
+    @if(Model.thisPage.Banner != null)
+    {
+        
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+          <!-- Indicators -->
+          <ol class="carousel-indicators">
+              @for (var i = 0; i <= Model.thisPage.Banner.BannerElements.Count - 1; i++)
+              {
+
+                  var itemClass = "";
+                  if (i == 0)
+                  {
+                      itemClass = "active";
+                  }
+                  <li data-target="#carousel-example-generic" data-slide-to="@i" class="@itemClass"></li>
+              }
+          </ol>
+
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner" role="listbox">
+        @for(var i = 0; i <= Model.thisPage.Banner.BannerElements.Count - 1; i++){
+    
+            var itemClass = "";
+            if(i == 0)
+            {
+                itemClass = "active";
+            }
+            <div class="item @itemClass">
+                <img src="~/@Model.thisPage.Banner.BannerElements.ElementAt(i).Image_Path" alt="Image not foind" class="img-responsive">
+                <div class="carousel-caption left-caption text-left">
+		            <h1 class="carousel-caption-header hidden-xs">@Model.thisPage.Banner.BannerElements.ElementAt(i).Header_Text</h1>
+		            <p>@Model.thisPage.Banner.BannerElements.ElementAt(i).Summary</p>
+                    @if (Model.thisPage.Banner.BannerElements.ElementAt(i).Content_ID != null && Model.thisPage.Banner.BannerElements.ElementAt(i).Content_Type_ID != null)
+                    {
+                        int contentTypeID = Model.thisPage.Banner.BannerElements.ElementAt(i).Content_Type_ID.Value;
+                        if (contentTypeID == 1)
+                        {
+                            @Html.ActionLink(@Model.thisPage.Banner.BannerElements.ElementAt(i).ContentType.Display_Text, "View", "Posts", new { id = Model.thisPage.Banner.BannerElements.ElementAt(i).Content_ID }, new {@class="btn btn-primary", @role="button"})
+                        }
+                        else if (contentTypeID == 2)
+                        {
+                            @Html.ActionLink(@Model.thisPage.Banner.BannerElements.ElementAt(i).ContentType.Display_Text, "View", "Galleries", new { id = Model.thisPage.Banner.BannerElements.ElementAt(i).Content_ID }, new {@class="btn btn-primary", @role="button"})
+                        }
+                        else if (contentTypeID == 3)
+                        {
+                            @Html.ActionLink(@Model.thisPage.Banner.BannerElements.ElementAt(i).ContentType.Display_Text, "View", "Videos", new { id = Model.thisPage.Banner.BannerElements.ElementAt(i).Content_ID }, new {@class="btn btn-primary", @role="button"})
+                        }
+                        else if (contentTypeID == 4)
+                        {
+                            @Html.ActionLink(@Model.thisPage.Banner.BannerElements.ElementAt(i).ContentType.Display_Text, "View", "Events", new { id = Model.thisPage.Banner.BannerElements.ElementAt(i).Content_ID }, new {@class="btn btn-primary", @role="button"})
+                        }
+                        else if (contentTypeID == 5)
+                        {
+                            @Html.ActionLink(@Model.thisPage.Banner.BannerElements.ElementAt(i).ContentType.Display_Text, "View", "Pages", new { id = Model.thisPage.Banner.BannerElements.ElementAt(i).Content_ID }, new {@class="btn btn-primary", @role="button"})
+                        }
+                        
+                    }
+                
+	            </div>
+            </div>
+            
+        }
+  
+          </div>
+
+          <!-- Controls -->
+          <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+    }
+   
+     </div>
+
+    <div class="col-md-1"></div>
+    
+</div>
+<br />
+<div class="container">
+ @if(ViewBag.CanEdit)
+{
+    <a href="@Url.Action("Create","Collections",  new { Page_ID = Model.thisPage.Page_ID, Return_Home = true })" class="btn btn-success">
+        <i class="glyphicon glyphicon-plus"></i>&nbsp;Add Collection
+    </a>
+     <br /><br />
+}
+@foreach(var collection in Model.collections)
+{
+    if (collection.Archived == false && collection.Posts.Where(x => x.Archived == false).Count() > 0)
+    {
+        int x = 0;
+        if (collection.Display_Mode_ID == 2)//Story List
+        {
+            
+            <div class="row row-default">
+                <h2><span class="label label-primary">@collection.Collection_Title</span></h2>
+                  @if(ViewBag.CanEdit)
+                {
+                    <a href="@Url.Action("Edit","Collections",  new { Collection_ID = collection.Collection_ID, Page_ID = Model.thisPage.Page_ID, Return_Home = true  })" class="btn btn-warning">
+                        <i class="glyphicon glyphicon-edit"></i>&nbsp;Edit Collection
+                    </a>
+                    <a href="@Url.Action("Create","Posts",  new { Collection_ID = collection.Collection_ID, Page_ID = Model.thisPage.Page_ID , Return_Home = true })" class="btn btn-success">
+                        <i class="glyphicon glyphicon-plus"></i>&nbsp;Add Post
+                    </a>
+                    <br /><br />
+                }
+                
+                @foreach (var post in collection.Posts.OrderByDescending(y=> y.Date_Added).Take(4))
+                {
+                    
+                    if (post.Archived == false)
+                    {
+                        x++;  
+                      <div class="col-sm-4 col-md-3">
+                        <div class="thumbnail">
+                          <img src="~/@post.Thumb_Path" alt="No Image" class="img-responsive">
+                          <div class="caption">
+                            <h3>@post.Header</h3>
+                            <p>@post.Summary</p>
+                            <p>@Html.ActionLink("Read More", "View", "Posts", new { id = post.Post_ID }, new {@class="btn btn-primary", @role="button"})</p>
+                          </div>
+                        </div>
+                      </div>
+                    }
+                 }
+                 @if (collection.Posts.Count > 4)
+                {
+                    <table><tr><td class="col-md-10"></td><td class="col-md-2"><button type="button" class="btn btn-info pull-left">See more like this</button></td></tr></table>
+                    <br />
+                }
+            </div>
+        }
+        else if (collection.Display_Mode_ID == 3)//Text List
+        {
+            <div class="row row-default">
+                <h2><span class="label label-primary">@collection.Collection_Title</span></h2>
+                 @if(ViewBag.CanEdit)
+                {
+                    <a href="@Url.Action("Edit","Collections",  new { Collection_ID = collection.Collection_ID, Page_ID = Model.thisPage.Page_ID , Return_Home = true })" class="btn btn-warning">
+                        <i class="glyphicon glyphicon-edit"></i>&nbsp;Edit Collection
+                    </a>
+                    <a href="@Url.Action("Create","Posts",  new { Collection_ID = collection.Collection_ID, Page_ID = Model.thisPage.Page_ID , Return_Home = true })" class="btn btn-success">
+                        <i class="glyphicon glyphicon-plus"></i>&nbsp;Add Post
+                    </a>
+                    <br /><br />
+                }
+                <div class="list-group">
+                    @foreach (var post in collection.Posts.OrderByDescending(y => y.Date_Added))
+                    {
+                    
+                        if (post.Archived == false)
+                        {
+                            @Html.ActionLink(post.Header, "View", "Posts", new { id = post.Post_ID }, new {@class="list-group-item"})
+                        }
+                    }
+                </div>
+
+            </div>
+        }
+        else if (collection.Display_Mode_ID == 4)//Story List with Highlighted
+        {
+            <div class="row row-default">
+                <h2><span class="label label-primary">@collection.Collection_Title</span></h2>
+                 @if(ViewBag.CanEdit)
+                {
+                    <a href="@Url.Action("Edit","Collections",  new { Collection_ID = collection.Collection_ID, Page_ID = Model.thisPage.Page_ID, Return_Home = true  })" class="btn btn-warning">
+                        <i class="glyphicon glyphicon-edit"></i>&nbsp;Edit Collection
+                    </a>
+                    <a href="@Url.Action("Create","Posts",  new { Collection_ID = collection.Collection_ID, Page_ID = Model.thisPage.Page_ID, Return_Home = true  })" class="btn btn-success">
+                        <i class="glyphicon glyphicon-plus"></i>&nbsp;Add Post
+                    </a>
+                    <br /><br />
+                }
+	            @foreach (var post in collection.Posts.OrderByDescending(y => y.Date_Added).Take(5))
+                {
+                    if (post.Archived == false)
+                    {
+                        if (x == 0)
+                        {
+                            <div class="container">
+                                <div class="jumbotron">
+                                    <div class="container">
+                                        <div class="col-sm-12 col-md-6">
+                                            <h1>@post.Header</h1>
+                                            <p>@post.Summary</p>
+                                            <p>@Html.ActionLink("Read More", "View", "Posts", new { id = post.Post_ID }, new {@class="btn btn-primary btn-lg", @role="button"})</p>
+                                        </div>
+                                        <div class="col-sm-12 col-md-6">
+                                            <img src="~/@post.Thumb_Path" alt="No Image" class="center-block img-responsive"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <br />
+                            
+                        }
+                        else
+                        {
+                            <div class="col-sm-4 col-md-3">
+                                <div class="thumbnail">
+                                    <img src="~/@post.Thumb_Path" alt="No Image" class="img-responsive">
+                                    <div class="caption">
+                                    <h3>@post.Header</h3>
+                                    <p>@post.Summary</p>
+                                    <p>@Html.ActionLink("Read More", "View", "Posts", new { id = post.Post_ID }, new {@class="btn btn-primary", @role="button"})</p>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        x++;
+                        
+                    }
+                 }
+                @if (collection.Posts.Count > 5)
+                {
+                    <table class="table"><tr><td class="col-md-10"></td><td class="col-md-2"><button type="button" class="btn btn-info pull-left">See more like this</button></td></tr></table>
+                    <br />
+                }
+            </div>
+            
+        }
+        else if (collection.Display_Mode_ID == 5)//Full Post
+        {
+            
+            <div class="row row-default">
+                <h2><span class="label label-primary">@collection.Collection_Title</span></h2>
+                  @if(ViewBag.CanEdit)
+                {
+                    <a href="@Url.Action("Edit","Collections",  new { Collection_ID = collection.Collection_ID, Page_ID = Model.thisPage.Page_ID, Return_Home = true  })" class="btn btn-warning">
+                        <i class="glyphicon glyphicon-edit"></i>&nbsp;Edit Collection
+                    </a>
+                    <a href="@Url.Action("Create","Posts",  new { Collection_ID = collection.Collection_ID, Page_ID = Model.thisPage.Page_ID, Return_Home = true  })" class="btn btn-success">
+                        <i class="glyphicon glyphicon-plus"></i>&nbsp;Add Post
+                    </a>
+                    <br /><br />
+                }
+                @foreach (var post in collection.Posts.OrderByDescending(y => y.Date_Added).Take(3))
+                {
+                    if (post.Archived == false)
+                    {
+                        <div class="container">
+                            <h4>@post.Header</h4>
+                        @foreach(var sect in post.Sections.OrderBy(y => y.Section_ID))
+                        {
+                            <div class="col-md-12">
+                                 @if(sect.Sub_Header != null)
+                                {
+                                    <h3>@sect.Sub_Header</h3>
+                                }
+                               @if(sect.MediaType != null)
+                               {
+                                    if (sect.Media_Width_Mode_ID != 1)
+                                    {
+                                        <div class="@sect.WidthMode.Remainder_Class"></div>   
+                                    }
+                                    <div class="@sect.WidthMode.Bootstrap_Class">
+                                        <img src="~/@sect.Media_Path" alt="Image not found" class="img-responsive" />
+                                    </div>
+                                    if (sect.Media_Width_Mode_ID != 1)
+                                    {
+                                        <div class="row row-default">
+                                            <div class="@sect.WidthMode.Remainder_Class"></div>   
+                                        </div>
+                                    }
+                                }
+                                <div class="col-md-12">
+                                    @if(@sect.Text_Block != null)
+                                    {
+            
+                                            <br />
+                                            <p>
+                                                <span style="white-space: pre-line">@Html.Raw(@sect.Text_Block)</span>
+                                            </p>
+            
+                                    }
+                                    @if (@sect.Hyperlink != null)
+                                    {
+                                        <br />
+                                        <div class="text-left">
+                                            <a href="@sect.Hyperlink" target="_blank">@sect.Hyperlink_Text</a>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                            <br />
+                        }
+                        </div>
+                    }
+                }
+                 @if (collection.Posts.Count > 3)
+                {
+                    <table><tr><td class="col-md-10"></td><td class="col-md-2"><button type="button" class="btn btn-info pull-left">See more like this</button></td></tr></table>
+                    <br />
+                }
+            </div>
+        }
+        <br />
+    }
+}
+</div>
+<br />
+@if (Model.quickLinkLists.Where(x => x.Archived == false).Count() > 0)
+{
+    <div class="container">
+         @if(ViewBag.CanEdit)
+        {
+            <a href="@Url.Action("Create","QuickLinkLists",  new { Page_ID = Model.thisPage.Page_ID, Return_Home = true })" class="btn btn-success">
+                <i class="glyphicon glyphicon-plus"></i>&nbsp;Add Quick Link List
+            </a>
+             <br /><br />
+        }
+        @foreach(var qList in Model.quickLinkLists)
+        {
+            if (qList.Archived == false)
+            {
+        
+                    <div class="row row-default">
+                        <h2><span class="label label-primary">@qList.Name</span></h2>
+                        @if(ViewBag.CanEdit)
+                        {
+                            <a href="@Url.Action("Edit","QuickLinkLists",  new { Link_List_ID = qList.Link_List_ID, Page_ID = Model.thisPage.Page_ID, Return_Home = true  })" class="btn btn-warning">
+                                <i class="glyphicon glyphicon-edit"></i>&nbsp;Edit Quick Link List
+                            </a>
+                            <br /><br />
+                        }
+                        
+                        <div class="list-group tab-panel">
+                            @foreach (var link in qList.QuickLinks)
+                            {
+                                if (link.Archived == false)
+                                {
+                                        <a class="list-group-item list-group-item-link" href="@link.URL">@link.Display_Text</a>
+                                }
+                            }
+                        </div>
+                        
+
+                    </div>
+                    <br />
+    
+   
+             }
+         }
+    </div>
+}
+@if (Model.calenders.Where(x => x.Archived == false).Count() > 0)
+{
+<div class="container">
+    
+    <div class="row row-default">
+         @if(ViewBag.CanEdit)
+        {
+             <br />
+            <a href="@Url.Action("Create","Calenders",  new { Page_ID = Model.thisPage.Page_ID, Return_Home = true  })" class="btn btn-success">
+                <i class="glyphicon glyphicon-plus"></i>&nbsp;Add Calender
+            </a>
+        }
+     <h2><span class="label label-primary">Upcoming Events</span></h2>
+
+    @foreach (var calender in Model.calenders.Where(x=> x.Archived == false))
+    {
+        int x = 1;
+        
+        <div class="container">
+            <h2>@calender.Calender_Name</h2>
+             @if(ViewBag.CanEdit)
+                {
+                    <a href="@Url.Action("Edit","Calenders",  new { Calender_ID = calender.Calender_ID, Page_ID = Model.thisPage.Page_ID, Return_Home = true  })" class="btn btn-warning">
+                        <i class="glyphicon glyphicon-edit"></i>&nbsp;Edit Calender
+                    </a>
+                    <br /><br />
+                }
+            <div class="accordion">
+                
+                @foreach(var calEvent in calender.Events.Where(y=> y.Archived == false && y.End_Date_Time >= DateTime.Now).OrderBy(z=>z.Start_Date_Time))
+                {
+                    var idParts = @calender.Calender_ID + "_" + @calEvent.Event_ID;
+                      <div class="accordion-heading">
+                           <a class="accordion-toggle" href="#collapse_@idParts" id="calEventLink_@idParts">
+                                <h4>@calEvent.Event_Name</h4>
+                          </a>
+                      </div>
+                      <div class="accordion-inner" id="#collapse_@idParts">
+                          
+                              <div class="col-md-6 ">
+                                   <b>From:</b>&nbsp;@calEvent.Start_Date_Time.ToString("dddd dd MMM")&nbsp;@calEvent.Start_Date_Time.ToString("hh:mm tt")
+                                  <br />
+                                  <b>To:</b>&nbsp;@calEvent.End_Date_Time.ToString("dddd dd MMM")&nbsp;@calEvent.End_Date_Time.ToString("hh:mm tt")
+                                  <br /><br /><br />
+                                  <b>Location:</b>&nbsp;@calEvent.Location
+                                  <br /><br />
+                                  <div class="well">
+                                      <span style="white-space: pre-line">@Html.Raw(@calEvent.Description)</span>
+                                  </div>
+                              </div>
+                              
+                                <div class="col-md-6 text-center"  id="calEventImgContainer_@idParts">
+                                    
+                                        <a href="~/@calEvent.Image_Path" rel="lightbox-cats" title=""> <img src="~/@calEvent.Thumb_Path" alt="No Image Found" class="img-responsive"  id="calEventImg_@idParts"/></a>
+                                    
+                                </div>
+                        
+                      </div>
+                    x++;
+                }
+                </div>
+          </div>
+        
+    }
+    </div>
+</div>
+}
+@if (Model.photoGalleries.Where(x => x.Archived == false).Count() > 0)
+{
+    <br /><br />
+    <div class="container">
+         
+        <div class="row row-default">
+            @if(ViewBag.CanEdit)
+            {
+                <br />
+                <a href="@Url.Action("Create","Galleries",  new { Page_ID = Model.thisPage.Page_ID, Return_Home = true  })" class="btn btn-success">
+                    <i class="glyphicon glyphicon-plus"></i>&nbsp;Add Gallery
+                </a>
+            }
+            <h2><span class="label label-primary">Photo Galleries</span></h2>
+
+             @foreach (var photoGall in Model.photoGalleries.Where(x => x.Archived == false && x.Photos.Count > 0).OrderByDescending(x => x.Gallery_ID))
+             {
+                  <div class="col-sm-4 col-md-3">
+                     <div class="thumbnail">
+                        <img src="~/@photoGall.Photos.FirstOrDefault().File_Path" alt="Image not found" />
+                         <br />
+                         
+                        <div class="thumbnail-caption left-caption text-left">
+                            <h4 class="carousel-caption-header">@photoGall.Gallery_Name</h4>
+                            <p>@photoGall.Photos.Count  Photo(s)</p>
+                            @Html.ActionLink("View Gallery", "View", "Galleries", new { id = photoGall.Gallery_ID }, new {@class="btn btn-primary", @role="button"})
+                             @if(ViewBag.CanEdit)
+                            {
+                                <a href="@Url.Action("Edit","Galleries",  new { photoGall.Gallery_ID, Page_ID = Model.thisPage.Page_ID, Return_Home = true  })" class="btn btn-warning">
+                                    <i class="glyphicon glyphicon-edit"></i>&nbsp;Edit Gallery
+                                </a>
+                            }
+                        </div>
+                       
+                     </div>
+                 </div>
+             }
+             @if (Model.photoGalleries.Where(x => x.Archived == false).Count() > 8)
+             {
+                 <table class="table"><tr><td class="col-md-10"></td><td class="col-md-2">@Html.ActionLink("See All", "Index", "Galleries", new { @class="btn btn-primary", @role="button"})</td></tr></table>
+                 <br />
+             }
+        </div>
+    </div>
+}
+@if (Model.videoGalleries.Where(x => x.Archived == false).Count() > 0)
+{
+<br /><br />
+<div class="container">
+     
+    <div class="row row-default">
+        @if(ViewBag.CanEdit)
+        {
+            <br />
+            <a href="@Url.Action("Create","VideoGalleries",  new { Page_ID = Model.thisPage.Page_ID, Return_Home = true })" class="btn btn-success">
+                <i class="glyphicon glyphicon-plus"></i>&nbsp;Add Video Gallery
+            </a>
+        }
+        <h2><span class="label label-primary">Video Galleries</span></h2>
+        @foreach(var vidGall in Model.videoGalleries.Where(x => x.Archived == false).Take(4))
+        {
+            var carouselID = "VideoGalleryCarousel" + vidGall.Video_Gallery_ID;
+            <h3>@vidGall.Gallery_Name</h3>
+             if(ViewBag.CanEdit)
+                {
+                    <a href="@Url.Action("Edit","VideoGalleries",  new { Video_Gallery_ID = vidGall.Video_Gallery_ID, Page_ID = Model.thisPage.Page_ID, Return_Home = true })" class="btn btn-warning">
+                        <i class="glyphicon glyphicon-edit"></i>&nbsp;Edit Video Gallery
+                    </a>
+                    <br /><br />
+                }
+            <div class="container">
+                
+                <div class="col-md-9">
+                    
+                    <div id="@carouselID" class="carousel slide vertical" data-ride="carousel">
+                      <!-- Wrapper for slides -->
+                      <div class="carousel-inner" role="listbox">
+                        @for(var i = 0; i <= vidGall.Videos.Count - 1; i++)
+                        {
+                            if (vidGall.Videos.ElementAt(i).Archived == false)
+                            {
+                                var itemClass = "";
+                                var slideID = "VidGal" + vidGall.Video_Gallery_ID + "_CarouselSlide_" + i;
+                                if(i == 0)
+                                {
+                                    itemClass = "active";
+                                }
+                                <div class="item @itemClass" id="@slideID">
+                                    <img src="~/@vidGall.Videos.ElementAt(i).Thumb_Path" alt="Image not foind" class="img-responsive">
+                                    <div class="carousel-caption left-caption text-left">
+		                                <h1 class="carousel-caption-header hidden-xs">@vidGall.Videos.ElementAt(i).Title_Text</h1>
+		                                @Html.ActionLink("Play Video", "View", "Videos", new { id = vidGall.Videos.ElementAt(i).Video_ID }, new {@class="btn btn-primary", @role="button"})
+	                                </div>
+                                </div>
+                            }
+                        }
+  
+                      </div>
+
+                      <!-- Controls -->
+                      <a class="left carousel-control" href="#@carouselID" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                      <a class="right carousel-control" href="#@carouselID" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                      </a>
+                </div>
+                </div>
+                <div class="col-md-3" style=" height:100%;">
+                    <!-- Indicators -->
+                      <ol class="carousel-indicators-img col-md-12">
+                          @for(var i = 0; i <= vidGall.Videos.Count - 1; i++)
+                          {
+                              if (vidGall.Videos.ElementAt(i).Archived == false)
+                              {
+                                  var indID = "VidGal" + vidGall.Video_Gallery_ID + "_CarouselIndicator_" + i;
+                                  var itemClass = "";
+                                  if (i == 0)
+                                  {
+                                      itemClass = "active";
+                                  }
+                                  <li data-target="#@carouselID" data-slide-to="@i">
+                                      <img src="~/@vidGall.Videos.ElementAt(i).Thumb_Path" alt="No image" class="img-responsive @itemClass" id="@indID"/>
+                                  </li>
+                              }
+                          }
+                      </ol>
+                </div>
+            </div>
+        }
+         @if (Model.videoGalleries.Where(x => x.Archived == false).Count() > 4)
+        {
+            <table class="table"><tr><td class="col-md-10"></td><td class="col-md-2">@Html.ActionLink("See All", "Index", "VideoGalleries")</td></tr></table>
+            <br />
+        }
+        <br />
+    </div>
+</div>
+}
+@if (Model.libraries.Where(x => x.Archived == false).Count() > 0)
+{
+    int i = 0;
+    int j = 0;
+    
+    <br /><br />
+    <div class="container">
+        
+        <div class="row row-default">
+             @if(ViewBag.CanEdit)
+            {
+                 <br />
+                <a href="@Url.Action("Create","Libraries",  new { Page_ID = Model.thisPage.Page_ID, Return_Home = true })" class="btn btn-success">
+                    <i class="glyphicon glyphicon-plus"></i>&nbsp;Add Document Library
+                </a>
+                 
+            }
+            <h2><span class="label label-primary">Documents</span></h2>
+            <div class="container">
+                <div role="tabpanel" class="tab-panel">
+                    <ul class="nav nav-tabs" role="tablist" id="myTab">
+                        @foreach (var lib in Model.libraries.Where(y => y.Archived == false))
+                        {
+                        
+                            var active = "";
+                            var id = lib.Library_ID + "DocTab";
+                            if (i == 0)
+                            {
+                                active = "active";
+                            }
+                            <li role="presentation" class="@active">
+                                <a href="#@id" aria-controls="@id" role="tab" data-toggle="tab">
+                                    @lib.Title_Text
+                                </a>&nbsp;
+                                
+                            </li>
+                            i++;
+                        }
+                    
+                    </ul>
+                    <div class="tab-content">
+                    
+                        @foreach (var lib in Model.libraries.Where(y => y.Archived == false))
+                        {
+                        
+                            var active = "";
+                            var id = lib.Library_ID + "DocTab";
+                            if (j == 0)
+                            {
+                                active = "active";
+                            }
+                            <div role="tabpanel" class="tab-pane fade in @active" id="@id">
+                                <ul class="list-group">
+                                    
+                                @if(ViewBag.CanEdit)
+                                {
+                                   <li class="list-group-item">
+                                        <a href="@Url.Action("Edit","Libraries",  new { Library_ID = lib.Library_ID, Page_ID = Model.thisPage.Page_ID, Return_Home = true })" class="btn btn-warning">
+                                            <i class="glyphicon glyphicon-edit"></i>&nbsp;Edit Library
+                                        </a>
+                                   </li>
+                                }
+                                    
+                                @foreach (var doc in lib.Documents.Where(z => z.Archived == false))
+                                {
+                                    <li class="list-group-item">
+                                        @if (doc.DocumentType.Extension == ".pdf" || doc.DocumentType.Extension == ".jpg" || doc.DocumentType.Extension == ".png")
+                                        {
+                                            <a href="http://192.168.128.98:91/@doc.Path" target="_blank">@doc.Name</a>
+                                            ///TODO: Need to replace this with 'connex' or find a way to determine site root dynamically
+                                        }
+                                        else
+                                        {
+                                            @Html.ActionLink(@doc.Name, "Download", "Libraries", new{id = doc.Document_ID}, new{@target="_blank"})
+                                        }
+                                        
+                                    </li>
+                                }
+                                </ul>
+                            </div>
+                            j++;
+                        }
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
+}
+
+@if (Model.thisPage.Allow_Feedback)
+{
+    <br /><br />
+    <div class="container">
+        <div class="row jumbotron">
+            <h2 class="h-feedback">Leave us some feedback!</h2>
+            <hr />
+            <div class="col-md-4">
+                <h4 class="h-feedback">We would love to hear from you...</h4>
+                <p>Let us know what you think about the site, this page and how you think it can be improved.</p>
+            </div>
+            <div class="col-md-8">
+            
+                @using(Html.BeginForm("SendFeedback", "Pages", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.Hidden("Page_ID", Model.thisPage.Page_ID)
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            @Html.Label("Name", new { @class="control-label col-md-3"})
+                            @Html.TextBoxFor(model => model.Feedback_Name, new {@class="form-control col-md-9", @placeholder="Enter Name (Optional)"})
+                        </div>
+                        <div class="form-group">
+                            @Html.Label("Feedback", new { @class="control-label col-md-3"})
+                            @Html.TextAreaFor(model => model.Feedback_Message, new { @class="form-control col-md-9", @rows="5"})
+                        </div>
+                        <button type="submit" role="button" class="btn btn-primary col-md-offset-3">Send Feedback</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+}
+
+
+
+

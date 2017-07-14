@@ -1,0 +1,144 @@
+﻿@model connex.Models.Event
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Event</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Event_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Event_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Thumb_Path)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Thumb_Path)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Image_Path)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Image_Path)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date_Added)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date_Added)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Added_By)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Added_By)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Last_Updated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Last_Updated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Updated_By)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Updated_By)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date_Archive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date_Archive)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Archive_By)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Archive_By)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Archived)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Archived)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Start_Date_Time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Start_Date_Time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.End_Date_Time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.End_Date_Time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Calender.Calender_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Calender.Calender_Name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            
+        </div>
+    }
+</div>

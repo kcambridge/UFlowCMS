@@ -1,0 +1,486 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CONNEX_ModelStoreContainer" CdmEntityContainer="CONNEXDBEntities">
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="CONNEX_Model.Admin">
+        <MappingFragment StoreEntitySet="Admins">
+          <ScalarProperty Name="Admin_ID" ColumnName="Admin_ID" />
+          <ScalarProperty Name="Network_ID" ColumnName="Network_ID" />
+          <ScalarProperty Name="Full_Name" ColumnName="Full_Name" />
+          <ScalarProperty Name="Date_Added" ColumnName="Date_Added" />
+          <ScalarProperty Name="Added_By" ColumnName="Added_By" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Banners">
+      <EntityTypeMapping TypeName="CONNEX_Model.Banner">
+        <MappingFragment StoreEntitySet="Banners">
+          <ScalarProperty Name="Banner_ID" ColumnName="Banner_ID" />
+          <ScalarProperty Name="Banner_Name" ColumnName="Banner_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Calenders">
+      <EntityTypeMapping TypeName="CONNEX_Model.Calender">
+        <MappingFragment StoreEntitySet="Calenders">
+          <ScalarProperty Name="Calender_ID" ColumnName="Calender_ID" />
+          <ScalarProperty Name="Calender_Name" ColumnName="Calender_Name" />
+          <ScalarProperty Name="Date_Added" ColumnName="Date_Added" />
+          <ScalarProperty Name="Added_By" ColumnName="Added_By" />
+          <ScalarProperty Name="Last_Updated" ColumnName="Last_Updated" />
+          <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
+          <ScalarProperty Name="Date_Archived" ColumnName="Date_Archived" />
+          <ScalarProperty Name="Archived_By" ColumnName="Archived_By" />
+          <ScalarProperty Name="Archived" ColumnName="Archived" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CollectionsDisplayModes">
+      <EntityTypeMapping TypeName="CONNEX_Model.CollectionsDisplayMode">
+        <MappingFragment StoreEntitySet="CollectionsDisplayModes">
+          <ScalarProperty Name="Display_Mode_ID" ColumnName="Display_Mode_ID" />
+          <ScalarProperty Name="Display_Mode" ColumnName="Display_Mode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CollectionsWidthModes">
+      <EntityTypeMapping TypeName="CONNEX_Model.CollectionsWidthMode">
+        <MappingFragment StoreEntitySet="CollectionsWidthModes">
+          <ScalarProperty Name="Width_Mode_ID" ColumnName="Width_Mode_ID" />
+          <ScalarProperty Name="Width_Mode" ColumnName="Width_Mode" />
+          <ScalarProperty Name="Percentage" ColumnName="Percentage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comments">
+      <EntityTypeMapping TypeName="CONNEX_Model.Comment">
+        <MappingFragment StoreEntitySet="Comments">
+          <ScalarProperty Name="Comment_ID" ColumnName="Comment_ID" />
+          <ScalarProperty Name="Comment1" ColumnName="Comment1" />
+          <ScalarProperty Name="Submitted_By" ColumnName="Submitted_By" />
+          <ScalarProperty Name="Date_Submitted" ColumnName="Date_Submitted" />
+          <ScalarProperty Name="Post_ID" ColumnName="Post_ID" />
+          <ScalarProperty Name="Date_Archive" ColumnName="Date_Archive" />
+          <ScalarProperty Name="Archive_By" ColumnName="Archive_By" />
+          <ScalarProperty Name="Archived" ColumnName="Archived" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContentTypes">
+      <EntityTypeMapping TypeName="CONNEX_Model.ContentType">
+        <MappingFragment StoreEntitySet="ContentTypes">
+          <ScalarProperty Name="Content_Type_ID" ColumnName="Content_Type_ID" />
+          <ScalarProperty Name="Content_Type" ColumnName="Content_Type" />
+          <ScalarProperty Name="Display_Text" ColumnName="Display_Text" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Documents">
+      <EntityTypeMapping TypeName="CONNEX_Model.Document">
+        <MappingFragment StoreEntitySet="Documents">
+          <ScalarProperty Name="Document_ID" ColumnName="Document_ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Path" ColumnName="Path" />
+          <ScalarProperty Name="Library_ID" ColumnName="Library_ID" />
+          <ScalarProperty Name="Date_Added" ColumnName="Date_Added" />
+          <ScalarProperty Name="Added_By" ColumnName="Added_By" />
+          <ScalarProperty Name="Date_Archive" ColumnName="Date_Archive" />
+          <ScalarProperty Name="Archive_By" ColumnName="Archive_By" />
+          <ScalarProperty Name="Archived" ColumnName="Archived" />
+          <ScalarProperty Name="Document_Type_ID" ColumnName="Document_Type_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DocumentTypes">
+      <EntityTypeMapping TypeName="CONNEX_Model.DocumentType">
+        <MappingFragment StoreEntitySet="DocumentTypes">
+          <ScalarProperty Name="Document_Type_ID" ColumnName="Document_Type_ID" />
+          <ScalarProperty Name="Content_Type" ColumnName="Content_Type" />
+          <ScalarProperty Name="Extension" ColumnName="Extension" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Galleries">
+      <EntityTypeMapping TypeName="CONNEX_Model.Gallery">
+        <MappingFragment StoreEntitySet="Galleries">
+          <ScalarProperty Name="Gallery_ID" ColumnName="Gallery_ID" />
+          <ScalarProperty Name="Gallery_Name" ColumnName="Gallery_Name" />
+          <ScalarProperty Name="Date_Added" ColumnName="Date_Added" />
+          <ScalarProperty Name="Added_By" ColumnName="Added_By" />
+          <ScalarProperty Name="Last_Updated" ColumnName="Last_Updated" />
+          <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
+          <ScalarProperty Name="Date_Archive" ColumnName="Date_Archive" />
+          <ScalarProperty Name="Archive_By" ColumnName="Archive_By" />
+          <ScalarProperty Name="Archived" ColumnName="Archived" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Libraries">
+      <EntityTypeMapping TypeName="CONNEX_Model.Library">
+        <MappingFragment StoreEntitySet="Libraries">
+          <ScalarProperty Name="Library_ID" ColumnName="Library_ID" />
+          <ScalarProperty Name="Library_Name" ColumnName="Library_Name" />
+          <ScalarProperty Name="Date_Added" ColumnName="Date_Added" />
+          <ScalarProperty Name="Added_By" ColumnName="Added_By" />
+          <ScalarProperty Name="Date_Archive" ColumnName="Date_Archive" />
+          <ScalarProperty Name="Archive_By" ColumnName="Archive_By" />
+          <ScalarProperty Name="Archived" ColumnName="Archived" />
+          <ScalarProperty Name="Title_Text" ColumnName="Title_Text" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MediaTypes">
+      <EntityTypeMapping TypeName="CONNEX_Model.MediaType">
+        <MappingFragment StoreEntitySet="MediaTypes">
+          <ScalarProperty Name="Media_Type_ID" ColumnName="Media_Type_ID" />
+          <ScalarProperty Name="Media_Types" ColumnName="Media_Types" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PageAdminAssigns">
+      <EntityTypeMapping TypeName="CONNEX_Model.PageAdminAssign">
+        <MappingFragment StoreEntitySet="PageAdminAssign">
+          <ScalarProperty Name="Page_ID" ColumnName="Page_ID" />
+          <ScalarProperty Name="Admin_ID" ColumnName="Admin_ID" />
+          <ScalarProperty Name="Date_Added" ColumnName="Date_Added" />
+          <ScalarProperty Name="Added_By" ColumnName="Added_By" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PageCalenderAssigns">
+      <EntityTypeMapping TypeName="CONNEX_Model.PageCalenderAssign">
+        <MappingFragment StoreEntitySet="PageCalenderAssign">
+          <ScalarProperty Name="Calender_ID" ColumnName="Calender_ID" />
+          <ScalarProperty Name="Page_ID" ColumnName="Page_ID" />
+          <ScalarProperty Name="Date_Added" ColumnName="Date_Added" />
+          <ScalarProperty Name="Added_By" ColumnName="Added_By" />
+          <ScalarProperty Name="Last_Updated" ColumnName="Last_Updated" />
+          <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
+          <ScalarProperty Name="Date_Archive" ColumnName="Date_Archive" />
+          <ScalarProperty Name="Archive_By" ColumnName="Archive_By" />
+          <ScalarProperty Name="Archived" ColumnName="Archived" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PageCollectionAssigns">
+      <EntityTypeMapping TypeName="CONNEX_Model.PageCollectionAssign">
+        <MappingFragment StoreEntitySet="PageCollectionAssign">
+          <ScalarProperty Name="Page_ID" ColumnName="Page_ID" />
+          <ScalarProperty Name="Collection_ID" ColumnName="Collection_ID" />
+          <ScalarProperty Name="Sequence_No" ColumnName="Sequence_No" />
+          <ScalarProperty Name="Date_Added" ColumnName="Date_Added" />
+          <ScalarProperty Name="Added_By" ColumnName="Added_By" />
+          <ScalarProperty Name="Date_Archive" ColumnName="Date_Archive" />
+          <ScalarProperty Name="Archive_By" ColumnName="Archive_By" />
+          <ScalarProperty Name="Last_Updated" ColumnName="Last_Updated" />
+          <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
+          <ScalarProperty Name="Archived" ColumnName="Archived" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PageGalleryAssigns">
+      <EntityTypeMapping TypeName="CONNEX_Model.PageGalleryAssign">
+        <MappingFragment StoreEntitySet="PageGalleryAssign">
+          <ScalarProperty Name="Page_ID" ColumnName="Page_ID" />
+          <ScalarProperty Name="Gallery_ID" ColumnName="Gallery_ID" />
+          <ScalarProperty Name="Added_By" ColumnName="Added_By" />
+          <ScalarProperty Name="Date_Added" ColumnName="Date_Added" />
+          <ScalarProperty Name="Last_Updated" ColumnName="Last_Updated" />
+          <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
+          <ScalarProperty Name="Date_Archive" ColumnName="Date_Archive" />
+          <ScalarProperty Name="Archive_By" ColumnName="Archive_By" />
+          <ScalarProperty Name="Archived" ColumnName="Archived" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PageLibraryAssigns">
+      <EntityTypeMapping TypeName="CONNEX_Model.PageLibraryAssign">
+        <MappingFragment StoreEntitySet="PageLibraryAssign">
+          <ScalarProperty Name="Page_ID" ColumnName="Page_ID" />
+          <ScalarProperty Name="Library_ID" ColumnName="Library_ID" />
+          <ScalarProperty Name="Date_Added" ColumnName="Date_Added" />
+          <ScalarProperty Name="Added_By" ColumnName="Added_By" />
+          <ScalarProperty Name="Date_Archive" ColumnName="Date_Archive" />
+          <ScalarProperty Name="Archive_By" ColumnName="Archive_By" />
+          <ScalarProperty Name="Archived" ColumnName="Archived" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pages">
+      <EntityTypeMapping TypeName="CONNEX_Model.Page">
+        <MappingFragment StoreEntitySet="Pages">
+          <ScalarProperty Name="Allow_Feedback" ColumnName="Allow_Feedback" />
+          <ScalarProperty Name="Redirect_URL" ColumnName="Redirect_URL" />
+          <ScalarProperty Name="Redirect" ColumnName="Redirect" />
+          <ScalarProperty Name="Display_In_Menu" ColumnName="Display_In_Menu" />
+          <ScalarProperty Name="Sequence_No" ColumnName="Sequence_No" />
+          <ScalarProperty Name="Added_By" ColumnName="Added_By" />
+          <ScalarProperty Name="Date_Added" ColumnName="Date_Added" />
+          <ScalarProperty Name="Page_ID" ColumnName="Page_ID" />
+          <ScalarProperty Name="Page_Name" ColumnName="Page_Name" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="Title_Text" ColumnName="Title_Text" />
+          <ScalarProperty Name="Banner_ID" ColumnName="Banner_ID" />
+          <ScalarProperty Name="Is_Default" ColumnName="Is_Default" />
+          <ScalarProperty Name="Parent_Page_ID" ColumnName="Parent_Page_ID" />
+          <ScalarProperty Name="Is_Top" ColumnName="Is_Top" />
+          <ScalarProperty Name="Archived" ColumnName="Archived" />
+          <ScalarProperty Name="Archived_By" ColumnName="Archived_By" />
+          <ScalarProperty Name="Date_Archived" ColumnName="Date_Archived" />
+          <ScalarProperty Name="Date_Modified" ColumnName="Date_Modified" />
+          <ScalarProperty Name="Modified_By" ColumnName="Modified_By" />
+          <ScalarProperty Name="Has_Children" ColumnName="Has_Children" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PageVideoGalleryAssigns">
+      <EntityTypeMapping TypeName="CONNEX_Model.PageVideoGalleryAssign">
+        <MappingFragment StoreEntitySet="PageVideoGalleryAssign">
+          <ScalarProperty Name="Page_ID" ColumnName="Page_ID" />
+          <ScalarProperty Name="Video_Gallery_ID" ColumnName="Video_Gallery_ID" />
+          <ScalarProperty Name="Date_Added" ColumnName="Date_Added" />
+          <ScalarProperty Name="Added_By" ColumnName="Added_By" />
+          <ScalarProperty Name="Date_Archive" ColumnName="Date_Archive" />
+          <ScalarProperty Name="Archive_By" ColumnName="Archive_By" />
+          <ScalarProperty Name="Archived" ColumnName="Archived" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Photos">
+      <EntityTypeMapping TypeName="CONNEX_Model.Photo">
+        <MappingFragment StoreEntitySet="Photos">
+          <ScalarProperty Name="Photo_ID" ColumnName="Photo_ID" />
+          <ScalarProperty Name="File_Path" ColumnName="File_Path" />
+          <ScalarProperty Name="Thumb_Path" ColumnName="Thumb_Path" />
+          <ScalarProperty Name="Date_Added" ColumnName="Date_Added" />
+          <ScalarProperty Name="Added_By" ColumnName="Added_By" />
+          <ScalarProperty Name="Date_Archive" ColumnName="Date_Archive" />
+          <ScalarProperty Name="Archive_By" ColumnName="Archive_By" />
+          <ScalarProperty Name="Archived" ColumnName="Archived" />
+          <ScalarProperty Name="Gallery_ID" ColumnName="Gallery_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Posts">
+      <EntityTypeMapping TypeName="CONNEX_Model.Post">
+        <MappingFragment StoreEntitySet="Posts">
+          <ScalarProperty Name="Allow_Comments" ColumnName="Allow_Comments" />
+          <ScalarProperty Name="Post_ID" ColumnName="Post_ID" />
+          <ScalarProperty Name="Header" ColumnName="Header" />
+          <ScalarProperty Name="Thumb_Path" ColumnName="Thumb_Path" />
+          <ScalarProperty Name="Collection_ID" ColumnName="Collection_ID" />
+          <ScalarProperty Name="Date_Added" ColumnName="Date_Added" />
+          <ScalarProperty Name="Added_By" ColumnName="Added_By" />
+          <ScalarProperty Name="Date_Archive" ColumnName="Date_Archive" />
+          <ScalarProperty Name="Archive_By" ColumnName="Archive_By" />
+          <ScalarProperty Name="Last_Updated" ColumnName="Last_Updated" />
+          <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
+          <ScalarProperty Name="Archived" ColumnName="Archived" />
+          <ScalarProperty Name="Summary" ColumnName="Summary" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sections">
+      <EntityTypeMapping TypeName="CONNEX_Model.Section">
+        <MappingFragment StoreEntitySet="Sections">
+          <ScalarProperty Name="Hyperlink_Text" ColumnName="Hyperlink_Text" />
+          <ScalarProperty Name="Section_ID" ColumnName="Section_ID" />
+          <ScalarProperty Name="Sub_Header" ColumnName="Sub_Header" />
+          <ScalarProperty Name="Text_Block" ColumnName="Text_Block" />
+          <ScalarProperty Name="Post_ID" ColumnName="Post_ID" />
+          <ScalarProperty Name="Media_Path" ColumnName="Media_Path" />
+          <ScalarProperty Name="Media_Width_Mode_ID" ColumnName="Media_Width_Mode_ID" />
+          <ScalarProperty Name="Hyperlink" ColumnName="Hyperlink" />
+          <ScalarProperty Name="Media_Type_ID" ColumnName="Media_Type_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VideoGalleries">
+      <EntityTypeMapping TypeName="CONNEX_Model.VideoGallery">
+        <MappingFragment StoreEntitySet="VideoGalleries">
+          <ScalarProperty Name="Video_Gallery_ID" ColumnName="Video_Gallery_ID" />
+          <ScalarProperty Name="Gallery_Name" ColumnName="Gallery_Name" />
+          <ScalarProperty Name="Date_Added" ColumnName="Date_Added" />
+          <ScalarProperty Name="Added_By" ColumnName="Added_By" />
+          <ScalarProperty Name="Last_Updated" ColumnName="Last_Updated" />
+          <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
+          <ScalarProperty Name="Date_Archive" ColumnName="Date_Archive" />
+          <ScalarProperty Name="Archive_By" ColumnName="Archive_By" />
+          <ScalarProperty Name="Archived" ColumnName="Archived" />
+          <ScalarProperty Name="Details" ColumnName="Details" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Videos">
+      <EntityTypeMapping TypeName="CONNEX_Model.Video">
+        <MappingFragment StoreEntitySet="Videos">
+          <ScalarProperty Name="Video_ID" ColumnName="Video_ID" />
+          <ScalarProperty Name="File_Path" ColumnName="File_Path" />
+          <ScalarProperty Name="Thumb_Path" ColumnName="Thumb_Path" />
+          <ScalarProperty Name="Date_Added" ColumnName="Date_Added" />
+          <ScalarProperty Name="Added_By" ColumnName="Added_By" />
+          <ScalarProperty Name="Date_Archive" ColumnName="Date_Archive" />
+          <ScalarProperty Name="Archive_By" ColumnName="Archive_By" />
+          <ScalarProperty Name="Archived" ColumnName="Archived" />
+          <ScalarProperty Name="Video_Gallery_ID" ColumnName="Video_Gallery_ID" />
+          <ScalarProperty Name="Title_Text" ColumnName="Title_Text" />
+          <ScalarProperty Name="Caption" ColumnName="Caption" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WidthModes">
+      <EntityTypeMapping TypeName="CONNEX_Model.WidthMode">
+        <MappingFragment StoreEntitySet="WidthModes">
+          <ScalarProperty Name="Width_Mode_ID" ColumnName="Width_Mode_ID" />
+          <ScalarProperty Name="Width_Mode" ColumnName="Width_Mode" />
+          <ScalarProperty Name="Bootstrap_Class" ColumnName="Bootstrap_Class" />
+          <ScalarProperty Name="Remainder_Class" ColumnName="Remainder_Class" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Collections">
+      <EntityTypeMapping TypeName="CONNEX_Model.Collection">
+        <MappingFragment StoreEntitySet="Collections">
+          <ScalarProperty Name="Archived" ColumnName="Archived" />
+          <ScalarProperty Name="Display_Mode_ID" ColumnName="Display_Mode_ID" />
+          <ScalarProperty Name="Width_Mode_ID" ColumnName="Width_Mode_ID" />
+          <ScalarProperty Name="Collection_Description" ColumnName="Collection_Description" />
+          <ScalarProperty Name="Collection_Title" ColumnName="Collection_Title" />
+          <ScalarProperty Name="Collection_ID" ColumnName="Collection_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Events">
+      <EntityTypeMapping TypeName="CONNEX_Model.Event">
+        <MappingFragment StoreEntitySet="Events">
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="End_Date_Time" ColumnName="End_Date_Time" />
+          <ScalarProperty Name="Start_Date_Time" ColumnName="Start_Date_Time" />
+          <ScalarProperty Name="Archived" ColumnName="Archived" />
+          <ScalarProperty Name="Archive_By" ColumnName="Archive_By" />
+          <ScalarProperty Name="Date_Archive" ColumnName="Date_Archive" />
+          <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
+          <ScalarProperty Name="Last_Updated" ColumnName="Last_Updated" />
+          <ScalarProperty Name="Added_By" ColumnName="Added_By" />
+          <ScalarProperty Name="Date_Added" ColumnName="Date_Added" />
+          <ScalarProperty Name="Calender_ID" ColumnName="Calender_ID" />
+          <ScalarProperty Name="Image_Path" ColumnName="Image_Path" />
+          <ScalarProperty Name="Thumb_Path" ColumnName="Thumb_Path" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Event_Name" ColumnName="Event_Name" />
+          <ScalarProperty Name="Event_ID" ColumnName="Event_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="CONNEX_Model.Role">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="Role1" ColumnName="Role" />
+          <ScalarProperty Name="Role_ID" ColumnName="Role_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AdminRoleAssign" TypeName="CONNEX_Model.AdminRoleAssign" StoreEntitySet="AdminRoleAssign">
+      <EndProperty Name="Role">
+        <ScalarProperty Name="Role_ID" ColumnName="Role_ID" />
+      </EndProperty>
+      <EndProperty Name="Admin">
+        <ScalarProperty Name="Admin_ID" ColumnName="Admin_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="BannerElements">
+      <EntityTypeMapping TypeName="CONNEX_Model.BannerElement">
+        <MappingFragment StoreEntitySet="BannerElements">
+          <ScalarProperty Name="Content_Type_ID" ColumnName="Content_Type_ID" />
+          <ScalarProperty Name="Added_By" ColumnName="Added_By" />
+          <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
+          <ScalarProperty Name="Last_Updated" ColumnName="Last_Updated" />
+          <ScalarProperty Name="Banner_ID" ColumnName="Banner_ID" />
+          <ScalarProperty Name="Archived" ColumnName="Archived" />
+          <ScalarProperty Name="Archive_By" ColumnName="Archive_By" />
+          <ScalarProperty Name="Date_Archive" ColumnName="Date_Archive" />
+          <ScalarProperty Name="Date_Added" ColumnName="Date_Added" />
+          <ScalarProperty Name="Content_ID" ColumnName="Content_ID" />
+          <ScalarProperty Name="Summary" ColumnName="Summary" />
+          <ScalarProperty Name="Image_Path" ColumnName="Image_Path" />
+          <ScalarProperty Name="Header_Text" ColumnName="Header_Text" />
+          <ScalarProperty Name="Element_ID" ColumnName="Element_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Feedbacks">
+      <EntityTypeMapping TypeName="CONNEX_Model.Feedback">
+        <MappingFragment StoreEntitySet="Feedback">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Page_ID" ColumnName="Page_ID" />
+          <ScalarProperty Name="Date_Submitted" ColumnName="Date_Submitted" />
+          <ScalarProperty Name="Feedback_Details" ColumnName="Feedback_Details" />
+          <ScalarProperty Name="Feedback_ID" ColumnName="Feedback_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PageQuickLinkListsAssigns">
+      <EntityTypeMapping TypeName="CONNEX_Model.PageQuickLinkListsAssign">
+        <MappingFragment StoreEntitySet="PageQuickLinkListsAssign">
+          <ScalarProperty Name="Added_By" ColumnName="Added_By" />
+          <ScalarProperty Name="Date_Added" ColumnName="Date_Added" />
+          <ScalarProperty Name="Archived_By" ColumnName="Archived_By" />
+          <ScalarProperty Name="Date_Archived" ColumnName="Date_Archived" />
+          <ScalarProperty Name="Archived" ColumnName="Archived" />
+          <ScalarProperty Name="Page_ID" ColumnName="Page_ID" />
+          <ScalarProperty Name="Link_List_ID" ColumnName="Link_List_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QuickLinkLists">
+      <EntityTypeMapping TypeName="CONNEX_Model.QuickLinkList">
+        <MappingFragment StoreEntitySet="QuickLinkLists">
+          <ScalarProperty Name="Archived" ColumnName="Archived" />
+          <ScalarProperty Name="Archived_By" ColumnName="Archived_By" />
+          <ScalarProperty Name="Date_Archived" ColumnName="Date_Archived" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Date_Created" ColumnName="Date_Created" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Link_List_ID" ColumnName="Link_List_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QuickLinks">
+      <EntityTypeMapping TypeName="CONNEX_Model.QuickLink">
+        <MappingFragment StoreEntitySet="QuickLinks">
+          <ScalarProperty Name="Link_List_ID" ColumnName="Link_List_ID" />
+          <ScalarProperty Name="Archived" ColumnName="Archived" />
+          <ScalarProperty Name="Archived_By" ColumnName="Archived_By" />
+          <ScalarProperty Name="Date_Archived" ColumnName="Date_Archived" />
+          <ScalarProperty Name="Added_By" ColumnName="Added_By" />
+          <ScalarProperty Name="Date_Added" ColumnName="Date_Added" />
+          <ScalarProperty Name="Display_Text" ColumnName="Display_Text" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="Quick_Link_ID" ColumnName="Quick_Link_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NotificationRecipents">
+      <EntityTypeMapping TypeName="CONNEX_Model.NotificationRecipent">
+        <MappingFragment StoreEntitySet="NotificationRecipents">
+          <ScalarProperty Name="Added_By" ColumnName="Added_By" />
+          <ScalarProperty Name="Date_Added" ColumnName="Date_Added" />
+          <ScalarProperty Name="Recipient_Email" ColumnName="Recipient_Email" />
+          <ScalarProperty Name="Recipient_Name" ColumnName="Recipient_Name" />
+          <ScalarProperty Name="Recipient_ID" ColumnName="Recipient_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PageRecipientAssigns">
+      <EntityTypeMapping TypeName="CONNEX_Model.PageRecipientAssign">
+        <MappingFragment StoreEntitySet="PageRecipientAssign">
+          <ScalarProperty Name="Added_By" ColumnName="Added_By" />
+          <ScalarProperty Name="Date_Added" ColumnName="Date_Added" />
+          <ScalarProperty Name="Page_ID" ColumnName="Page_ID" />
+          <ScalarProperty Name="Recipient_ID" ColumnName="Recipient_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

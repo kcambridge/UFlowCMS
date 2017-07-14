@@ -1,0 +1,32 @@
+﻿@model IEnumerable<connex.Models.Post>
+
+@{
+    ViewBag.Title = "All Posts - Connex";
+}
+
+<div class="page-header"><h1>All Posts</h1></div>
+
+<div class="container">
+    
+        @foreach (var post in Model.Where(x => x.Archived == false).OrderBy(x => x.Date_Added))
+        {   <div class="row row-default">
+                <div class="col-md-3">
+                    <div class="thumbnail">
+                        <img src="~/@post.Thumb_Path" alt="No Image" class="img-responsive">
+                    </div>
+                </div>
+                <div class="col-md-9">
+                   <div class="caption">
+                        <h3>@post.Header</h3>
+                       <span class="label label-info">Posted on @post.Date_Added.Value.ToShortDateString()</span>
+                       <br /><br />
+                        <p>@post.Summary</p>
+                        <p>@Html.ActionLink("Read More", "View", "Posts", new { id = post.Post_ID }, new {@class="btn btn-primary", @role="button"})</p>
+                    </div>
+                </div>
+            </div>
+            <br />
+        }
+    
+</div>
+

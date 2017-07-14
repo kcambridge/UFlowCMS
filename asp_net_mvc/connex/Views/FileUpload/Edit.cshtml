@@ -1,0 +1,93 @@
+﻿@model connex.Models.Photo
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Photo</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.Photo_ID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.File_Path, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.File_Path)
+                @Html.ValidationMessageFor(model => model.File_Path)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Thumb_Path, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Thumb_Path)
+                @Html.ValidationMessageFor(model => model.Thumb_Path)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Date_Added, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Date_Added)
+                @Html.ValidationMessageFor(model => model.Date_Added)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Added_By, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Added_By)
+                @Html.ValidationMessageFor(model => model.Added_By)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Date_Archive, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Date_Archive)
+                @Html.ValidationMessageFor(model => model.Date_Archive)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Archive_By, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Archive_By)
+                @Html.ValidationMessageFor(model => model.Archive_By)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Archived, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Archived)
+                @Html.ValidationMessageFor(model => model.Archived)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Gallery_ID, "Gallery_ID", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Gallery_ID", String.Empty)
+                @Html.ValidationMessageFor(model => model.Gallery_ID)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

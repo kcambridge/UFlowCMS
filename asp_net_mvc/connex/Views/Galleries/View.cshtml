@@ -1,0 +1,18 @@
+﻿@model connex.Models.Gallery
+
+@{
+    ViewBag.Title = @Model.Gallery_Name+" - Connex";
+}
+
+<div class="page-header"><h1>@Model.Gallery_Name</h1></div>
+<div class="container">
+@foreach (var photo in @Model.Photos.Where(x => x.Archived == false))
+{
+    <div class="col-sm-3 col-md-2">
+        <div class="thumbnail">
+            <a href="~/@photo.File_Path" rel="lightbox-cats" title=""><img src="~/@photo.Thumb_Path" alt="No Image Found"></a>
+        </div>
+    </div>
+}
+
+</div>

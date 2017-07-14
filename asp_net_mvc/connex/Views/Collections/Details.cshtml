@@ -1,0 +1,66 @@
+﻿@model connex.Models.Collection
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Collection</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Collection_Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Collection_Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Collection_Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Collection_Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Archived)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Archived)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CollectionsDisplayMode.Display_Mode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CollectionsDisplayMode.Display_Mode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CollectionsWidthMode.Width_Mode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CollectionsWidthMode.Width_Mode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WidthMode.Width_Mode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WidthMode.Width_Mode)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Collection_ID }) |
+    
+</p>

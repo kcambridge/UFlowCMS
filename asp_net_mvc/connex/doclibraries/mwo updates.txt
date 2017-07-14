@@ -1,0 +1,8 @@
+Tech Management Module Code Review?
+Update on REST Service functions for Tech Module
+REST Service authenticaiton error
+
+Questions:
+-Device status and Tech account status
+-For the first time login, are we going to provide a default password and force the tech to change it, 
+ or will you create a method that requires the tech ID only in order to get a token?

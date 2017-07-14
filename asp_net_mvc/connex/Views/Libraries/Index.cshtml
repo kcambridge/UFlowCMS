@@ -1,0 +1,57 @@
+﻿@model IEnumerable<connex.Models.Library>
+
+@{
+    ViewBag.Title = "All Document Libraries - Connex";
+    int i = 0;
+    int j = 0;
+}
+
+<div class="page-header"><h1>All Document Libraries</h1></div>
+
+ <div class="container">
+        <div class="row row-default">
+            <div class="container">
+                <div role="tabpanel" class="tab-panel">
+                    <ul class="nav nav-tabs" role="tablist" id="myTab">
+                        @foreach (var lib in @Model.Where(x => x.Archived == false))
+                        {
+                            var active = "";
+                            var id = lib.Library_ID + "DocTab";
+                            if (i == 0)
+                            {
+                                active = "active";
+                            }
+                            <li role="presentation" class="@active">
+                                <a href="#@id" aria-controls="@id" role="tab" data-toggle="tab">
+                                    @lib.Title_Text
+                                </a>
+                            </li>
+                            i++;
+                        }
+                    </ul>
+                    <div class="tab-content">
+                        @foreach (var lib in @Model.Where(x => x.Archived == false))
+                        {
+                             var active = "";
+                            var id = lib.Library_ID + "DocTab";
+                            if (j == 0)
+                            {
+                                active = "active";
+                            }
+                            <div role="tabpanel" class="tab-pane fade in @active" id="@id">
+                                <ul class="list-group">
+                                @foreach (var doc in lib.Documents.Where(z => z.Archived == false))
+                                {
+                                    <li class="list-group-item">
+                                        @Html.ActionLink(@doc.Name, "Download", "Libraries", new { id = doc.Document_ID }, null)
+                                    </li>
+                                }
+                                </ul>
+                            </div>
+                            j++;
+                        }
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>

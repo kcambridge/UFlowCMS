@@ -1,0 +1,37 @@
+﻿@model IEnumerable<connex.Models.Video>
+
+@{
+    ViewBag.Title = "All Videos - Index";
+}
+<div class="page-header"><h1>All Videos</h1></div>
+<div class="container">
+    
+        @foreach(var video in Model.Where(x => x.Archived == false).OrderBy(x => x.Date_Added))
+        {
+         
+                 <div class="col-md-4 col-sm-6">
+                     <div class="thumbnail">
+                         <h4>@video.Title_Text</h4>
+                         <img src="~/@video.Thumb_Path" alt="Image not found"/>
+                         <br />
+                         <table width="100%">
+                             <tr>
+                                 <td class="col-sm-1 col-xs-0">
+
+                                 </td>
+                                 <td class="col-sm-10 col-xs-12" align="center">
+                                     @Html.ActionLink("Play Video", "View", "Videos", new { id = video.Video_ID }, new {@class="btn btn-primary", @role="button"})
+                                 </td>
+                                 <td class="col-sm-1 col-xs-0">
+
+                                 </td>
+                             </tr>
+                         </table>
+                         
+                         
+                     </div>
+                 </div>
+         
+        }
+    
+</div>

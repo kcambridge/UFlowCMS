@@ -1,0 +1,117 @@
+﻿@model IEnumerable<connex.Models.Event>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Event_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Thumb_Path)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Image_Path)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date_Added)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Added_By)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Last_Updated)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Updated_By)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date_Archive)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Archive_By)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Archived)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Start_Date_Time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.End_Date_Time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Calender.Calender_Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Event_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Thumb_Path)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Image_Path)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date_Added)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Added_By)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Last_Updated)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Updated_By)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date_Archive)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Archive_By)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Archived)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Start_Date_Time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.End_Date_Time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Calender.Calender_Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Event_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Event_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Event_ID })
+        </td>
+    </tr>
+}
+
+</table>

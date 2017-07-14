@@ -1,0 +1,27 @@
+﻿@model connex.Models.Event
+@{
+    ViewBag.Title = "View";
+}
+
+<h2>@Model.Event_Name</h2>
+
+<div class="container">
+    <div class="col-md-6 ">
+        <b>From:</b>&nbsp;@Model.Start_Date_Time.ToString("dddd dd MMM")&nbsp;@Model.Start_Date_Time.ToString("hh:mm tt")
+        <br />
+        <b>To:</b>&nbsp;@Model.End_Date_Time.ToString("dddd dd MMM")&nbsp;@Model.End_Date_Time.ToString("hh:mm tt")
+        <br /><br /><br />
+        <b>Location:</b>&nbsp;@Model.Location
+        <br /><br />
+        <div class="well">
+            @Model.Description
+        </div>
+    </div>
+                              
+    <div class="col-md-6 text-center">
+                                    
+            <a href="~/@Model.Image_Path" rel="lightbox-cats" title=""> <img src="~/@Model.Thumb_Path" alt="No Image Found" class="img-responsive"/></a>
+                                    
+    </div>
+</div>
+

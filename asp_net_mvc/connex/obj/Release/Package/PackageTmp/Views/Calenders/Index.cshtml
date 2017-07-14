@@ -1,0 +1,55 @@
+﻿@model IEnumerable<connex.Models.Calender>
+
+@{
+    ViewBag.Title = "All Calenders - Connex";
+}
+
+<div class="page-header"><h1>All Calenders</h1></div>
+
+{
+<div class="container">
+    
+    <div class="row row-default">
+     <h2><span class="label label-primary">Upcomming Events</span></h2>
+    @foreach (var calender in Model.Where(x=> x.Archived == false))
+    {
+        int x = 1;
+        
+        <div class="container">
+            <h2>@calender.Calender_Name</h2>
+            <div class="accordion">
+                
+                @foreach(var calEvent in calender.Events.Where(y=> y.Archived == false && y.Start_Date_Time >= DateTime.Now).OrderBy(z=>z.Start_Date_Time))
+                {
+                    var idParts = @calender.Calender_ID + "_" + @calEvent.Event_ID;
+                      <div class="accordion-heading">
+                           <a class="accordion-toggle" href="#collapse_@idParts" id="calEventLink_@idParts">
+                                <h4>@calEvent.Event_Name</h4>
+                          </a>
+                      </div>
+                      <div class="accordion-inner" id="#collapse_@idParts">
+                          
+                              <div class="col-md-6 ">
+                                   <b>From:</b>&nbsp;@calEvent.Start_Date_Time.Value.ToString("dddd dd MMM")&nbsp;@calEvent.Start_Date_Time.Value.ToString("hh:mm tt")
+                                  <br />
+                                  <b>To:</b>&nbsp;@calEvent.End_Date_Time.Value.ToString("dddd dd MMM")&nbsp;@calEvent.End_Date_Time.Value.ToString("hh:mm tt")
+                                  <br /><br />
+                                  <div class="well">
+                                      @calEvent.Description
+                                  </div>
+                              </div>
+                              
+                                <div class="col-md-6 text-center"  id="calEventImgContainer_@idParts">
+                                    <div class="thumbnail">
+                                        <a href="~/@calEvent.Image_Path" rel="lightbox-cats" title=""> <img src="~/@calEvent.Thumb_Path" alt="No Image Found" class="img-responsive"  id="calEventImg_@idParts"/></a>
+                                    </div>
+                                </div>
+                      </div>
+                    x++;
+                }
+                </div>
+          </div>
+        
+    }
+    </div>
+</div>

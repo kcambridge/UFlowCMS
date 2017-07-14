@@ -1,0 +1,282 @@
+﻿@model connex.ViewModels.CalenderEditViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="container">
+        @if (ViewBag.Return_Home != null)
+        {
+            @Html.ActionLink("Done Editing","View", "Pages", new{id=ViewBag.Page_Url}, new{@class="btn btn-default col-md-2"})
+        }
+        else
+        {
+            @Html.ActionLink("Done Editing","Edit", "Pages", new{id=Model.Page_ID}, new{@class="btn btn-default col-md-2"})
+        }
+    </div>
+    <br />
+    <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Calender Details</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-horizontal">
+                    <h4>Calender</h4>
+                    <hr />
+                    <span class="text-danger">@Html.ValidationSummary(true)</span>
+                    @Html.HiddenFor(model => model.Calender_ID)
+                    @Html.HiddenFor(model => model.Page_ID)
+                    @if (ViewBag.Return_Home != null)
+                    {
+                        @Html.Hidden("Return_Home", true)
+                        @Html.Hidden("Page_Url", (string)ViewBag.Page_Url)
+                    }
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Calender_Name, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(model => model.Calender_Name, new { @class="form-control col-md-5"})
+                            @Html.ValidationMessageFor(model => model.Calender_Name)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Archived, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.CheckBoxFor(model => model.Archived, new { @class="form-control"})
+                            @Html.ValidationMessageFor(model => model.Archived)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Save" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+}
+
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Events</h3>
+    </div>
+    <div class="panel-body">
+         @using (Html.BeginForm("AddEvent", "Calenders", FormMethod.Post, new { enctype = "multipart/form-data"}))  
+         {  
+             @Html.AntiForgeryToken();
+             @Html.HiddenFor(model => model.Page_ID)
+             @Html.HiddenFor(model => model.Calender_ID)
+             if (ViewBag.Return_Home != null)
+            {
+                @Html.Hidden("Return_Home", true)
+                @Html.Hidden("Page_Url", (string)ViewBag.Page_Url)
+            }
+             <div class="form-horizontal">
+                <div class="form-group">
+                    @Html.Label("Event Name", new {@class="col-md-2 control-label"})
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.Event_Name, new{@class="form-control col-md-5"})
+                        <span class="text-danger col-md-12">
+                            @Html.ValidationMessageFor(model => model.Event_Name)
+                        </span>
+                    </div>
+                </div>
+
+                 <div class="form-group">
+                    @Html.Label("Description", new {@class="col-md-2 control-label"})
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(model => model.Description, new{@class="form-control col-md-5", @rows="5"})
+                        <span class="text-danger col-md-12">
+                            @Html.ValidationMessageFor(model => model.Description)
+                        </span>
+                        
+                    </div>
+                </div>
+
+                  <div class="form-group">
+                    @Html.Label("Start Date", new {@class="col-md-2 control-label"})
+                    <div class="col-md-2">
+                        @Html.TextBoxFor( model=> model.Start_Date, new{@class="form-control DatePicker"})
+                        <span class="text-danger col-md-12">
+                            @Html.ValidationMessageFor(model => model.Start_Date)
+                        </span>
+                    </div>
+                    @Html.Label("Start Time", new {@class="col-md-1 control-label"})
+                    <div class="input-append bootstrap-timepicker col-md-2">
+                        <span class="add-on">
+                            @Html.TextBoxFor( model=> model.Start_Time, new{@class="input-small TimePicker col-md-6 form-control"})
+                        </span>
+                        <span class="text-danger col-md-12">
+                                @Html.ValidationMessageFor(model => model.Start_Time)
+                        </span>
+                    </div>
+                </div>
+                 <div class="form-group">
+                    @Html.Label("End Date", new {@class="col-md-2 control-label"})
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(model => model.End_Date, new{@class="form-control DatePicker"})
+                        <span class="text-danger col-md-12">
+                            @Html.ValidationMessageFor(model => model.End_Date) 
+                        </span>
+                    </div>
+                    @Html.Label("End Time", new {@class="col-md-1 control-label"})
+                    <div class="input-append bootstrap-timepicker col-md-2">
+                        <span class="add-on">
+                            @Html.TextBoxFor( model=> model.End_Time, new{@class="input-small TimePicker col-md-6 form-control"})
+                            
+                        </span>
+                        <span class="text-danger col-md-12">
+                            @Html.ValidationMessageFor(model => model.End_Time)
+                        </span>
+                    </div>
+                </div>
+                 <div class="form-group">
+                    @Html.Label("Location", new {@class="col-md-2 control-label"})
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.Location, new{@class="form-control col-md-5"})
+                        <span class="text-danger col-md-12">
+                            @Html.ValidationMessageFor(model => model.Location)
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.Label("Flyer/Image", new {@class="col-md-2 control-label"})
+                    <div class="col-md-10">
+                        <input type="file" name="Flyer" class="form-control" />
+                    </div>
+                </div>
+
+                <div class="col-md-offset-2 col-md-10">
+                    <button type="submit" role="button" class="btn btn-default">Add Event</button>
+                </div>
+             </div>
+             
+         }
+
+        <fieldset>  
+            <legend>Upcoming Event(s)</legend>  
+        </fieldset>
+            <div class="container">
+                
+                    <br />
+                    
+                    @foreach (var ev in Model.upcommingEvents)
+                    {
+                        
+                        <div class="row row-trim">
+                            <br />
+                            <div class="col-md-3">
+                                <div class="thumbnail">
+                                    <img src="~/@ev.Thumb_Path" alt="No Image" class="img-responsive">
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="caption">
+                                    <h4>@ev.Event_Name</h4>
+                                    <p>
+                                        <span style="white-space: pre-line">@Html.Raw(@ev.Description)</span>
+                                    </p>
+                                    <p>
+                                        <strong>From:</strong>&nbsp;@ev.Start_Date_Time &nbsp;
+                                        <br /><strong>To:</strong>&nbsp;@ev.End_Date_Time
+                                        <br /><br /><strong>Location:</strong>&nbsp;@ev.Location
+                                    </p>
+
+                                    <p class="align-center">
+                                        @using (Html.BeginForm("RemoveEvent", "Calenders", FormMethod.Post))
+                                        {
+                                            @Html.Hidden("Page_ID", Model.Page_ID)
+                                            @Html.Hidden("Calender_ID", Model.Calender_ID)
+                                            @Html.Hidden("Event_ID", ev.Event_ID)
+                                            @Html.AntiForgeryToken();
+                                            if (ViewBag.Return_Home != null)
+                                            {
+                                                @Html.Hidden("Return_Home", true)
+                                                @Html.Hidden("Page_Url", (string)ViewBag.Page_Url)
+                                            }
+                                            <button class="btn btn-primary align-center" role="button" type="submit">Remove</button>
+                                            @Html.ActionLink("Edit", "Edit", "Events", new{Event_ID = ev.Event_ID, Page_ID = Model.Page_ID, Calender_ID = Model.Calender_ID, Return_Home = ViewBag.Return_Home}, new{@class="btn btn-primary"})
+                                    
+                                        }
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+
+                    }
+                
+            </div>
+        <br />
+        <fieldset>  
+            <legend>Past Event(s)</legend>  
+        </fieldset>
+            <div class="container">
+                
+                    <br />
+                    
+                    @foreach (var ev in Model.pastEvents)
+                    {
+                        
+                        <div class="row row-trim">
+                            <br />
+                            <div class="col-md-3">
+                                <div class="thumbnail">
+                                    <img src="~/@ev.Thumb_Path" alt="No Image" class="img-responsive">
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="caption">
+                                    <h4>@ev.Event_Name</h4>
+                                    <p>
+                                        <span style="white-space: pre-line">@Html.Raw(@ev.Description)</span>
+                                    </p>
+                                    <p>
+                                        <strong>From:</strong>&nbsp;@ev.Start_Date_Time &nbsp;
+                                        <br /><strong>To:</strong>&nbsp;@ev.End_Date_Time
+                                        <br /><br /><strong>Location:</strong>&nbsp;@ev.Location
+                                    </p>
+
+                                    <p class="align-center">
+                                        @using (Html.BeginForm("RemoveEvent", "Calenders", FormMethod.Post))
+                                        {
+                                            @Html.Hidden("Page_ID", Model.Page_ID)
+                                            @Html.Hidden("Calender_ID", Model.Calender_ID)
+                                            @Html.Hidden("Event_ID", ev.Event_ID)
+                                            @Html.AntiForgeryToken();
+                                            if (ViewBag.Return_Home != null)
+                                            {
+                                                @Html.Hidden("Return_Home", true)
+                                                @Html.Hidden("Page_Url", (string)ViewBag.Page_Url)
+                                            }
+                                            <button class="btn btn-primary align-center" role="button" type="submit">Remove</button>
+                                            @Html.ActionLink("Edit", "Edit", "Events", new{Event_ID = ev.Event_ID, Page_ID = Model.Page_ID, Calender_ID = Model.Calender_ID, Return_Home = ViewBag.Return_Home}, new{@class="btn btn-primary"})
+                                    
+                                        }
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+
+                    }
+                
+            </div>
+    </div>
+  </div>
+
+<div>
+    
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

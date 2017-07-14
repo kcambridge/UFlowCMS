@@ -1,0 +1,26 @@
+﻿@model IEnumerable<connex.Models.Gallery>
+
+@{
+    ViewBag.Title = "All Photo Galleries - Connex";
+}
+<div class="page-header"><h1>All Photo Galleries</h1></div>
+ <div class="container">
+            
+             @foreach (var photoGall in Model.Where(x => x.Archived == false).OrderByDescending(x => x.Gallery_ID))
+             {
+                 <div class="col-sm-4 col-md-3">
+                     <div class="thumbnail">
+                        <img src="~/@photoGall.Photos.FirstOrDefault().File_Path" alt="Image not found" />
+                         <br />
+                         
+                        <div class="thumbnail-caption left-caption text-left">
+                            <h4 class="carousel-caption-header">@photoGall.Gallery_Name</h4>
+                            <p>@photoGall.Photos.Count  Photo(s)</p>
+                            @Html.ActionLink("View Gallery", "View", "Galleries", new { id = photoGall.Gallery_ID }, new {@class="btn btn-primary", @role="button"})
+                        </div>
+                       
+                     </div>
+                 </div>
+             }
+    </div>
+

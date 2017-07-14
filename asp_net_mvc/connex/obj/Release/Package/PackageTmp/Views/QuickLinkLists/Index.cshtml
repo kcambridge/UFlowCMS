@@ -1,0 +1,63 @@
+﻿@model IEnumerable<connex.Models.QuickLinkList>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date_Created)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Created_By)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date_Archived)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Archived_By)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Archived)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date_Created)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Created_By)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date_Archived)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Archived_By)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Archived)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Link_List_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Link_List_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Link_List_ID })
+        </td>
+    </tr>
+}
+
+</table>

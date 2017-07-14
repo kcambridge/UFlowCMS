@@ -1,0 +1,62 @@
+﻿@model connex.ViewModels.LoginViewModel
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+    <span class="text-danger">@Html.ValidationSummary(true)</span>
+
+
+<br />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+        if (User.Identity.Name != "")
+        {
+            <p>
+                <span class="text-info">Your current credentials do not have permission to perform this action.</span>
+            </p>
+        }
+
+    <p>Please log in using your Network Credentials (the same credentials used to log onto your machine)</p>
+    <br />
+    <div class="form-horizontal">
+        <div class="form-group">
+            @Html.Label("Username", new{@class="control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Username, new{@class="form-control col-md-4"})
+                <span class="text-danger">
+                    @Html.ValidationMessageFor(model => model.Username)
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Password", new{@class="control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Password, new{@class="form-control col-md-4", @type="password"})
+                <span class="text-danger">
+                    @Html.ValidationMessageFor(model => model.Password)
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.Label("Remember Me", new{@class="control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.CheckBoxFor(model => model.Remember_Me, new{@class="form-control"})
+                <span class="text-danger">
+                    @Html.ValidationMessageFor(model => model.Remember_Me)
+                </span>
+            </div>
+        </div>
+        <button type="submit" role="button" class="btn btn-default col-md-2 col-md-offset-2">Login</button>
+        <br />
+
+    </div>
+}
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

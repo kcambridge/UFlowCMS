@@ -1,0 +1,423 @@
+﻿@model connex.ViewModels.PostEditViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm("Edit", "Posts", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Post</h4>
+        <hr />
+        <span class="text-danger">@Html.ValidationSummary(true)</span>
+        @Html.Hidden("Post_ID", Model.Post_ID)
+        @Html.Hidden("Collection_ID", Model.Collection_ID)
+        @Html.Hidden("Page_ID", Model.Page_ID)
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Details</h3>
+            </div>
+            <div class="panel-body">
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Header,"Post Title",  new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <input type="text" name="Header" value="@Model.Header" class="form-control col-md-6"/>
+                        @Html.ValidationMessageFor(model => model.Header)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Summary, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <textarea name="Summary" rows="5" cols="50" class="form-control">@Model.Summary</textarea>
+                        @Html.ValidationMessageFor(model => model.Summary)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                     @Html.Label("Thumbnail", new { @class = "control-label col-md-2" })
+             
+                    <div class="col-md-3">
+                        <div class="thumbnail">
+                            <img src="~/@Model.Thumb_Path" alt="No Image" class="img-responsive">
+                        </div>
+                    </div>
+                    <div class="col-md-10 col-md-offset-2">
+                       <input type="file" name="Thumbnail"  class="form-control" id="Thumbnail"/>  <br />
+                        @Html.ValidationMessageFor(model => model.Thumb_Path)
+                    </div>
+            
+                </div>
+
+        
+
+        
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Archived, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(m => Model.Archived)
+                        @Html.ValidationMessageFor(model => model.Archived)
+                    </div>
+                </div>
+                 <div class="form-group">
+                    @Html.LabelFor(model => model.Allow_Comments, new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(m => Model.Allow_Comments)
+                        @Html.ValidationMessageFor(model => model.Allow_Comments)
+                    </div>
+                </div>
+
+        
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Save Details" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Sections</h3>
+    </div>
+    <div class="panel-body">
+        @using (Html.BeginForm("AddSection", "Posts", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken();
+            @Html.Hidden("Post_ID", Model.Post_ID)
+            @Html.Hidden("Page_ID", Model.Page_ID)
+            @Html.Hidden("Collection_ID", Model.Collection_ID)
+            <button type="submit" role="button" class="btn btn-default"> Add New Section</button>
+        }
+        <br />
+
+        <div class="container">
+            <div class="accordion">
+                
+                @for (int x = 1; x <= Model.sections.Count; x++ )
+                {
+                    var sect = Model.sections[x - 1];
+                    var idParts = "Section_" + @sect.Section_ID;
+                    <div class="accordion-heading">
+
+                        <a class="accordion-toggle" href="#collapse_@idParts" id="SectionLink_@idParts">
+                            <h4>Section @x</h4>
+                        </a>
+
+                    </div>
+                    <div class="accordion-inner" id="#collapse_@idParts">
+                        @using (Html.BeginForm("RemoveSection", "Posts", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken();
+                            @Html.Hidden("Post_ID", sect.Post_ID)
+                            @Html.Hidden("Section_ID", sect.Section_ID)
+                            @Html.Hidden("Page_ID", Model.Page_ID)
+                            @Html.Hidden("Collection_ID", Model.Collection_ID)
+                            <button type="submit" role="button" class="btn btn-danger">X Remove Section</button>
+                        }
+                        <br />
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <div class="col-md-2">
+                                    @if (sect.Sub_Header == null)
+                                    {
+                                        <button type="submit" class="btn btn-success Section_Toggle" role="button" id="Heading_Toggle_@x" value="add">+ Heading</button>
+                                    }
+                                    else
+                                    {
+                                        <button type="submit" class="btn btn-danger Section_Toggle" role="button" id="Heading_Toggle_@x" value="rem">X Heading</button>
+                                    }
+                                </div>
+                                <div class="col-md-2">
+                                    @if (sect.Media_Path == null)
+                                    {
+                                        <button type="submit" class="btn btn-success Section_Toggle" role="button" id="Media_Toggle_@x" value="add">+ Media</button>
+                                    }
+                                    else
+                                    {
+                                        <button type="submit" class="btn btn-danger Section_Toggle" role="button" id="Media_Toggle_@x" value="rem">X Media</button>
+                                    }
+                                </div>
+                                <div class="col-md-2">
+                                    @if (sect.Text_Block == null)
+                                    {
+                                        <button type="submit" class="btn btn-success Section_Toggle" role="button" id="Text_Toggle_@x" value="add">+ Text</button>
+                                    }
+                                    else
+                                    {
+                                        <button type="submit" class="btn btn-danger Section_Toggle" role="button" id="Text_Toggle_@x" value="rem">X Text</button>
+                                    }
+                                </div>
+                                <div class="col-md-2">
+                                    @if (sect.Hyperlink == null)
+                                    {
+                                        <button type="submit" class="btn btn-success Section_Toggle" role="button" id="Hyperlink_Toggle_@x" value="add">+ Hyperlink</button>
+                                    }
+                                    else
+                                    {
+                                        <button type="submit" class="btn btn-danger Section_Toggle" role="button" id="Hyperlink_Toggle_@x" value="rem">X Hyperlink</button>
+                                    }
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="form-horizontal">
+                            @using (Html.BeginForm("EditSection", "Posts", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                            {
+                                
+                                @Html.AntiForgeryToken();
+                                @Html.Hidden("Post_ID", sect.Post_ID);
+                                @Html.Hidden("Section_ID", sect.Section_ID);
+                                @Html.Hidden("Page_ID", Model.Page_ID);
+                                @Html.Hidden("Collection_ID", Model.Collection_ID);
+                                if (sect.Sub_Header != null)
+                                {
+                                    //Html.Hidden("Has_Heading", true, new { @id = "Heading_Hidden_" + x });
+                                    <input type="hidden" name="Has_Heading" id="Heading_Hidden_@x" value="true"/>
+                                    <div class="form-group SubHeader_Div" id="Heading_Div_@x">
+                                        @Html.Label("Heading", new { @class = "control-label col-md-2 SubHeader_Div" })
+                                        <div class="col-md-10">
+                                            @Html.TextBox("Sub_Header", sect.Sub_Header, new { @class = "form-control col-md-6 SubHeader_Div" })
+                                        </div>
+                                    </div>
+                                }
+                                else
+                                {
+                                    //Html.Hidden("Has_Heading", false, new { @id = "Heading_Hidden_" + x });
+                                    <input type="hidden" name="Has_Heading" id="Heading_Hidden_@x" value="false"/>
+                                    <div class="form-group SubHeader_Div" style="display:none;" id="Heading_Div_@x">
+                                        @Html.Label("Heading", new { @class = "control-label col-md-2 SubHeader_Div" })
+                                        <div class="col-md-10">
+                                            @Html.TextBox("Sub_Header",sect.Sub_Header, new { @class = "form-control col-md-6 SubHeader_Div" })
+                                        </div>
+                                    </div>
+                                }
+                                if (sect.Media_Path != null)
+                                {
+                                    //Html.Hidden("Has_Media", true, new { @id = "Media_Hidden_" + x });
+                                    <input type="hidden" name="Has_Media" id="Media_Hidden_@x" value="true"/>
+                                    <div id="Media_Div_@x">
+                                        <div class="form-group Media_Div">
+
+                                            @Html.Label("Media Type", new { @class = "control-label col-md-2 Media_Div" })
+                                            <div class="col-md-10">
+                                                <select class="form-control" name="Media_Type_ID">
+                                                    @foreach (var mediaType in Model.availableMediaTypes)
+                                                    {
+                                                        if (mediaType.Media_Type_ID == sect.Media_Type_ID)
+                                                        {
+                                                            <option value="@mediaType.Media_Type_ID" selected="selected">@mediaType.Media_Types</option>
+                                                        }
+                                                        else
+                                                        {
+                                                            <option value="@mediaType.Media_Type_ID">@mediaType.Media_Types</option>
+                                                        }
+                                                    }
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group Media_Div">
+                                            @Html.Label("Media Width", new {@class="control-label col-md-2" })
+                                            <select class="form-control" name="Width_Mode_ID">
+                                                @foreach(var mode in Model.availableWidthModes)
+                                                {
+                                                    if (sect.Media_Width_Mode_ID == mode.Width_Mode_ID)
+                                                    {
+                                                        <option value="@mode.Width_Mode_ID" selected="selected">@mode.Width_Mode</option>   
+                                                    }
+                                                    else
+                                                    {
+                                                        <option value="@mode.Width_Mode_ID">@mode.Width_Mode</option>    
+                                                    }
+                                                }
+                                            </select>
+                                        </div>
+                                        <div class="form-group Media_Div">
+                                            @Html.Label("Current Media", new { @class = "control-label col-md-2 Media_Div" })
+                                            <div class="col-md-3">
+                                                @if (sect.Media_Type_ID == 1)
+                                                {
+                                                    <div class="thumbnail">
+                                                        <img src="~/@sect.Media_Path" alt="No Image" class="img-responsive">
+                                                    </div>
+                                                }
+                                                else if (sect.Media_Type_ID == 2)
+                                                {
+                                                    var WMV_Path = sect.Media_Path + ".wmv";
+                                                    var MP4_Path = sect.Media_Path + ".mp4";
+                                                    <div id="mediaSrvVidDiv" style="display:none;" align="center" class="col-md-12 img-responsive mediaSrvVidDiv">
+
+                                                        <object id="WMVVideo" style="width: 100%; height: 100%" classid="CLSID:6bf52a52-394a-11d3-b153-00c04f79faa6">
+                                                            <param name="url" value="~/@WMV_Path" />
+                                                            <!--<param name="url" value="video/CC_Interactive_Solutions.wmv" />-->
+                                                            <param name="sendplaystatechangeevents" value="true" />
+                                                            <param name="autoStart" value="false" />
+                                                            <param name="volume" value="100" />
+                                                            <param name="playcount" value="9999" />
+                                                        </object>
+
+                                                    </div>
+                                                    <div>
+                                                        <br />
+                                                        <br />
+                                                        <br />
+                                                    </div>
+                                                    <div id="html5VidDiv" align="center" class="col-md-12 img-responsive html5VidDiv">
+                                                        <video width="100%" height="100%" controls>
+                                                            <source src="~/@MP4_Path" type=video/mp4 />
+                                                        </video>
+                                                    </div>
+                                                 }
+                                            </div>
+                                        </div>
+                                        <div class="form-group Media_Div">
+                                            @Html.Label("New Media", new { @class = "control-label col-md-2 Media_Div" })
+                                            <div class="col-md-10">
+                                                <input type="file" name="Media_Path" class="form-control" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                   
+                                }
+                                else
+                                {
+                                    <input type="hidden" name="Has_Media" id="Media_Hidden_@x" value="false"/>
+                                    //Html.Hidden("Has_Media", false, new { @id = "Media_Hidden_" + x });
+                                    <div id="Media_Div_@x" style="display:none;">
+                                        <div class="form-group Media_Div">
+                                            @Html.Label("Media Type", new { @class = "control-label col-md-2 Media_Div" })
+                                            <div class="col-md-10">
+                                                <select class="form-control" name="Media_Type_ID">
+                                                    @foreach (var mediaType in Model.availableMediaTypes)
+                                                    {
+                                                        <option value="@mediaType.Media_Type_ID">@mediaType.Media_Types</option>
+                                                    }
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group Media_Div">
+                                            @Html.Label("Media Width", new { @class = "control-label col-md-2" })
+                                            <select class="form-control" name="Width_Mode_ID">
+                                                @foreach (var mode in Model.availableWidthModes)
+                                                {
+                                                   <option value="@mode.Width_Mode_ID">@mode.Width_Mode</option>    
+                                                }
+                                            </select>
+                                        </div>
+                                        <div class="form-group Media_Div">
+                                            @Html.Label("New Media", new { @class = "control-label col-md-2 Media_Div" })
+                                            <div class="col-md-10">
+                                                <input type="file" name="Media_Path" class="form-control" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                                if (sect.Text_Block != null)
+                                {
+                                    <input type="hidden" name="Has_Text" id="Text_Hidden_@x" value="true"/>
+                                    //Html.Hidden("Has_Text", true, new { @id = "Text_Hidden_" + x });
+                                    <div class="form-group Text_Div" id="Text_Div_@x">
+                                        @Html.Label("Text", new { @class = "control-label col-md-2 Text_Div" })
+                                        <div class="col-md-10">
+                                            @Html.TextArea("Text_Block", sect.Text_Block, new { @class = "form-control Text_Div col-md-6", @rows = "5" })
+                                        </div>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <input type="hidden" name="Has_Text" id="Text_Hidden_@x" value="false"/>
+                                    //Html.Hidden("Has_Text", false, new { @id = "Text_Hidden_" + x });
+                                    <div class="form-group Text_Div" style="display:none;" id="Text_Div_@x">
+                                        @Html.Label("Text", new { @class = "control-label col-md-2 Text_Div" })
+                                        <div class="col-md-10">
+                                            @Html.TextArea("Text_Block", new { @class = "form-control Text_Div col-md-6", @rows = "5" })
+                                        </div>
+                                    </div>
+                                }
+
+                                if (sect.Hyperlink != null)
+                                {
+                                    <input type="hidden" name="Has_Hyperlink" id="Hyperlink_Hidden_@x" value="true"/>
+                                    //Html.Hidden("Has_Hyperlink", true, new { @id = "Hyperlink_Hidden_" + x });
+                                    <div class="form-group Hyp_Div" id="Hyperlink_Div_@x">
+                                        @Html.Label("Hyperlink", new { @class = "control-label col-md-2 Hyp_Div" })
+                                        <div class="col-md-10">
+                                            @Html.TextBox("Hyperlink", sect.Hyperlink, new { @class = "form-control Hyp_Div col-md-6" })
+                                        </div>
+                                         @Html.Label("Dispay Text", new { @class = "control-label col-md-2 Hyp_Div" })
+                                        <div class="col-md-10">
+                                            @Html.TextBox("HyperlinkText", sect.Hyperlink_Text, new { @class = "form-control Hyp_Div col-md-6" })
+                                        </div>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <input type="hidden" name="Has_Hyperlink" id="Hyperlink_Hidden_@x" value="false"/>
+                                    //Html.Hidden("Has_Hyperlink", false, new { @id = "Hyperlink_Hidden_" + x });
+                                    <div class="form-group Hyp_Div" style="display:none;" id="Hyperlink_Div_@x">
+                                        @Html.Label("Hyperlink", new { @class = "control-label col-md-2 Hyp_Div" })
+                                        <div class="col-md-10">
+                                            @Html.TextBox("Hyperlink", "", new { @class = "form-control Hyp_Div col-md-6" })
+                                        </div>
+                                        @Html.Label("Dispay Text", new { @class = "control-label col-md-2 Hyp_Div" })
+                                        <div class="col-md-10">
+                                            @Html.TextBox("HyperlinkText", "", new { @class = "form-control Hyp_Div col-md-6" })
+                                        </div>
+                                    </div>
+                                }
+                                <button type="submit" role="button" class="btn btn-default col-md-offset-2">Save Section</button>
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+    
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+<script>
+    
+    $(".Section_Toggle").click(function () {
+        var id = $(this).attr('id');
+        var parts = id.split('_');
+        if (parts.length == 3) {
+            if ($(this).val() == "rem") {
+                $("#"+parts[0]+"_Div_"+parts[2]).hide();
+                $(this).val("add");
+                $(this).removeClass("btn-danger");
+                $(this).addClass("btn-success");
+                $(this).text("+ " + parts[0]);
+                $("#" + parts[0] + "_Hidden_" + parts[2]).val(false);
+            }
+            else {
+                $("#" + parts[0] + "_Div_" + parts[2]).show();
+                $(this).val("rem");
+                $(this).removeClass("btn-success");
+                $(this).addClass("btn-danger");
+                $(this).text("X " + parts[0]);
+                $("#" + parts[0] + "_Hidden_" + parts[2]).val(true);
+            }
+        }
+    });
+</script>

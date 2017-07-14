@@ -1,0 +1,112 @@
+﻿@model connex.Models.Post
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Post</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Header)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Header)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Thumb_Path)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Thumb_Path)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date_Added)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date_Added)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Added_By)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Added_By)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date_Archive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date_Archive)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Archive_By)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Archive_By)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Last_Updated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Last_Updated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Updated_By)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Updated_By)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Archived)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Archived)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Summary)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Summary)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Collection.Collection_Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Collection.Collection_Title)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            
+        </div>
+    }
+</div>
